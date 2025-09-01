@@ -52,6 +52,13 @@ public class AgregarEmpleadoForm extends javax.swing.JFrame {
         btnRegresar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addHierarchyBoundsListener(new java.awt.event.HierarchyBoundsListener() {
+            public void ancestorMoved(java.awt.event.HierarchyEvent evt) {
+            }
+            public void ancestorResized(java.awt.event.HierarchyEvent evt) {
+                formAncestorResized(evt);
+            }
+        });
 
         jLabel1.setText("AGREGAR EMPLEADO");
 
@@ -236,7 +243,7 @@ Empleado empleado = new Empleado(dpi, nombre, usuario, area, turno, estado, corr
 EmpleadoDAO dao = new EmpleadoDAO();
 dao.guardarEmpleado(empleado);
 
-JOptionPane.showMessageDialog(this, "Empleado registrado exitosamente.");
+JOptionPane.showMessageDialog(this, "Se creo Correctamente :D.");
 
 
     }//GEN-LAST:event_btnRegistrarActionPerformed
@@ -245,6 +252,10 @@ JOptionPane.showMessageDialog(this, "Empleado registrado exitosamente.");
         new MantenimientoForm().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnRegresarActionPerformed
+
+    private void formAncestorResized(java.awt.event.HierarchyEvent evt) {//GEN-FIRST:event_formAncestorResized
+        // TODO add your handling code here:
+    }//GEN-LAST:event_formAncestorResized
 
     /**
      * @param args the command line arguments

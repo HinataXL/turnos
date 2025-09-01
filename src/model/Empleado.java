@@ -19,19 +19,19 @@ public class Empleado {
     private String estado;
     private String correo;
     private String contraseña;
-    private String rol;
+    //private String rol;
 
     public Empleado() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
 
     
 
     // Constructor
     
-    public String getRol(){
-    return rol;
-    }
+    //public String getRol(){
+    //return rol;
+    //}
     
     public Empleado(String dpi, String nombreCompleto, String usuario, String area,
                     String turno, String estado, String correo, String contraseña) {
@@ -43,7 +43,7 @@ public class Empleado {
         this.estado = estado;
         this.correo = correo;
         this.contraseña = contraseña;
-        this.rol = rol;
+        //this.rol = rol;
     }
 
     // Getters y Setters
@@ -111,9 +111,9 @@ public class Empleado {
         this.contraseña = contraseña;
     }
     
-    public void setRol(String rol) {
-    this.rol = rol;
-    }
+    //public void setRol(String rol) {
+   // this.rol = rol;
+    //}
 
     @Override
     public String toString() {

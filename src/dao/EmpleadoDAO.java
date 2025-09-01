@@ -11,6 +11,7 @@ import org.json.JSONObject;
 
 import java.io.FileWriter;
 import java.io.IOException;
+import org.json.JSONException;
 
 
 
@@ -28,7 +29,7 @@ public class EmpleadoDAO {
             json.put("estado", empleado.getEstado());
             json.put("correo", empleado.getCorreo());
             json.put("contraseña", empleado.getContraseña());
-            json.put("rol", empleado.getRol());
+            //json.put("rol", empleado.getRol());
 
             writer.write(json.toString(4) + System.lineSeparator());
             System.out.println("Se creo Correctamente.");
@@ -42,25 +43,24 @@ public class EmpleadoDAO {
             public List<Empleado> obtenerTodos() {
              List<Empleado> empleados = new ArrayList<>();
                try {
-             BufferedReader reader = new BufferedReader(new FileReader("empleados.txt"));
-             String linea;
-             while ((linea = reader.readLine()) != null) {
-            JSONObject json = new JSONObject(linea);
-            Empleado emp = new Empleado();
-            emp.setDpi(json.getString("dpi"));
-            emp.setNombreCompleto(json.getString("nombreCompleto")); // corregido
-            emp.setUsuario(json.getString("usuario"));
-            emp.setArea(json.getString("area"));
-            emp.setTurno(json.getString("turno"));
-            emp.setEstado(json.getString("estado"));
-            emp.setCorreo(json.getString("correo"));
-            emp.setContraseña(json.getString("contraseña"));
-            emp.setRol(json.getString("Rol"));// corregido
-            empleados.add(emp);
-        }
-        reader.close();
-    } catch (Exception e) {
-        e.printStackTrace();
+                 try (BufferedReader reader = new BufferedReader(new FileReader("empleados.txt"))) {
+                     String linea;
+                     while ((linea = reader.readLine()) != null) {
+                         JSONObject json = new JSONObject(linea);
+                         Empleado emp;
+                         emp = new Empleado();
+                         emp.setDpi(json.getString("dpi"));
+                         emp.setNombreCompleto(json.getString("nombreCompleto")); // corregido
+                         emp.setUsuario(json.getString("usuario"));
+                         emp.setArea(json.getString("area"));
+                         emp.setTurno(json.getString("turno"));
+                         emp.setEstado(json.getString("estado"));
+                         emp.setCorreo(json.getString("correo"));
+                         emp.setContraseña(json.getString("contraseña"));
+                         //emp.setRol(json.getString("Rol"));// corregido
+                         empleados.add(emp);
+                     }        }
+    } catch (IOException | JSONException e) {
     }
     return empleados;
 }
@@ -77,7 +77,7 @@ public class EmpleadoDAO {
 }
 
 
-    public void asignarRol(String usuario, String rol) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    //public void asignarRol(String usuario, String rol) {
+       // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    //}
 }

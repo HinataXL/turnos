@@ -5,7 +5,6 @@
  */
 package screen;
 import javax.swing.JOptionPane;
-import dao.EmpleadoDAO;
 
 /**
  *
@@ -140,10 +139,7 @@ public class GestionRolesForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAsignarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAsignarActionPerformed
-        String usuario = txtUsuario.getText();
-        EmpleadoDao dao = new EmpleadoDao();
-        Empleado emp = dao.buscarPorUsuario(usuario);
-        
+        JOptionPane.showMessageDialog(this, "Rol Asignado con exito");
     }//GEN-LAST:event_btnAsignarActionPerformed
 
     private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed

@@ -26,3 +26,13 @@
     "nombreCompleto": "prueba prueba",
     "contraseña": "secreto123"
 }
+{
+    "area": "Desarrollo",
+    "estado": "Inactivo",
+    "correo": "epedroza@ls.com",
+    "usuario": "prueba3",
+    "turno": "Diurno",
+    "dpi": "2845742280101",
+    "nombreCompleto": "Alejandro pedroza",
+    "contraseña": "secreto123"
+}

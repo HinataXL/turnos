@@ -72,27 +72,28 @@ public class ConsultarUsuarioForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-        String usuario = txtBuscarUsuario.getText().trim();
         
-        if (usuario.isEmpty()) {
+    String usuario = txtBuscarUsuario.getText().trim();
+
+    if (usuario.isEmpty()) {
         JOptionPane.showMessageDialog(this, "Por favor ingrese el nombre de usuario");
         return;
-        }
-        
-        EmpleadoDAO dao = new EmpleadoDAO();
-        Empleado empleado = dao.buscarPorUsuario(usuario);
-        
-        if (empleado != null) {
-        lblUsuario.setText("Usuario " + empleado.getUsuario());
-        lblArea.setText("Area " + empleado.getArea());
-        lblEstado.setText("Estado " + empleado.getEstado());
-        } else {
-            JOptionPane.showMessageDialog(this, "Empleado No encontrado");
-            lblUsuario.setText("Usuario ");
-            lblArea.setText("Area ");
-            lblEstado.setText("Estado ");
-           
-        }
+    }
+
+    EmpleadoDAO dao = new EmpleadoDAO(); // ← clase correcta
+    Empleado empleado = dao.buscarPorUsuario(usuario);
+
+    if (empleado != null) {
+        lblUsuario.setText("Usuario: " + empleado.getUsuario());
+        lblArea.setText("Área: " + empleado.getArea());
+        lblEstado.setText("Estado: " + empleado.getEstado());
+    } else {
+        JOptionPane.showMessageDialog(this, "Empleado no encontrado");
+        lblUsuario.setText("Usuario:");
+        lblArea.setText("Área:");
+        lblEstado.setText("Estado:");
+    }
+
                 
         
 
