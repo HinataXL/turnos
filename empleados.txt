@@ -1,0 +1,28 @@
+{"area":"IT","estado":"Activo","correo":"erickpedroza45@gmail.com","usuario":"epedroza","turno":"Matutino","dpi":"284574228011","nombreCompleto":"Erick Pedroza","contraseña":"pedroza97"}
+{"area":"conta","estado":"Activo","correo":"lperez@patos.com","usuario":"Lperez","turno":"Diurno","dpi":"2845742280101","nombreCompleto":"Luis Perez","contraseña":"123456"}
+{"area":"it","estado":"Activo","correo":"lasdalskjdhasljkdh","usuario":"pprueba","turno":"Matutino","dpi":"asdjkha9qwe80","nombreCompleto":"prueba prueba","contraseña":"asdasdasdasd"}
+{"area":"Prueba","estado":"Activo","correo":"karreaga@,.coim","usuario":"karreaga","turno":"Vespertino","dpi":"284574125892","nombreCompleto":"Katherine Arreaga","contraseña":"pedroza97"}
+{"area":"Conta","estado":"Activo","correo":"apedroza@gmail.com","usuario":"aapedrozza","turno":"Vespertino","dpi":"2845742280101","nombreCompleto":"Alejandro Pedroza","contraseña":"pedroza97"}
+{"area":"kjdsflksdjflk","estado":"Activo","correo":"lkdjflskdjflk","usuario":"kdsjflskdjf","turno":"Matutino","dpi":"2845742280101","nombreCompleto":"dsklfjdsl","contraseña":"ldskfjsdlkfjkl"}
+{"area":"soporte tecnico","estado":"Activo","correo":"jorejej@gmial.com","usuario":"user1234","turno":"Matutino","dpi":"123456789","nombreCompleto":"jorge martinez","contraseña":"12315468"}
+{"area":"IT","estado":"Activo","correo":"epedrozam1@miumg.edu.gt","usuario":"epedrozzza","turno":"Matutino","dpi":"2845742280101","nombreCompleto":"Erick Pedroza","contraseña":"admin123"}
+{
+    "area": "it",
+    "estado": "Activo",
+    "correo": "prueba@prueba.com",
+    "usuario": "prueba1",
+    "turno": "Matutino",
+    "dpi": "prueba",
+    "nombreCompleto": "prueba",
+    "contraseña": "secreto123"
+}
+{
+    "area": "Soporte",
+    "estado": "Activo",
+    "correo": "prueba@prueba.com",
+    "usuario": "prueba5",
+    "turno": "Matutino",
+    "dpi": "2845742280102",
+    "nombreCompleto": "prueba prueba",
+    "contraseña": "secreto123"
+}
