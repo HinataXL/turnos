@@ -12,7 +12,7 @@ package model;
 public class Empleado {
     
     private String dpi;
-    private String nombreCompleto;
+    private String nombre;
     private String usuario;
     private String area;
     private String turno;
@@ -36,7 +36,7 @@ public class Empleado {
     public Empleado(String dpi, String nombreCompleto, String usuario, String area,
                     String turno, String estado, String correo, String contraseña) {
         this.dpi = dpi;
-        this.nombreCompleto = nombreCompleto;
+        this.nombre = nombreCompleto;
         this.usuario = usuario;
         this.area = area;
         this.turno = turno;
@@ -55,12 +55,12 @@ public class Empleado {
         this.dpi = dpi;
     }
 
-    public String getNombreCompleto() {
-        return nombreCompleto;
+    public String getNombre() {
+        return nombre;
     }
 
-    public void setNombreCompleto(String nombreCompleto) {
-        this.nombreCompleto = nombreCompleto;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     public String getUsuario() {
@@ -119,7 +119,7 @@ public class Empleado {
     public String toString() {
         return "Empleado{" +
                 "dpi='" + dpi + '\'' +
-                ", nombreCompleto='" + nombreCompleto + '\'' +
+                ", nombreCompleto='" + nombre + '\'' +
                 ", usuario='" + usuario + '\'' +
                 ", area='" + area + '\'' +
                 ", turno='" + turno + '\'' +

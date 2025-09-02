@@ -36,3 +36,14 @@
     "nombreCompleto": "Alejandro pedroza",
     "contraseña": "secreto123"
 }
+{
+    "area": "soporte",
+    "estado": "Activo",
+    "correo": "gggg@ffff,com",
+    "usuario": "eeppedroza",
+    "turno": "Vespertino",
+    "dpi": "2845742280101",
+    "nombreCompleto": "Erick Pedroza",
+    "contraseña": "secreto123"
+}
+{"area":"soporte","estado":"Activo","correo":"jperez@puta.com","usuario":"jperez","turno":"Matutino","dpi":"284574290109","nombre":"Josue Perez","contraseña":"secreto123"}

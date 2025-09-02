@@ -39,13 +39,15 @@ public class ConsultarUsuarioForm extends javax.swing.JFrame {
         lblArea = new javax.swing.JLabel();
         lblEstado = new javax.swing.JLabel();
         btnRegresar = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtBusqueda = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setText("CONSULTAR USUARIO");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(209, 6, -1, -1));
-        getContentPane().add(txtBuscarUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 55, 299, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, -1, -1));
+        getContentPane().add(txtBuscarUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 30, 250, -1));
 
         btnBuscar.setText("Buscar");
         btnBuscar.addActionListener(new java.awt.event.ActionListener() {
@@ -53,20 +55,26 @@ public class ConsultarUsuarioForm extends javax.swing.JFrame {
                 btnBuscarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(242, 101, -1, -1));
+        getContentPane().add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 20, 110, 40));
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 163, 82, -1));
 
         lblUsuario.setText("Usuario");
-        getContentPane().add(lblUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 150, 70, -1));
+        getContentPane().add(lblUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 80, 70, -1));
 
         lblArea.setText("Area");
-        getContentPane().add(lblArea, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 150, 30, -1));
+        getContentPane().add(lblArea, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 80, 30, -1));
 
         lblEstado.setText("Estado");
-        getContentPane().add(lblEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 150, 70, -1));
+        getContentPane().add(lblEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 80, 70, -1));
 
         btnRegresar.setText("Regresar");
         getContentPane().add(btnRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 400, 170, 60));
+
+        txtBusqueda.setColumns(20);
+        txtBusqueda.setRows(5);
+        jScrollPane1.setViewportView(txtBusqueda);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 110, 590, 240));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -139,10 +147,12 @@ public class ConsultarUsuarioForm extends javax.swing.JFrame {
     private javax.swing.JButton btnRegresar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblArea;
     private javax.swing.JLabel lblEstado;
     private javax.swing.JLabel lblUsuario;
     private javax.swing.JTextField txtBuscarUsuario;
+    private javax.swing.JTextArea txtBusqueda;
     // End of variables declaration//GEN-END:variables
 
     

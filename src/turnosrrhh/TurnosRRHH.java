@@ -5,6 +5,9 @@
  */
 package turnosrrhh;
 import screen.LoginForm;
+import screen.ConsultarUsuarioForm;
+import screen.AgregarEmpleadoForm;
+
 
 
 /**
@@ -18,8 +21,8 @@ public class TurnosRRHH {
      */
     public static void main(String[] args) {
         javax.swing.SwingUtilities.invokeLater(() -> {
-            LoginForm login = new LoginForm();
-            login.setVisible(true);
+            ConsultarUsuarioForm ConsultarUsuarioForm = new ConsultarUsuarioForm();
+            ConsultarUsuarioForm.setVisible(true);
         });
     }
     
