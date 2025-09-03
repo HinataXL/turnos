@@ -7,6 +7,8 @@ package screen;
 
 import javax.swing.JOptionPane;
 import dao.EmpleadoDAO;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
 import model.Empleado;
 
 /**
@@ -14,6 +16,8 @@ import model.Empleado;
  * @author erick
  */
 public class ConsultarUsuarioForm extends javax.swing.JFrame {
+    
+    
 
     /**
      * Creates new form ConsultarUsuarioForm
@@ -21,6 +25,24 @@ public class ConsultarUsuarioForm extends javax.swing.JFrame {
     public ConsultarUsuarioForm() {
         initComponents();
     }
+    
+    
+private void cargarEmpleadosEnTabla() {
+        EmpleadoDAO dao = new EmpleadoDAO();
+        List<Empleado> empleados = dao.obtenerTodos();
+        DefaultTableModel model = (DefaultTableModel) tblEmpleados.getModel();
+        model.setRowCount(0);
+
+        for (Empleado emp : empleados) {
+            model.addRow(new Object[] {
+                emp.getUsuario(),
+                emp.getArea(),
+                emp.getEstado()
+            });
+        }
+    }
+
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -32,80 +54,109 @@ public class ConsultarUsuarioForm extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        txtBuscarUsuario = new javax.swing.JTextField();
-        btnBuscar = new javax.swing.JButton();
+        txtFiltroUsuario = new javax.swing.JTextField();
+        btnFiltrar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         lblUsuario = new javax.swing.JLabel();
         lblArea = new javax.swing.JLabel();
         lblEstado = new javax.swing.JLabel();
         btnRegresar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        txtBusqueda = new javax.swing.JTextArea();
+        tblEmpleados = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setText("CONSULTAR USUARIO");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, -1, -1));
-        getContentPane().add(txtBuscarUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 30, 250, -1));
+        jLabel1.setText("Filtrar por Usuario");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, -1, -1));
 
-        btnBuscar.setText("Buscar");
-        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
+        txtFiltroUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBuscarActionPerformed(evt);
+                txtFiltroUsuarioActionPerformed(evt);
             }
         });
-        getContentPane().add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 20, 110, 40));
+        getContentPane().add(txtFiltroUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 8, 250, 40));
+
+        btnFiltrar.setText("Filtrar");
+        btnFiltrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFiltrarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnFiltrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 10, 110, 40));
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 163, 82, -1));
 
+        lblUsuario.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         lblUsuario.setText("Usuario");
-        getContentPane().add(lblUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 80, 70, -1));
+        getContentPane().add(lblUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 80, 230, -1));
 
+        lblArea.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         lblArea.setText("Area");
-        getContentPane().add(lblArea, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 80, 30, -1));
+        getContentPane().add(lblArea, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 110, 200, -1));
 
+        lblEstado.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         lblEstado.setText("Estado");
-        getContentPane().add(lblEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 80, 70, -1));
+        getContentPane().add(lblEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 140, 280, -1));
 
         btnRegresar.setText("Regresar");
+        btnRegresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegresarActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 400, 170, 60));
 
-        txtBusqueda.setColumns(20);
-        txtBusqueda.setRows(5);
-        jScrollPane1.setViewportView(txtBusqueda);
+        tblEmpleados.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "Usuario", "Area", "Estado"
+            }
+        ));
+        jScrollPane1.setViewportView(tblEmpleados);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 110, 590, 240));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 70, -1, 300));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+    private void btnFiltrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFiltrarActionPerformed
         
-    String usuario = txtBuscarUsuario.getText().trim();
+    
+String filtro = txtFiltroUsuario.getText().trim().toLowerCase();
+    EmpleadoDAO dao = new EmpleadoDAO();
+    List<Empleado> empleados = dao.obtenerTodos();
+    DefaultTableModel model = (DefaultTableModel) tblEmpleados.getModel();
+    model.setRowCount(0); // Limpiar tabla
 
-    if (usuario.isEmpty()) {
-        JOptionPane.showMessageDialog(this, "Por favor ingrese el nombre de usuario");
-        return;
+    for (Empleado emp : empleados) {
+        if (emp.getUsuario().toLowerCase().contains(filtro)) {
+            model.addRow(new Object[] {
+                emp.getUsuario(),
+                emp.getArea(),
+                emp.getEstado()
+            });
+        }
     }
 
-    EmpleadoDAO dao = new EmpleadoDAO(); // ← clase correcta
-    Empleado empleado = dao.buscarPorUsuario(usuario);
-
-    if (empleado != null) {
-        lblUsuario.setText("Usuario: " + empleado.getUsuario());
-        lblArea.setText("Área: " + empleado.getArea());
-        lblEstado.setText("Estado: " + empleado.getEstado());
-    } else {
-        JOptionPane.showMessageDialog(this, "Empleado no encontrado");
-        lblUsuario.setText("Usuario:");
-        lblArea.setText("Área:");
-        lblEstado.setText("Estado:");
-    }
 
                 
         
 
-    }//GEN-LAST:event_btnBuscarActionPerformed
+    }//GEN-LAST:event_btnFiltrarActionPerformed
+
+    private void txtFiltroUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFiltroUsuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtFiltroUsuarioActionPerformed
+
+    private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
+        new MantenimientoForm().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnRegresarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -143,7 +194,7 @@ public class ConsultarUsuarioForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnBuscar;
+    private javax.swing.JButton btnFiltrar;
     private javax.swing.JButton btnRegresar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -151,8 +202,8 @@ public class ConsultarUsuarioForm extends javax.swing.JFrame {
     private javax.swing.JLabel lblArea;
     private javax.swing.JLabel lblEstado;
     private javax.swing.JLabel lblUsuario;
-    private javax.swing.JTextField txtBuscarUsuario;
-    private javax.swing.JTextArea txtBusqueda;
+    private javax.swing.JTable tblEmpleados;
+    private javax.swing.JTextField txtFiltroUsuario;
     // End of variables declaration//GEN-END:variables
 
     

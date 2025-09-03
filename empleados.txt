@@ -1,49 +1,8 @@
-{"area":"IT","estado":"Activo","correo":"erickpedroza45@gmail.com","usuario":"epedroza","turno":"Matutino","dpi":"284574228011","nombreCompleto":"Erick Pedroza","contraseña":"pedroza97"}
-{"area":"conta","estado":"Activo","correo":"lperez@patos.com","usuario":"Lperez","turno":"Diurno","dpi":"2845742280101","nombreCompleto":"Luis Perez","contraseña":"123456"}
-{"area":"it","estado":"Activo","correo":"lasdalskjdhasljkdh","usuario":"pprueba","turno":"Matutino","dpi":"asdjkha9qwe80","nombreCompleto":"prueba prueba","contraseña":"asdasdasdasd"}
-{"area":"Prueba","estado":"Activo","correo":"karreaga@,.coim","usuario":"karreaga","turno":"Vespertino","dpi":"284574125892","nombreCompleto":"Katherine Arreaga","contraseña":"pedroza97"}
-{"area":"Conta","estado":"Activo","correo":"apedroza@gmail.com","usuario":"aapedrozza","turno":"Vespertino","dpi":"2845742280101","nombreCompleto":"Alejandro Pedroza","contraseña":"pedroza97"}
-{"area":"kjdsflksdjflk","estado":"Activo","correo":"lkdjflskdjflk","usuario":"kdsjflskdjf","turno":"Matutino","dpi":"2845742280101","nombreCompleto":"dsklfjdsl","contraseña":"ldskfjsdlkfjkl"}
-{"area":"soporte tecnico","estado":"Activo","correo":"jorejej@gmial.com","usuario":"user1234","turno":"Matutino","dpi":"123456789","nombreCompleto":"jorge martinez","contraseña":"12315468"}
-{"area":"IT","estado":"Activo","correo":"epedrozam1@miumg.edu.gt","usuario":"epedrozzza","turno":"Matutino","dpi":"2845742280101","nombreCompleto":"Erick Pedroza","contraseña":"admin123"}
-{
-    "area": "it",
-    "estado": "Activo",
-    "correo": "prueba@prueba.com",
-    "usuario": "prueba1",
-    "turno": "Matutino",
-    "dpi": "prueba",
-    "nombreCompleto": "prueba",
-    "contraseña": "secreto123"
-}
-{
-    "area": "Soporte",
-    "estado": "Activo",
-    "correo": "prueba@prueba.com",
-    "usuario": "prueba5",
-    "turno": "Matutino",
-    "dpi": "2845742280102",
-    "nombreCompleto": "prueba prueba",
-    "contraseña": "secreto123"
-}
-{
-    "area": "Desarrollo",
-    "estado": "Inactivo",
-    "correo": "epedroza@ls.com",
-    "usuario": "prueba3",
-    "turno": "Diurno",
-    "dpi": "2845742280101",
-    "nombreCompleto": "Alejandro pedroza",
-    "contraseña": "secreto123"
-}
-{
-    "area": "soporte",
-    "estado": "Activo",
-    "correo": "gggg@ffff,com",
-    "usuario": "eeppedroza",
-    "turno": "Vespertino",
-    "dpi": "2845742280101",
-    "nombreCompleto": "Erick Pedroza",
-    "contraseña": "secreto123"
-}
-{"area":"soporte","estado":"Activo","correo":"jperez@puta.com","usuario":"jperez","turno":"Matutino","dpi":"284574290109","nombre":"Josue Perez","contraseña":"secreto123"}
+{"area": "IT", "estado": "Activo", "correo": "erickpedroza45@gmail.com", "usuario": "epedroza", "turno": "Matutino", "dpi": "284574228011", "contrase\u00f1a": "pedroza97", "nombre": "Erick Pedroza"}
+{"area": "conta", "estado": "Activo", "correo": "lperez@patos.com", "usuario": "Lperez", "turno": "Diurno", "dpi": "2845742280101", "contrase\u00f1a": "123456", "nombre": "Luis Perez"}
+{"area": "it", "estado": "Activo", "correo": "lasdalskjdhasljkdh", "usuario": "pprueba", "turno": "Matutino", "dpi": "asdjkha9qwe80", "contrase\u00f1a": "asdasdasdasd", "nombre": "prueba prueba"}
+{"area": "Prueba", "estado": "Activo", "correo": "karreaga@,.coim", "usuario": "karreaga", "turno": "Vespertino", "dpi": "284574125892", "contrase\u00f1a": "pedroza97", "nombre": "Katherine Arreaga"}
+{"area": "Conta", "estado": "Activo", "correo": "apedroza@gmail.com", "usuario": "aapedrozza", "turno": "Vespertino", "dpi": "2845742280101", "contrase\u00f1a": "pedroza97", "nombre": "Alejandro Pedroza"}
+{"area": "kjdsflksdjflk", "estado": "Activo", "correo": "lkdjflskdjflk", "usuario": "kdsjflskdjf", "turno": "Matutino", "dpi": "2845742280101", "contrase\u00f1a": "ldskfjsdlkfjkl", "nombre": "dsklfjdsl"}
+{"area": "soporte tecnico", "estado": "Activo", "correo": "jorejej@gmial.com", "usuario": "user1234", "turno": "Matutino", "dpi": "123456789", "contrase\u00f1a": "12315468", "nombre": "jorge martinez"}
+{"area": "IT", "estado": "Activo", "correo": "epedrozam1@miumg.edu.gt", "usuario": "epedrozzza", "turno": "Matutino", "dpi": "2845742280101", "contrase\u00f1a": "admin123", "nombre": "Erick Pedroza"}
