@@ -6,3 +6,4 @@
 {"area": "kjdsflksdjflk", "estado": "Activo", "correo": "lkdjflskdjflk", "usuario": "kdsjflskdjf", "turno": "Matutino", "dpi": "2845742280101", "contrase\u00f1a": "ldskfjsdlkfjkl", "nombre": "dsklfjdsl"}
 {"area": "soporte tecnico", "estado": "Activo", "correo": "jorejej@gmial.com", "usuario": "user1234", "turno": "Matutino", "dpi": "123456789", "contrase\u00f1a": "12315468", "nombre": "jorge martinez"}
 {"area": "IT", "estado": "Activo", "correo": "epedrozam1@miumg.edu.gt", "usuario": "epedrozzza", "turno": "Matutino", "dpi": "2845742280101", "contrase\u00f1a": "admin123", "nombre": "Erick Pedroza"}
+{"area":"contabilidad","estado":"Inactivo","correo":"amiguel@rrhh.com","usuario":"amiguel","turno":"Matutino","dpi":"2845742280101","nombre":"Alejandro Pedroza","contraseña":"secreto123"}
