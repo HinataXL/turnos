@@ -63,6 +63,11 @@ public class MantenimientoForm extends javax.swing.JFrame {
         });
 
         btnRegresar.setText("REGRESAR");
+        btnRegresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegresarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -123,6 +128,11 @@ public class MantenimientoForm extends javax.swing.JFrame {
         new LoginForm().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnSalirActionPerformed
+
+    private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
+         new MenuPrincipal().setVisible(true);
+         this.dispose();// TODO add your handling code here:
+    }//GEN-LAST:event_btnRegresarActionPerformed
 
     /**
      * @param args the command line arguments
