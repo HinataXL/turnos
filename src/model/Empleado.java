@@ -29,7 +29,7 @@ public class Empleado {
 
     // Constructor
     
-    public String getRol(){
+   public String getRol(){
     return rol;
     }
     

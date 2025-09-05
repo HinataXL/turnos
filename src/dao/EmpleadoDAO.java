@@ -1,3 +1,4 @@
+
 package dao;
 
 import java.io.BufferedReader;
@@ -52,7 +53,6 @@ public class EmpleadoDAO {
                 empleados.add(emp);
             }
         } catch (IOException | JSONException e) {
-            e.printStackTrace();
         }
         return empleados;
     }
@@ -110,9 +110,8 @@ public class EmpleadoDAO {
 
 
 
-
-
     //public void asignarRol(String usuario, String rol) {
        // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     //}
 
+    

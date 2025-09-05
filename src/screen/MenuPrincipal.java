@@ -5,6 +5,8 @@
  */
 package screen;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author erick
@@ -101,8 +103,14 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnMantUActionPerformed
 
     private void btnGestionRolesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGestionRolesActionPerformed
-           new GestionRolesForm().setVisible(true);
-           this.dispose();
+           
+try {
+    new GestionRolesForm().setVisible(true);
+} catch (Exception e) {
+    e.printStackTrace();
+    JOptionPane.showMessageDialog(this, "Error al abrir Gestión de Roles: " + e.getMessage());
+}
+
     }//GEN-LAST:event_btnGestionRolesActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
