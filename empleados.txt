@@ -1,6 +1,6 @@
 {"area":"IT","estado":"Activo","correo":"erickpedroza45@gmail.com","usuario":"epedroza","turno":"Matutino","dpi":"284574228011","nombre":"Erick Pedroza","rol":"Administrador","contraseña":"pedroza97"}
 {"area":"conta","estado":"Activo","correo":"lperez@patos.com","usuario":"Lperez","turno":"Diurno","dpi":"2845742280101","nombre":"Luis Perez","rol":"Empleado","contraseña":"123456"}
-{"area":"it","estado":"Activo","correo":"lasdalskjdhasljkdh","usuario":"pprueba","turno":"Matutino","dpi":"asdjkha9qwe80","nombre":"prueba prueba","rol":"Sin Rol","contraseña":"asdasdasdasd"}
+{"area":"it","estado":"Activo","correo":"lasdalskjdhasljkdh","usuario":"pprueba","turno":"Matutino","dpi":"asdjkha9qwe80","nombre":"prueba prueba","rol":"Empleado","contraseña":"asdasdasdasd"}
 {"area":"Prueba","estado":"Activo","correo":"karreaga@,.coim","usuario":"karreaga","turno":"Vespertino","dpi":"284574125892","nombre":"Katherine Arreaga","rol":"Sin Rol","contraseña":"pedroza97"}
 {"area":"Conta","estado":"Activo","correo":"apedroza@gmail.com","usuario":"aapedrozza","turno":"Vespertino","dpi":"2845742280101","nombre":"Alejandro Pedroza","rol":"Sin Rol","contraseña":"pedroza97"}
 {"area":"kjdsflksdjflk","estado":"Activo","correo":"lkdjflskdjflk","usuario":"kdsjflskdjf","turno":"Matutino","dpi":"2845742280101","nombre":"dsklfjdsl","rol":"Sin Rol","contraseña":"ldskfjsdlkfjkl"}
