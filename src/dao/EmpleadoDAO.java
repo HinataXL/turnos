@@ -1,4 +1,3 @@
-
 package dao;
 
 import java.io.BufferedReader;
@@ -25,6 +24,7 @@ public class EmpleadoDAO {
             json.put("estado", empleado.getEstado());
             json.put("correo", empleado.getCorreo());
             json.put("contraseña", empleado.getContraseña());
+            json.put("rol", empleado.getRol());
 
             writer.write(json.toString() + System.lineSeparator());
             System.out.println("Se creó correctamente.");
@@ -48,6 +48,7 @@ public class EmpleadoDAO {
                 emp.setEstado(json.getString("estado"));
                 emp.setCorreo(json.getString("correo"));
                 emp.setContraseña(json.getString("contraseña"));
+                emp.setRol(json.getString("rol"));
                 empleados.add(emp);
             }
         } catch (IOException | JSONException e) {
@@ -56,25 +57,58 @@ public class EmpleadoDAO {
         return empleados;
     }
 
-   
-public Empleado buscarPorUsuario(String usuario) {
-    System.out.println("Buscando usuario: " + usuario);
-    List<Empleado> empleados = obtenerTodos();
-    System.out.println("Total empleados leídos: " + empleados.size());
+    public Empleado buscarPorUsuario(String usuario) {
+        System.out.println("Buscando usuario: " + usuario);
+        List<Empleado> empleados = obtenerTodos();
+        System.out.println("Total empleados leídos: " + empleados.size());
 
-    for (Empleado emp : empleados) {
-        System.out.println("Comparando con: " + emp.getUsuario());
-        if (emp.getUsuario().equalsIgnoreCase(usuario)) {
-            System.out.println("¡Empleado encontrado!");
-            return emp;
+        for (Empleado emp : empleados) {
+            System.out.println("Comparando con: " + emp.getUsuario());
+            if (emp.getUsuario().equalsIgnoreCase(usuario)) {
+                System.out.println("¡Empleado encontrado!");
+                return emp;
+            }
         }
+
+        System.out.println("Empleado no encontrado.");
+        return null;
     }
 
-    System.out.println("Empleado no encontrado.");
-    return null;
+    public void actualizarRol(String usuario, String nuevoRol) {
+        List<Empleado> empleados = obtenerTodos();
+        for (Empleado emp : empleados) {
+            if (emp.getUsuario().equalsIgnoreCase(usuario)) {
+                emp.setRol(nuevoRol);
+                break;
+            }
+        }
+        guardarTodos(empleados);
+    }
+
+    public void guardarTodos(List<Empleado> empleados) {
+        try (FileWriter writer = new FileWriter(FILE_PATH, false)) { // Sobrescribe el archivo
+            for (Empleado emp : empleados) {
+                JSONObject json = new JSONObject();
+                json.put("dpi", emp.getDpi());
+                json.put("nombre", emp.getNombre());
+                json.put("usuario", emp.getUsuario());
+                json.put("area", emp.getArea());
+                json.put("turno", emp.getTurno());
+                json.put("estado", emp.getEstado());
+                json.put("correo", emp.getCorreo());
+                json.put("contraseña", emp.getContraseña());
+                json.put("rol", emp.getRol());
+
+                writer.write(json.toString() + System.lineSeparator());
+            }
+        } catch (IOException e) {
+            System.err.println("Error al guardar todos los empleados: " + e.getMessage());
+        }
+    }
 }
 
-}
+
+
 
 
 

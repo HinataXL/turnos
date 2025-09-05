@@ -19,7 +19,7 @@ public class Empleado {
     private String estado;
     private String correo;
     private String contraseña;
-    //private String rol;
+    private String rol;
 
     public Empleado() {
         
@@ -29,12 +29,12 @@ public class Empleado {
 
     // Constructor
     
-    //public String getRol(){
-    //return rol;
-    //}
+    public String getRol(){
+    return rol;
+    }
     
     public Empleado(String dpi, String nombreCompleto, String usuario, String area,
-                    String turno, String estado, String correo, String contraseña) {
+                    String turno, String estado, String correo, String contraseña, String rol) {
         this.dpi = dpi;
         this.nombre = nombreCompleto;
         this.usuario = usuario;
@@ -43,7 +43,7 @@ public class Empleado {
         this.estado = estado;
         this.correo = correo;
         this.contraseña = contraseña;
-        //this.rol = rol;
+        this.rol = rol;
     }
 
     // Getters y Setters
@@ -111,9 +111,9 @@ public class Empleado {
         this.contraseña = contraseña;
     }
     
-    //public void setRol(String rol) {
-   // this.rol = rol;
-    //}
+    public void setRol(String rol) {
+    this.rol = rol;
+    }
 
     @Override
     public String toString() {

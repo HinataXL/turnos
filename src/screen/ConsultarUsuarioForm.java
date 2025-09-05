@@ -57,9 +57,6 @@ private void cargarEmpleadosEnTabla() {
         txtFiltroUsuario = new javax.swing.JTextField();
         btnFiltrar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        lblUsuario = new javax.swing.JLabel();
-        lblArea = new javax.swing.JLabel();
-        lblEstado = new javax.swing.JLabel();
         btnRegresar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblEmpleados = new javax.swing.JTable();
@@ -86,18 +83,6 @@ private void cargarEmpleadosEnTabla() {
         getContentPane().add(btnFiltrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 10, 110, 40));
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 163, 82, -1));
 
-        lblUsuario.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
-        lblUsuario.setText("Usuario");
-        getContentPane().add(lblUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 80, 230, -1));
-
-        lblArea.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
-        lblArea.setText("Area");
-        getContentPane().add(lblArea, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 110, 200, -1));
-
-        lblEstado.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
-        lblEstado.setText("Estado");
-        getContentPane().add(lblEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 140, 280, -1));
-
         btnRegresar.setText("Regresar");
         btnRegresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -119,7 +104,7 @@ private void cargarEmpleadosEnTabla() {
         ));
         jScrollPane1.setViewportView(tblEmpleados);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 70, -1, 300));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 70, -1, 300));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -199,9 +184,6 @@ String filtro = txtFiltroUsuario.getText().trim().toLowerCase();
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lblArea;
-    private javax.swing.JLabel lblEstado;
-    private javax.swing.JLabel lblUsuario;
     private javax.swing.JTable tblEmpleados;
     private javax.swing.JTextField txtFiltroUsuario;
     // End of variables declaration//GEN-END:variables

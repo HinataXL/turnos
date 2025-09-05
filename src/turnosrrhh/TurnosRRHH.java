@@ -8,7 +8,8 @@ import screen.LoginForm;
 import screen.ConsultarUsuarioForm;
 import screen.AgregarEmpleadoForm;
 
-
+// puta mierda...
+//55555
 
 /**
  *
@@ -21,8 +22,8 @@ public class TurnosRRHH {
      */
     public static void main(String[] args) {
         javax.swing.SwingUtilities.invokeLater(() -> {
-            LoginForm LoginForm = new LoginForm();
-            LoginForm.setVisible(true);
+            AgregarEmpleadoForm AgregarEmpleadoForm = new AgregarEmpleadoForm();
+            AgregarEmpleadoForm.setVisible(true);
         });
     }
     
