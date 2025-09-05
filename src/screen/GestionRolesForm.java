@@ -10,7 +10,7 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import model.Empleado;
 
-
+//Pendiente
 
 public class GestionRolesForm extends javax.swing.JFrame {
     
