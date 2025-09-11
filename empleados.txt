@@ -1,0 +1,1 @@
+{"area":"Soporte","estado":"Activo","correo":"erickpedroza@gmail.com","usuario":"epedroza","turno":"Matutino","dpi":"2845742280101","nombre":"Erick Pedroza","rol":"Empleado","contraseña":"screto123"}
