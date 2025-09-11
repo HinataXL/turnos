@@ -1,10 +1,1 @@
-{"area":"IT","estado":"Activo","correo":"erickpedroza45@gmail.com","usuario":"epedroza","turno":"Matutino","dpi":"284574228011","nombre":"Erick Pedroza","rol":"Administrador","contraseña":"pedroza97"}
-{"area":"conta","estado":"Activo","correo":"lperez@patos.com","usuario":"Lperez","turno":"Diurno","dpi":"2845742280101","nombre":"Luis Perez","rol":"Empleado","contraseña":"123456"}
-{"area":"it","estado":"Activo","correo":"lasdalskjdhasljkdh","usuario":"pprueba","turno":"Matutino","dpi":"asdjkha9qwe80","nombre":"prueba prueba","rol":"Empleado","contraseña":"asdasdasdasd"}
-{"area":"Prueba","estado":"Activo","correo":"karreaga@,.coim","usuario":"karreaga","turno":"Vespertino","dpi":"284574125892","nombre":"Katherine Arreaga","rol":"Sin Rol","contraseña":"pedroza97"}
-{"area":"Conta","estado":"Activo","correo":"apedroza@gmail.com","usuario":"aapedrozza","turno":"Vespertino","dpi":"2845742280101","nombre":"Alejandro Pedroza","rol":"Sin Rol","contraseña":"pedroza97"}
-{"area":"kjdsflksdjflk","estado":"Activo","correo":"lkdjflskdjflk","usuario":"kdsjflskdjf","turno":"Matutino","dpi":"2845742280101","nombre":"dsklfjdsl","rol":"Sin Rol","contraseña":"ldskfjsdlkfjkl"}
-{"area":"soporte tecnico","estado":"Activo","correo":"jorejej@gmial.com","usuario":"user1234","turno":"Matutino","dpi":"123456789","nombre":"jorge martinez","rol":"Sin Rol","contraseña":"12315468"}
-{"area":"IT","estado":"Activo","correo":"epedrozam1@miumg.edu.gt","usuario":"epedrozzza","turno":"Matutino","dpi":"2845742280101","nombre":"Erick Pedroza","rol":"Sin Rol","contraseña":"admin123"}
-{"area":"contabilidad","estado":"Inactivo","correo":"amiguel@rrhh.com","usuario":"amiguel","turno":"Matutino","dpi":"2845742280101","nombre":"Alejandro Pedroza","rol":"Sin Rol","contraseña":"secreto123"}
-{"area":"soprote","estado":"Activo","correo":"epedroza@gmail.com","usuario":"prueba6","turno":"Matutino","dpi":"2845742280101","nombre":"Alejandro Pedroza","rol":"Sin Rol","contraseña":"secreto123"}
+{"area":"Soporte","estado":"Activo","correo":"erickpedroza@gmail.com","usuario":"epedroza","turno":"Matutino","dpi":"2845742280101","nombre":"Erick Pedroza","rol":"Empleado","contraseña":"screto123"}

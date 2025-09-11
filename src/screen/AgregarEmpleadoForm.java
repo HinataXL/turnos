@@ -15,6 +15,8 @@ import javax.swing.JOptionPane;
  */
 public class AgregarEmpleadoForm extends javax.swing.JFrame {
 
+    
+
     /**
      * Creates new form AgregarEmpleadoForm
      */
@@ -92,6 +94,12 @@ public class AgregarEmpleadoForm extends javax.swing.JFrame {
 
         jLabel4.setFont(new java.awt.Font("Lucida Sans", 2, 18)); // NOI18N
         jLabel4.setText("USUARIO");
+
+        txtDPI.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtDPIKeyTyped(evt);
+            }
+        });
 
         jLabel5.setFont(new java.awt.Font("Lucida Sans", 2, 18)); // NOI18N
         jLabel5.setText("AREA");
@@ -265,7 +273,7 @@ public class AgregarEmpleadoForm extends javax.swing.JFrame {
     }//GEN-LAST:event_comboTurnoActionPerformed
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
-        String dpi = txtDPI.getText().trim();
+String dpi = txtDPI.getText().trim();
 String nombre = txtNombre.getText().trim();
 String usuario = txtUsuario.getText().trim();
 String area = txtArea.getText().trim();
@@ -300,6 +308,25 @@ JOptionPane.showMessageDialog(this, "Se creo Correctamente :D.");
     private void formAncestorResized(java.awt.event.HierarchyEvent evt) {//GEN-FIRST:event_formAncestorResized
         // TODO add your handling code here:
     }//GEN-LAST:event_formAncestorResized
+
+    private void txtDPIKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDPIKeyTyped
+        // Obtiene el carácter que el usuario tecleó.
+    char c = evt.getKeyChar();
+
+    // --- REGLA 1: PERMITIR SOLO DÍGITOS ---
+    // Si el carácter presionado NO es un dígito, se ignora la tecla.
+    if (!Character.isDigit(c)) {
+        evt.consume();
+    }
+
+    
+    javax.swing.JTextField sourceTextField = (javax.swing.JTextField) evt.getSource();
+
+    // Si la longitud del texto en el campo ya es 13 o más, se ignora la tecla.
+    if (sourceTextField.getText().length() >= 13) {
+        evt.consume();
+    }
+    }//GEN-LAST:event_txtDPIKeyTyped
 
     /**
      * @param args the command line arguments

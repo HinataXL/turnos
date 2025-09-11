@@ -1,12 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package model;
 
 /**
- *
+ * Modelo de datos (POJO) que representa a un empleado de la empresa.
+ * Contiene todos los atributos y sus respectivos getters y setters.
  * @author erick
  */
 public class Empleado {
@@ -21,22 +17,19 @@ public class Empleado {
     private String contraseña;
     private String rol;
 
+    /**
+     * Constructor por defecto.
+     */
     public Empleado() {
-        
     }
 
-    
-
-    // Constructor
-    
-   public String getRol(){
-    return rol;
-    }
-    
-    public Empleado(String dpi, String nombreCompleto, String usuario, String area,
+    /**
+     * Constructor con todos los parámetros para crear un objeto Empleado completo.
+     */
+    public Empleado(String dpi, String nombre, String usuario, String area,
                     String turno, String estado, String correo, String contraseña, String rol) {
-        this.dpi = dpi;
-        this.nombre = nombreCompleto;
+        this.setDPI(dpi); // Usamos el setter para aplicar la validación desde el constructor
+        this.nombre = nombre;
         this.usuario = usuario;
         this.area = area;
         this.turno = turno;
@@ -46,12 +39,34 @@ public class Empleado {
         this.rol = rol;
     }
 
-    // Getters y Setters
-    public String getDpi() {
+    // --- Getters y Setters ---
+
+    public String getDPI() {
         return dpi;
     }
 
-    public void setDpi(String dpi) {
+    /**
+     * Asigna el Documento Personal de Identificación (DPI).
+     * @param dpi El DPI. Debe contener exactamente 13 dígitos numéricos.
+     * @throws IllegalArgumentException si el DPI no cumple con el formato requerido.
+     */
+    public void setDPI(String dpi) {
+        // Validación 1: No puede ser nulo o vacío
+        if (dpi == null || dpi.trim().isEmpty()) {
+            throw new IllegalArgumentException("El DPI no puede ser nulo o vacío.");
+        }
+        
+        // Validación 2: Debe contener exactamente 13 caracteres
+        if (dpi.length() != 13) {
+            throw new IllegalArgumentException("El DPI debe tener exactamente 13 dígitos.");
+        }
+        
+        // Validación 3: Debe contener únicamente dígitos numéricos
+        // La expresión regular "\\d+" significa "uno o más dígitos"
+        if (!dpi.matches("\\d+")) {
+            throw new IllegalArgumentException("El DPI solo puede contener números.");
+        }
+        
         this.dpi = dpi;
     }
 
@@ -67,7 +82,15 @@ public class Empleado {
         return usuario;
     }
 
+    /**
+     * Asigna el nombre de usuario.
+     * @param usuario El nombre de usuario. No puede ser nulo o vacío.
+     * @throws IllegalArgumentException si el usuario es nulo o está en blanco.
+     */
     public void setUsuario(String usuario) {
+        if (usuario == null || usuario.trim().isEmpty()) {
+            throw new IllegalArgumentException("El nombre de usuario no puede ser nulo o vacío.");
+        }
         this.usuario = usuario;
     }
 
@@ -106,28 +129,50 @@ public class Empleado {
     public String getContraseña() {
         return contraseña;
     }
-
+    
+    /**
+     * Asigna la contraseña.
+     * @param contraseña La contraseña. No puede ser nula.
+     * @throws IllegalArgumentException si la contraseña es nula.
+     */
     public void setContraseña(String contraseña) {
+        if (contraseña == null) {
+            throw new IllegalArgumentException("La contraseña no puede ser nula.");
+        }
         this.contraseña = contraseña;
     }
+
+    public String getRol() {
+        return rol;
+    }
     
+    /**
+     * Asigna el rol del empleado.
+     * @param rol El rol. No puede ser nulo o vacío.
+     * @throws IllegalArgumentException si el rol es nulo o está en blanco.
+     */
     public void setRol(String rol) {
-    this.rol = rol;
+        if (rol == null || rol.trim().isEmpty()) {
+            throw new IllegalArgumentException("El rol no puede ser nulo o vacío.");
+        }
+        this.rol = rol;
     }
 
     @Override
     public String toString() {
         return "Empleado{" +
-                "dpi='" + dpi + '\'' +
-                ", nombreCompleto='" + nombre + '\'' +
-                ", usuario='" + usuario + '\'' +
-                ", area='" + area + '\'' +
-                ", turno='" + turno + '\'' +
-                ", estado='" + estado + '\'' +
-                ", correo='" + correo + '\'' +
-                ", contraseña='" + contraseña + '\'' +
-                '}';
+               "dpi='" + dpi + '\'' +
+               ", nombre='" + nombre + '\'' +
+               ", usuario='" + usuario + '\'' +
+               ", area='" + area + '\'' +
+               ", turno='" + turno + '\'' +
+               ", estado='" + estado + '\'' +
+               ", correo='" + correo + '\'' +
+               ", contraseña='" + "********" + '\'' + // Ocultamos la contraseña por seguridad
+               ", rol='" + rol + '\'' +
+               '}';
     }
 }
+
 
 

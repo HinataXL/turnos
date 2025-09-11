@@ -223,6 +223,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtDPI">
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtDPIKeyTyped"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="txtNombre">
     </Component>

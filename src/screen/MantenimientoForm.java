@@ -54,6 +54,11 @@ public class MantenimientoForm extends javax.swing.JFrame {
         });
 
         btnSolicitudes.setText("SOLICITUDES");
+        btnSolicitudes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSolicitudesActionPerformed(evt);
+            }
+        });
 
         btnSalir.setText("SALIR");
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
@@ -134,6 +139,11 @@ public class MantenimientoForm extends javax.swing.JFrame {
          this.dispose();// TODO add your handling code here:
     }//GEN-LAST:event_btnRegresarActionPerformed
 
+    private void btnSolicitudesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSolicitudesActionPerformed
+         new SolicitudesForm().setVisible(true);
+         this.dispose();// TODO add your handling code here:
+    }//GEN-LAST:event_btnSolicitudesActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -178,4 +188,14 @@ public class MantenimientoForm extends javax.swing.JFrame {
     private javax.swing.JButton btnSolicitudes;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
+
+    private static class SolicitudesForm {
+
+        public SolicitudesForm() {
+        }
+
+        private void setVisible(boolean b) {
+            
+        }
+    }
 }

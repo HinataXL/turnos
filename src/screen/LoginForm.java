@@ -1,23 +1,21 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package screen;
 
 import javax.swing.JOptionPane;
+import auth.AuthResult;
+import auth.AuthService;
 
-/**
- *
- * @author erick
- */
+
 public class LoginForm extends javax.swing.JFrame {
+    
+    private final AuthService authservice;
 
     /**
      * Creates new form MenuPrincipal
      */
     public LoginForm() {
         initComponents();
+        this.authservice = new AuthService();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -97,18 +95,50 @@ public class LoginForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnIniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarActionPerformed
-            String usuario = txtUsuario.getText ();
-            String contrasena = txtContrasena.getText();
-            if (usuario.equals("adminrrhh") && contrasena.equals("admin123")){
-                new MenuPrincipal().setVisible(true);
-                this.dispose();
-            } else {
-                JOptionPane.showMessageDialog(this, "Credenciales Incorrectas");
-            }
-            
-// TODO add your handling code here:
-    }//GEN-LAST:event_btnIniciarActionPerformed
+          String usuario = txtUsuario.getText().trim();
+        // Como usas JTextField, obtenemos el texto directamente.
+        // Si usaras JPasswordField, la línea sería: new String(txtContrasena.getPassword());
+        String contrasena = txtContrasena.getText();
 
+        if (usuario.isEmpty() || contrasena.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Por favor, ingrese usuario y contraseña.", "Campos Vacíos", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        // Se llama al servicio de autenticación para validar
+        AuthResult resultado = authservice.autenticar(usuario, contrasena);
+
+        // Se actúa según el resultado devuelto por el servicio
+        if (resultado.getStatus() == AuthResult.AuthStatus.SUCCESS) {
+            JOptionPane.showMessageDialog(this, "¡Bienvenido!", "Inicio de Sesión Exitoso", JOptionPane.INFORMATION_MESSAGE);
+            abrirMenuSegunRol(resultado.getRole());
+        } else {
+            JOptionPane.showMessageDialog(this, resultado.getMessage(), "Error de Inicio de Sesión", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_btnIniciarActionPerformed
+        private void abrirMenuSegunRol(String rol) {
+        // Compara el rol ignorando mayúsculas/minúsculas
+        if ("Administrador".equalsIgnoreCase(rol)) {
+            // Abre el menú principal que ya tienes en tu paquete 'screen'
+            MenuPrincipal menuAdmin = new MenuPrincipal();
+            menuAdmin.setVisible(true);
+        } else if ("Empleado".equalsIgnoreCase(rol)) {
+            // Aquí debes abrir el formulario que le corresponde al empleado.
+            // Por ejemplo, si tienes un "SolicitudesForm.java":
+            // SolicitudesForm menuEmpleado = new SolicitudesForm();
+            // menuEmpleado.setVisible(true);
+            
+            // Si aún no lo tienes, puedes mostrar un simple mensaje como este:
+            JOptionPane.showMessageDialog(this, "Acceso como Empleado.\nAquí se abriría el formulario de solicitudes.");
+        } else {
+            // Manejo para roles no reconocidos
+            JOptionPane.showMessageDialog(this, "Rol no reconocido: " + rol, "Error", JOptionPane.ERROR_MESSAGE);
+            return; 
+        }
+        
+        // Cierra la ventana de login una vez que se ha abierto el menú correspondiente
+        this.dispose(); 
+    }
     /**
      * @param args the command line arguments
      */
@@ -119,6 +149,24 @@ public class LoginForm extends javax.swing.JFrame {
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
         try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(LoginForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(LoginForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(LoginForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(LoginForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+        //</editor-fold>
+       try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());

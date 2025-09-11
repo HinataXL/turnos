@@ -17,7 +17,7 @@ public class EmpleadoDAO {
     public void guardarEmpleado(Empleado empleado) {
         try (FileWriter writer = new FileWriter(FILE_PATH, true)) {
             JSONObject json = new JSONObject();
-            json.put("dpi", empleado.getDpi());
+            json.put("dpi", empleado.getDPI());
             json.put("nombre", empleado.getNombre());
             json.put("usuario", empleado.getUsuario());
             json.put("area", empleado.getArea());
@@ -41,7 +41,7 @@ public class EmpleadoDAO {
             while ((linea = reader.readLine()) != null) {
                 JSONObject json = new JSONObject(linea);
                 Empleado emp = new Empleado();
-                emp.setDpi(json.getString("dpi"));
+                emp.setDPI(json.getString("dpi"));
                 emp.setNombre(json.getString("nombre"));
                 emp.setUsuario(json.getString("usuario"));
                 emp.setArea(json.getString("area"));
@@ -53,6 +53,7 @@ public class EmpleadoDAO {
                 empleados.add(emp);
             }
         } catch (IOException | JSONException e) {
+            System.err.println("Error al leer empleados: " + e.getMessage());
         }
         return empleados;
     }
@@ -74,6 +75,16 @@ public class EmpleadoDAO {
         return null;
     }
 
+    public String obtenerCorreoPorUsuario(String usuario) {
+        List<Empleado> empleados = obtenerTodos();
+        for (Empleado emp : empleados) {
+            if (emp.getUsuario().equalsIgnoreCase(usuario)) {
+                return emp.getCorreo();
+            }
+        }
+        return null;
+    }
+
     public void actualizarRol(String usuario, String nuevoRol) {
         List<Empleado> empleados = obtenerTodos();
         for (Empleado emp : empleados) {
@@ -89,7 +100,7 @@ public class EmpleadoDAO {
         try (FileWriter writer = new FileWriter(FILE_PATH, false)) { // Sobrescribe el archivo
             for (Empleado emp : empleados) {
                 JSONObject json = new JSONObject();
-                json.put("dpi", emp.getDpi());
+                json.put("dpi", emp.getDPI());
                 json.put("nombre", emp.getNombre());
                 json.put("usuario", emp.getUsuario());
                 json.put("area", emp.getArea());
@@ -110,8 +121,6 @@ public class EmpleadoDAO {
 
 
 
-    //public void asignarRol(String usuario, String rol) {
-       // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    //}
 
+    
     
