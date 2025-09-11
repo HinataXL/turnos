@@ -1,1 +1,3 @@
-{"area":"Soporte","estado":"Activo","correo":"erickpedroza@gmail.com","usuario":"epedroza","turno":"Matutino","dpi":"2845742280101","nombre":"Erick Pedroza","rol":"Empleado","contraseña":"screto123"}
+{"area":"Soporte","estado":"Activo","correo":"erickpedroza@gmail.com","usuario":"epedroza","turno":"Matutino","dpi":"2845742280101","nombre":"Erick Pedroza","rol":"Empleado","contraseña":"secreto123"}
+{"area":"rhh","estado":"Activo","correo":"rrhh","usuario":"adminrrhh","turno":"Matutino","dpi":"2902742290101","nombre":"Administrado","rol":"Administrador","contraseña":"admin123"}
+{"area":"soporte","estado":"Activo","correo":"soporte@soporte.com","usuario":"prueba","turno":"Matutino","dpi":"2222222222222","nombre":"prueba","rol":"Empleado","contraseña":"secreto1"}

@@ -5,6 +5,7 @@ import auth.AuthResult;
 import auth.AuthService;
 
 
+
 public class LoginForm extends javax.swing.JFrame {
     
     private final AuthService authservice;
@@ -125,11 +126,11 @@ public class LoginForm extends javax.swing.JFrame {
         } else if ("Empleado".equalsIgnoreCase(rol)) {
             // Aquí debes abrir el formulario que le corresponde al empleado.
             // Por ejemplo, si tienes un "SolicitudesForm.java":
-            // SolicitudesForm menuEmpleado = new SolicitudesForm();
-            // menuEmpleado.setVisible(true);
+            new SolicitudesEmpleadosForm().setVisible(true);
+            this.dispose();
             
             // Si aún no lo tienes, puedes mostrar un simple mensaje como este:
-            JOptionPane.showMessageDialog(this, "Acceso como Empleado.\nAquí se abriría el formulario de solicitudes.");
+            //JOptionPane.showMessageDialog(this, "Acceso como Empleado.\nAquí se abriría el formulario de solicitudes.");
         } else {
             // Manejo para roles no reconocidos
             JOptionPane.showMessageDialog(this, "Rol no reconocido: " + rol, "Error", JOptionPane.ERROR_MESSAGE);
