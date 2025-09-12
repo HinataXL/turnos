@@ -3,3 +3,5 @@
 {"area":"soporte","estado":"Activo","correo":"soporte@soporte.com","usuario":"prueba","turno":"Matutino","dpi":"2222222222222","nombre":"prueba","rol":"Empleado","contraseña":"secreto1"}
 {"area":"IT","estado":"Inactivo","correo":"erickpedroza45@gmail.com","usuario":"prueba1","turno":"Matutino","dpi":"2845742280102","nombre":"Erick Pedrozza","rol":"Empleado","contraseña":"secreto123"}
 {"area":"prueba2","estado":"Inactivo","correo":"katharreaga@gmail.com","usuario":"prueba2","turno":"Matutino","dpi":"1111111111111","nombre":"prueba2","rol":"Empleado","contraseña":"prueba2"}
+{"area":"soporte","estado":"Activo","correo":"lester.cardona@qpaypro.com","usuario":"lcardona","turno":"Matutino","dpi":"1111111111111","nombre":"Lester","rol":"Empleado","contraseña":"secreto123"}
+{"area":"prueba3","estado":"Inactivo","correo":"epedrozam1@miumg.edu.gt","usuario":"prueba3","turno":"Matutino","dpi":"1111111111111","nombre":"prueba3","rol":"Empleado","contraseña":"prueba3"}

@@ -11,6 +11,7 @@ import model.EmailSender;
 import model.Empleado;
 import model.Solicitud;
 import model.SolicitudAdminView;
+import model.EmailTemplateService;
 
 /**
  *
@@ -166,7 +167,7 @@ public class GestionSolicitudesAdminForm extends javax.swing.JFrame {
                 .addGap(24, 24, 24)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnRechazar, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(43, 43, 43)
@@ -194,43 +195,52 @@ public class GestionSolicitudesAdminForm extends javax.swing.JFrame {
      * @param nuevoEstadoSolicitud "Aceptada" o "Rechazada".
      * @param nuevoEstadoEmpleado "Inactivo" si se acepta, o null si se rechaza.
      */
-    private void procesarSolicitud(String nuevoEstadoSolicitud, String nuevoEstadoEmpleado) {
-        int filaSeleccionada = tablaSolicitudes.getSelectedRow();
-        if (filaSeleccionada == -1) {
-            JOptionPane.showMessageDialog(this, "Por favor, seleccione una solicitud de la tabla.", "Selección Requerida", JOptionPane.WARNING_MESSAGE);
-            return;
-        }
+    // Reemplaza este método completo en tu GestionSolicitudesAdminForm.java
 
-        // Obtiene el objeto combinado de la lista interna, que tiene todos los datos necesarios.
-        SolicitudAdminView solicitudSeleccionada = solicitudesMostradas.get(filaSeleccionada);
-        String usuario = solicitudSeleccionada.getUsuario();
-        String correo = solicitudSeleccionada.getCorreo();
-
-        try {
-            // 1. Actualiza el estado de la solicitud en solicitudes.txt
-            solicitudDAO.actualizarEstadoSolicitud(usuario, solicitudSeleccionada.getMotivo(), nuevoEstadoSolicitud);
-
-            // 2. Si se acepta, actualiza el estado del empleado en empleados.txt
-            if (nuevoEstadoEmpleado != null) {
-                empleadoDAO.actualizarEstado(usuario, nuevoEstadoEmpleado);
-            }
-
-            // 3. Envía notificación por correo (simulada)
-            String asunto = "Respuesta a tu solicitud de Ausencia";
-            String mensaje = "Hola " + solicitudSeleccionada.getNombreCompleto() + ",\n\nTu solicitud de '" + 
-                             solicitudSeleccionada.getMotivo() + "' ha sido " + nuevoEstadoSolicitud.toLowerCase() + ".\n\nSaludos,\nEquipo de RRHH.";
-            EmailSender.enviarCorreo(correo, asunto, mensaje);
-
-            JOptionPane.showMessageDialog(this, "La solicitud ha sido " + nuevoEstadoSolicitud.toLowerCase() + " y se ha notificado al empleado.", "Proceso Completado", JOptionPane.INFORMATION_MESSAGE);
-            
-            // 4. Recarga la tabla para que la solicitud procesada desaparezca de la lista de pendientes.
-            cargarSolicitudesPendientes();
-
-        } catch (IOException e) {
-            JOptionPane.showMessageDialog(this, "Error al procesar la solicitud: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-            e.printStackTrace();
-        }
+private void procesarSolicitud(String nuevoEstadoSolicitud, String nuevoEstadoEmpleado) {
+    int filaSeleccionada = tablaSolicitudes.getSelectedRow();
+    if (filaSeleccionada == -1) {
+        JOptionPane.showMessageDialog(this, "Por favor, seleccione una solicitud de la tabla.", "Selección Requerida", JOptionPane.WARNING_MESSAGE);
+        return;
     }
+
+    SolicitudAdminView solicitudSeleccionada = solicitudesMostradas.get(filaSeleccionada);
+    String usuario = solicitudSeleccionada.getUsuario();
+    String correo = solicitudSeleccionada.getCorreo();
+
+    try {
+        // 1. Actualiza el estado de la solicitud en solicitudes.txt
+        solicitudDAO.actualizarEstadoSolicitud(usuario, solicitudSeleccionada.getMotivo(), nuevoEstadoSolicitud);
+
+        // 2. Si se acepta, actualiza el estado del empleado en empleados.txt
+        if (nuevoEstadoEmpleado != null) {
+            empleadoDAO.actualizarEstado(usuario, nuevoEstadoEmpleado);
+        }
+
+        // --- AQUÍ ESTÁ LA CONEXIÓN ---
+        // 3. Se crea una instancia del servicio de plantillas.
+        EmailTemplateService templateService = new EmailTemplateService();
+        String asunto = "Respuesta a tu Solicitud de Ausencia";
+
+        // 4. Se genera el cuerpo del correo usando tu nueva plantilla HTML.
+        String mensajeHtml = templateService.crearHtmlRespuesta(
+                solicitudSeleccionada.getNombreCompleto(),
+                solicitudSeleccionada.getMotivo(),
+                nuevoEstadoSolicitud
+        );
+
+        // 5. Se envía el correo con el contenido HTML.
+        // Asegúrate de que estás usando la clase que envía correos reales.
+        EmailSender.enviarCorreoHtml(correo, asunto, mensajeHtml);
+        
+        // 6. Recarga la tabla para que la solicitud procesada desaparezca.
+        cargarSolicitudesPendientes();
+
+    } catch (IOException e) {
+        JOptionPane.showMessageDialog(this, "Error al procesar la solicitud: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        e.printStackTrace();
+    }
+}
     
     /**
      * @param args the command line arguments
