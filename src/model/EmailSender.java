@@ -21,8 +21,8 @@ public class EmailSender {
     private static final String CORREO_REMITENTE = "rrhh.test.java@gmail.com"; 
     private static final String CONTRASENA_APLICACION = "agirvwyncmoukxjl"; // La contraseña de 16 dígitos sin espacios
 
-    private static final String SMTP_HOST = "smtp.gmail.com";
-    private static final String SMTP_PORT = "587"; // Puerto para TLS
+     private static final String SMTP_HOST = "smtp.gmail.com";
+    private static final String SMTP_PORT = "465"; // Puerto para SSL
 
     /**
      * Envía un correo electrónico con contenido HTML.
@@ -36,7 +36,16 @@ public class EmailSender {
         props.put("mail.smtp.host", SMTP_HOST);
         props.put("mail.smtp.port", SMTP_PORT);
         props.put("mail.smtp.auth", "true");
-        props.put("mail.smtp.starttls.enable", "true"); // Habilita la conexión segura TLS
+        props.put("mail.smtp.socketFactory.port", SMTP_PORT);
+        props.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
+        
+        // Propiedad para confiar en todos los certificados (ayuda con antivirus/firewalls).
+        // ADVERTENCIA: Reduce la seguridad de la conexión. Usar solo si es necesario.
+        props.put("mail.smtp.ssl.trust", "*");
+
+        // Timeouts explícitos para evitar que la aplicación se congele.
+        props.put("mail.smtp.connectiontimeout", "15000"); // 15 segundos
+        props.put("mail.smtp.timeout", "15000");           // 15 segundos
 
         // 2. Creación de la sesión con autenticación.
         Session session = Session.getInstance(props, new Authenticator() {
@@ -46,30 +55,26 @@ public class EmailSender {
             }
         });
         
-        // --- MODO DE DEPURACIÓN ---
-        // Esto imprimirá toda la comunicación con el servidor en la consola. ¡Muy útil!
+        // Habilita la salida de depuración en la consola de NetBeans.
         session.setDebug(true);
 
         try {
-            // 3. Creación del mensaje de correo.
+            // 3. Creación y configuración del mensaje.
             Message message = new MimeMessage(session);
             message.setFrom(new InternetAddress(CORREO_REMITENTE));
             message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(destinatario));
             message.setSubject(asunto);
-            
-            // Se especifica que el contenido es HTML.
             message.setContent(mensajeHtml, "text/html; charset=utf-8");
 
             // 4. Envío del mensaje.
             Transport.send(message);
 
-            System.out.println("Correo enviado exitosamente a " + destinatario);
-            // Mostramos una confirmación al usuario (opcional).
+            // Notificación de éxito al usuario (opcional).
             JOptionPane.showMessageDialog(null, "Correo de notificación enviado correctamente.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
 
         } catch (MessagingException e) {
-            System.err.println("Error al enviar el correo: " + e.getMessage());
-            e.printStackTrace(); // Imprime el error completo en la consola.
+            // Imprime el error completo en la consola y muestra un mensaje al usuario.
+            e.printStackTrace();
             JOptionPane.showMessageDialog(null, "No se pudo enviar el correo de notificación.\nError: " + e.getMessage(), "Error de Envío", JOptionPane.ERROR_MESSAGE);
         }
     }
