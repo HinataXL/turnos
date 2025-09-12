@@ -1,3 +1,5 @@
-{"area":"Soporte","estado":"Activo","correo":"erickpedroza@gmail.com","usuario":"epedroza","turno":"Matutino","dpi":"2845742280101","nombre":"Erick Pedroza","rol":"Empleado","contraseña":"secreto123"}
+{"area":"Soporte","estado":"Inactivo","correo":"erickpedroza@gmail.com","usuario":"epedroza","turno":"Matutino","dpi":"2845742280101","nombre":"Erick Pedroza","rol":"Empleado","contraseña":"secreto123"}
 {"area":"rhh","estado":"Activo","correo":"rrhh","usuario":"adminrrhh","turno":"Matutino","dpi":"2902742290101","nombre":"Administrado","rol":"Administrador","contraseña":"admin123"}
 {"area":"soporte","estado":"Activo","correo":"soporte@soporte.com","usuario":"prueba","turno":"Matutino","dpi":"2222222222222","nombre":"prueba","rol":"Empleado","contraseña":"secreto1"}
+{"area":"IT","estado":"Inactivo","correo":"erickpedroza45@gmail.com","usuario":"prueba1","turno":"Matutino","dpi":"2845742280102","nombre":"Erick Pedrozza","rol":"Empleado","contraseña":"secreto123"}
+{"area":"prueba2","estado":"Inactivo","correo":"katharreaga@gmail.com","usuario":"prueba2","turno":"Matutino","dpi":"1111111111111","nombre":"prueba2","rol":"Empleado","contraseña":"prueba2"}

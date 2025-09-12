@@ -116,4 +116,24 @@ public class EmpleadoDAO {
             System.err.println("Error al guardar todos los empleados: " + e.getMessage());
         }
     }
+    public void actualizarEstado(String usuario, String nuevoEstado) throws java.io.IOException {
+    java.util.List<model.Empleado> empleados = obtenerTodos();
+    boolean empleadoActualizado = false;
+
+    for (model.Empleado emp : empleados) {
+        if (emp.getUsuario().equalsIgnoreCase(usuario)) {
+            emp.setEstado(nuevoEstado);
+            empleadoActualizado = true;
+            break;
+        }
+    }
+
+    if (empleadoActualizado) {
+        guardarTodos(empleados);
+        System.out.println("Estado del empleado '" + usuario + "' actualizado a '" + nuevoEstado + "'.");
+    } else {
+        System.out.println("No se encontró al empleado '" + usuario + "' para actualizar su estado.");
+    }
 }
+}
+

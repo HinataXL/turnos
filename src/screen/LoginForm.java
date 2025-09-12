@@ -96,48 +96,42 @@ public class LoginForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnIniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarActionPerformed
-          String usuario = txtUsuario.getText().trim();
-        // Como usas JTextField, obtenemos el texto directamente.
-        // Si usaras JPasswordField, la línea sería: new String(txtContrasena.getPassword());
-        String contrasena = txtContrasena.getText();
+         String usuario = txtUsuario.getText().trim();
+        // Se obtiene la contraseña de forma segura desde el JPasswordField
+        String contrasena = txtContrasena.getText().trim();
 
         if (usuario.isEmpty() || contrasena.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Por favor, ingrese usuario y contraseña.", "Campos Vacíos", JOptionPane.WARNING_MESSAGE);
             return;
         }
 
-        // Se llama al servicio de autenticación para validar
         AuthResult resultado = authservice.autenticar(usuario, contrasena);
 
-        // Se actúa según el resultado devuelto por el servicio
         if (resultado.getStatus() == AuthResult.AuthStatus.SUCCESS) {
             JOptionPane.showMessageDialog(this, "¡Bienvenido!", "Inicio de Sesión Exitoso", JOptionPane.INFORMATION_MESSAGE);
-            abrirMenuSegunRol(resultado.getRole());
+            
+            // --- CAMBIO IMPORTANTE 1 ---
+            // Ahora le pasamos el rol Y el nombre de usuario al método que abre el menú.
+            abrirMenuSegunRol(resultado.getRole(), usuario);
         } else {
             JOptionPane.showMessageDialog(this, resultado.getMessage(), "Error de Inicio de Sesión", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btnIniciarActionPerformed
-        private void abrirMenuSegunRol(String rol) {
-        // Compara el rol ignorando mayúsculas/minúsculas
+        private void abrirMenuSegunRol(String rol, String usuario) {
         if ("Administrador".equalsIgnoreCase(rol)) {
-            // Abre el menú principal que ya tienes en tu paquete 'screen'
             MenuPrincipal menuAdmin = new MenuPrincipal();
             menuAdmin.setVisible(true);
         } else if ("Empleado".equalsIgnoreCase(rol)) {
-            // Aquí debes abrir el formulario que le corresponde al empleado.
-            // Por ejemplo, si tienes un "SolicitudesForm.java":
-            new SolicitudesEmpleadosForm().setVisible(true);
-            this.dispose();
-            
-            // Si aún no lo tienes, puedes mostrar un simple mensaje como este:
-            //JOptionPane.showMessageDialog(this, "Acceso como Empleado.\nAquí se abriría el formulario de solicitudes.");
+            // --- CAMBIO IMPORTANTE 2 ---
+            // Se le pasa el nombre de usuario al constructor del formulario de solicitudes.
+            SolicitudesEmpleadosForm menuEmpleado = new SolicitudesEmpleadosForm(usuario);
+            menuEmpleado.setVisible(true);
         } else {
-            // Manejo para roles no reconocidos
             JOptionPane.showMessageDialog(this, "Rol no reconocido: " + rol, "Error", JOptionPane.ERROR_MESSAGE);
             return; 
         }
         
-        // Cierra la ventana de login una vez que se ha abierto el menú correspondiente
+        // Cierra la ventana de login
         this.dispose(); 
     }
     /**

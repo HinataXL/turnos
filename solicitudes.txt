@@ -1,0 +1,3 @@
+{"fecha":"2025-09-11","tipo":"Citas al IGSS","justificacion":"Citas al IGSS","estado":"Aceptada","usuario":"epedroza"}
+{"fecha":"2025-09-11","tipo":"Suspensión Laboral","justificacion":"Suspensión Laboral","estado":"Aceptada","usuario":"prueba1"}
+{"fecha":"2025-09-11","tipo":"Vacaciones","justificacion":"Vacaciones","estado":"Aceptada","usuario":"prueba2"}

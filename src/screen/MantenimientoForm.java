@@ -140,7 +140,7 @@ public class MantenimientoForm extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRegresarActionPerformed
 
     private void btnSolicitudesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSolicitudesActionPerformed
-         new SolicitudesForm().setVisible(true);
+         new GestionSolicitudesAdminForm().setVisible(true);
          this.dispose();// TODO add your handling code here:
     }//GEN-LAST:event_btnSolicitudesActionPerformed
 
