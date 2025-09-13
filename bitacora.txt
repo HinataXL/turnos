@@ -1,0 +1,16 @@
+{"descripcion":"El usuario ha iniciado sesión.","usuario":"adminrrhh","tipo_evento":"INICIO SESIÓN","timestamp":"2025-09-12 19:51:15"}
+{"descripcion":"El usuario ha iniciado sesión.","usuario":"prueba4","tipo_evento":"INICIO SESIÓN","timestamp":"2025-09-12 19:52:31"}
+{"descripcion":"El usuario ha iniciado sesión.","usuario":"adminrrhh","tipo_evento":"INICIO SESIÓN","timestamp":"2025-09-12 20:52:56"}
+{"descripcion":"El usuario ha iniciado sesión.","usuario":"Yureeem","tipo_evento":"INICIO SESIÓN","timestamp":"2025-09-12 20:54:45"}
+{"descripcion":"El usuario ha iniciado sesión.","usuario":"adminrrhh","tipo_evento":"INICIO SESIÓN","timestamp":"2025-09-12 20:55:36"}
+{"descripcion":"El usuario ha iniciado sesión.","usuario":"adminrrhh","tipo_evento":"INICIO SESIÓN","timestamp":"2025-09-12 22:53:01"}
+{"descripcion":"El usuario ha iniciado sesión.","usuario":"adminrrhh","tipo_evento":"INICIO SESIÓN","timestamp":"2025-09-12 22:53:16"}
+{"descripcion":"El usuario ha iniciado sesión.","usuario":"adminrrhh","tipo_evento":"INICIO SESIÓN","timestamp":"2025-09-13 05:18:25"}
+{"descripcion":"El usuario ha iniciado sesión.","usuario":"adminrrhh","tipo_evento":"INICIO SESIÓN","timestamp":"2025-09-13 05:18:45"}
+{"descripcion":"El usuario ha iniciado sesión.","usuario":"prueba5","tipo_evento":"INICIO SESIÓN","timestamp":"2025-09-13 05:20:15"}
+{"descripcion":"El usuario ha iniciado sesión.","usuario":"prueba5","tipo_evento":"INICIO SESIÓN","timestamp":"2025-09-13 05:20:57"}
+{"descripcion":"El usuario ha iniciado sesión.","usuario":"prueba5","tipo_evento":"INICIO SESIÓN","timestamp":"2025-09-13 05:21:32"}
+{"descripcion":"El usuario ha iniciado sesión.","usuario":"adminrrhh","tipo_evento":"INICIO SESIÓN","timestamp":"2025-09-13 05:21:53"}
+{"descripcion":"El usuario ha iniciado sesión.","usuario":"adminrrhh","tipo_evento":"INICIO SESIÓN","timestamp":"2025-09-13 08:34:47"}
+{"descripcion":"El usuario ha iniciado sesión.","usuario":"prueba3","tipo_evento":"INICIO SESIÓN","timestamp":"2025-09-13 08:38:01"}
+{"descripcion":"El usuario ha iniciado sesión.","usuario":"adminrrhh","tipo_evento":"INICIO SESIÓN","timestamp":"2025-09-13 08:40:47"}

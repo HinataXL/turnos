@@ -58,24 +58,31 @@ public class SolicitudesEmpleadosForm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lblTitulo = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        lblInstruccion = new javax.swing.JLabel();
         lblBienvenido = new javax.swing.JLabel();
         comboTipoSolicitud = new javax.swing.JComboBox<>();
-        lblInstruccion = new javax.swing.JLabel();
         btnEnviar = new javax.swing.JButton();
+        lblTitulo = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
-        lblTitulo.setFont(new java.awt.Font("Lucida Sans", 0, 18)); // NOI18N
-        lblTitulo.setText("Solicitudes de Ausencia");
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblBienvenido.setFont(new java.awt.Font("Lucida Sans", 0, 24)); // NOI18N
+        lblInstruccion.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        lblInstruccion.setForeground(new java.awt.Color(255, 255, 255));
+        lblInstruccion.setText("Selecciona el tipo de permiso que necesitas");
+        jPanel1.add(lblInstruccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 290, -1, -1));
+
+        lblBienvenido.setFont(new java.awt.Font("Impact", 0, 36)); // NOI18N
+        lblBienvenido.setForeground(new java.awt.Color(255, 255, 255));
         lblBienvenido.setText("Bienvenido ");
+        jPanel1.add(lblBienvenido, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 220, 330, -1));
 
         comboTipoSolicitud.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Permiso Personal", "Vacaciones", "Citas al IGSS", "Licencia de cumpleaños (1 día)", "Suspensión Laboral", "Otros", " " }));
-
-        lblInstruccion.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        lblInstruccion.setText("Selecciona el tipo de permiso que necesitas");
+        jPanel1.add(comboTipoSolicitud, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 350, 270, 40));
 
         btnEnviar.setText("Enviar");
         btnEnviar.addActionListener(new java.awt.event.ActionListener() {
@@ -83,44 +90,24 @@ public class SolicitudesEmpleadosForm extends javax.swing.JFrame {
                 btnEnviarActionPerformed(evt);
             }
         });
+        jPanel1.add(btnEnviar, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 460, 160, 47));
+
+        lblTitulo.setFont(new java.awt.Font("Lucida Sans", 0, 18)); // NOI18N
+        lblTitulo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/PNG/Frame 2267.png"))); // NOI18N
+        jPanel1.add(lblTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 60, 1040, 580));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/PNG/Fondo_principal.png"))); // NOI18N
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 730));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 111, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(lblInstruccion)
-                        .addGap(104, 104, 104))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(comboTipoSolicitud, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnEnviar, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(34, 34, 34)))
-                        .addGap(154, 154, 154))))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(76, 76, 76)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lblTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblBienvenido, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(lblTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lblBienvenido)
-                .addGap(28, 28, 28)
-                .addComponent(lblInstruccion)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(comboTipoSolicitud, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(42, 42, 42)
-                .addComponent(btnEnviar, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 114, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -182,6 +169,8 @@ public class SolicitudesEmpleadosForm extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEnviar;
     private javax.swing.JComboBox<String> comboTipoSolicitud;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblBienvenido;
     private javax.swing.JLabel lblInstruccion;
     private javax.swing.JLabel lblTitulo;
