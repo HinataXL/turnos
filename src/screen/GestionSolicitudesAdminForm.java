@@ -98,7 +98,7 @@ public class GestionSolicitudesAdminForm extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Lucida Sans", 0, 18)); // NOI18N
-        jLabel1.setText("Solicitudes de Inactivación Usuarios");
+        jLabel1.setText("Solicitudes de Permiso");
 
         tablaSolicitudes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

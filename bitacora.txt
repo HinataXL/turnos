@@ -1,0 +1,2 @@
+{"descripcion":"El usuario ha iniciado sesión.","usuario":"adminrrhh","tipo_evento":"INICIO SESIÓN","timestamp":"2025-09-12 19:51:15"}
+{"descripcion":"El usuario ha iniciado sesión.","usuario":"prueba4","tipo_evento":"INICIO SESIÓN","timestamp":"2025-09-12 19:52:31"}
