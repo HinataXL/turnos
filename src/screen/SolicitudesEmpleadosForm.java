@@ -79,7 +79,7 @@ public class SolicitudesEmpleadosForm extends javax.swing.JFrame {
         lblBienvenido.setFont(new java.awt.Font("Impact", 0, 36)); // NOI18N
         lblBienvenido.setForeground(new java.awt.Color(255, 255, 255));
         lblBienvenido.setText("Bienvenido ");
-        jPanel1.add(lblBienvenido, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 220, 330, -1));
+        jPanel1.add(lblBienvenido, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 220, 480, -1));
 
         comboTipoSolicitud.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Permiso Personal", "Vacaciones", "Citas al IGSS", "Licencia de cumpleaños (1 día)", "Suspensión Laboral", "Otros", " " }));
         jPanel1.add(comboTipoSolicitud, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 350, 270, 40));
