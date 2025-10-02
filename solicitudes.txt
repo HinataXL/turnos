@@ -17,3 +17,4 @@
 {"fecha":"2025-09-13","tipo":"Licencia de cumpleaños (1 día)","justificacion":"Licencia de cumpleaños (1 día)","estado":"Rechazada","usuario":"prueba1"}
 {"fecha":"2025-09-21","tipo":"Suspensión Laboral","justificacion":"Suspensión Laboral","estado":"Aceptada","usuario":"prueba2"}
 {"fecha":"2025-09-22","tipo":"Citas al IGSS","justificacion":"Citas al IGSS","estado":"Rechazada","usuario":"Prueba3"}
+{"fecha":"2025-10-02","tipo":"Citas al IGSS","justificacion":"Citas al IGSS","estado":"Aceptada","usuario":"prueba10"}
