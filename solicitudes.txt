@@ -18,4 +18,6 @@
 {"fecha":"2025-09-21","tipo":"Suspensión Laboral","justificacion":"Suspensión Laboral","estado":"Aceptada","usuario":"prueba2"}
 {"fecha":"2025-09-22","tipo":"Citas al IGSS","justificacion":"Citas al IGSS","estado":"Rechazada","usuario":"Prueba3"}
 {"fecha":"2025-10-02","tipo":"Citas al IGSS","justificacion":"Citas al IGSS","estado":"Aceptada","usuario":"prueba10"}
-{"fecha":"2025-10-03","tipo":"Permiso Personal","justificacion":"Permiso Personal","estado":"Pendiente","usuario":"prueba1"}
+{"fecha":"2025-10-03","tipo":"Permiso Personal","justificacion":"Permiso Personal","estado":"Rechazada","usuario":"prueba1"}
+{"fecha":"2025-10-08","tipo":"Permiso Personal","justificacion":"Permiso Personal","estado":"Rechazada","usuario":"prueba1"}
+{"fecha":"2025-10-08","tipo":"Permiso Personal","justificacion":"Permiso Personal","estado":"Aceptada","usuario":"prueba1"}

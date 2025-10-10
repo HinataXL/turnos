@@ -29,6 +29,10 @@ public class SolicitudesEmpleadosForm extends javax.swing.JFrame {
         // Configura los elementos del formulario.
         configurarFormulario();
     }
+
+    SolicitudesEmpleadosForm() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
   
     private void configurarFormulario() {
         this.setTitle("Portal de Empleado");
@@ -166,6 +170,7 @@ public class SolicitudesEmpleadosForm extends javax.swing.JFrame {
         });
     }
 
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEnviar;
     private javax.swing.JComboBox<String> comboTipoSolicitud;

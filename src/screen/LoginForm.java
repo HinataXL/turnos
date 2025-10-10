@@ -91,7 +91,6 @@ public class LoginForm extends javax.swing.JFrame {
         jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 130, -1, -1));
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/PNG/Fondo_principal.png"))); // NOI18N
-        jLabel7.setText("jLabel7");
         jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 1280, -1));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 0, 1290, 720));
@@ -152,7 +151,7 @@ public class LoginForm extends javax.swing.JFrame {
         } else if ("Empleado".equalsIgnoreCase(rol)) {
             // --- CAMBIO IMPORTANTE 2 ---
             // Se le pasa el nombre de usuario al constructor del formulario de solicitudes.
-            SolicitudesEmpleadosForm menuEmpleado = new SolicitudesEmpleadosForm(usuario);
+            PanelDeEmpleado menuEmpleado = new PanelDeEmpleado(usuario);
             menuEmpleado.setVisible(true);
         } else {
             JOptionPane.showMessageDialog(this, "Rol no reconocido: " + rol, "Error", JOptionPane.ERROR_MESSAGE);
