@@ -82,3 +82,10 @@
 {"descripcion":"El usuario ha iniciado sesión.","usuario":"prueba1","tipo_evento":"INICIO SESIÓN","timestamp":"2025-10-10 00:12:02"}
 {"descripcion":"El usuario ha iniciado sesión.","usuario":"prueba1","tipo_evento":"INICIO SESIÓN","timestamp":"2025-10-10 00:20:55"}
 {"descripcion":"El usuario ha iniciado sesión.","usuario":"prueba1","tipo_evento":"INICIO SESIÓN","timestamp":"2025-10-10 12:47:35"}
+{"descripcion":"El usuario ha iniciado sesión.","usuario":"adminrrhh","tipo_evento":"INICIO SESIÓN","timestamp":"2025-10-11 10:16:08"}
+{"descripcion":"El usuario ha iniciado sesión.","usuario":"prueba10","tipo_evento":"INICIO SESIÓN","timestamp":"2025-10-11 10:17:32"}
+{"descripcion":"El usuario ha iniciado sesión.","usuario":"prueba10","tipo_evento":"INICIO SESIÓN","timestamp":"2025-10-11 10:35:03"}
+{"descripcion":"El usuario ha iniciado sesión.","usuario":"prueba10","tipo_evento":"INICIO SESIÓN","timestamp":"2025-10-11 10:38:17"}
+{"descripcion":"El usuario ha iniciado sesión.","usuario":"adminrrhh","tipo_evento":"INICIO SESIÓN","timestamp":"2025-10-11 10:40:01"}
+{"descripcion":"El usuario ha iniciado sesión.","usuario":"lajcip","tipo_evento":"INICIO SESIÓN","timestamp":"2025-10-11 10:41:12"}
+{"descripcion":"El usuario ha iniciado sesión.","usuario":"prueba10","tipo_evento":"INICIO SESIÓN","timestamp":"2025-10-11 10:43:38"}

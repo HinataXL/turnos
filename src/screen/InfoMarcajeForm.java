@@ -142,7 +142,7 @@ public class InfoMarcajeForm extends javax.swing.JFrame {
     
 private void cargarMarcajes() {
     try {
-        File archivo = new File("/home/jorgmms/GitHub/turnos/marcajes.txt");
+        File archivo = new File("turnosRRHHmarcajes.txt");
         
         System.out.println("Buscando archivo en: " + archivo.getAbsolutePath());
         System.out.println("¿Existe el archivo? " + archivo.exists());
