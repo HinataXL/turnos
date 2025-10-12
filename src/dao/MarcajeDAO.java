@@ -1,83 +1,100 @@
+// Archivo: dao/MarcajeDAO.java
 package dao;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import java.io.*;
-import java.time.LocalDate;
-import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 import model.Marcaje;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 
 public class MarcajeDAO {
     
-    private final String NOMBRE_ARCHIVO = "marcajes.txt";
+    private final String NOMBRE_ARCHIVO = "marcajes.txt"; // El nombre del archivo sigue siendo .txt
+    private final Gson gson;
     
-    // GUARDA UN OBJETO MARCAJE EN EL ARCHIVO DE TEXTO
-    
-    public void guardar(Marcaje marcaje) throws IOException {
-    // try-with-resources ASEGURA QUE EL ARCHIVO SE CIERRE CORRECTAMENTE
-       try (FileWriter fw  = new FileWriter(NOMBRE_ARCHIVO, true);
-               BufferedWriter bw = new BufferedWriter(fw);
-               PrintWriter out = new PrintWriter(bw)) {
-           
-           out.println(marcaje.toCsvString());
-       }
+    public MarcajeDAO() {
+        // Gson es la herramienta que usaremos para manejar JSON
+        this.gson = new GsonBuilder()
+            .registerTypeAdapter(LocalTime.class, new LocalTimeTypeAdapter())
+            .registerTypeAdapter(LocalDate.class, new LocalDateTypeAdapter())
+            .create();
     }
     
-    // LEE TODOS LOS MARCAJES DEL ARCHIVO Y LOS DEVUELVE COMO UNA LISTA DE OBJETOS
+    public void guardar(Marcaje nuevoMarcaje) throws IOException {
+        try (FileWriter fw = new FileWriter(NOMBRE_ARCHIVO, true);
+             BufferedWriter bw = new BufferedWriter(fw);
+             PrintWriter out = new PrintWriter(bw)) {
+            
+            // Convertimos el objeto Marcaje a una línea JSON
+            String jsonMarcaje = gson.toJson(nuevoMarcaje);
+            out.println(jsonMarcaje);
+        }
+    }
+    
     public List<Marcaje> obtenerTodos() throws IOException {
         List<Marcaje> listaDeMarcajes = new ArrayList<>();
-        
-        File archivo = new File (NOMBRE_ARCHIVO);
-        if (!archivo.exists()) {
-            return listaDeMarcajes; // DEVUELVE LISTA VACIA SI EL ARCHIVO NO EXISTE
+        File archivo = new File(NOMBRE_ARCHIVO);
+
+        if (!archivo.exists() || archivo.length() == 0) {
+            return listaDeMarcajes;
         }
         
-        try (BufferedReader br = new BufferedReader(new FileReader(NOMBRE_ARCHIVO))) {
+        try (BufferedReader br = new BufferedReader(new FileReader(archivo))) {
             String linea;
-            while ((linea = br.readLine()) !=null) {
-                String[] datos = linea.split(",");
-                if (datos.length >= 5) {
-                    Marcaje marcaje = new Marcaje(datos[0]);// usuario
-                                // Convertir strings a LocalTime (manejar posibles nulls)
-                if (!datos[1].isEmpty() && !datos[1].equals("null")) {
-                    marcaje.setHoraEntrada(LocalTime.parse(datos[1]));
+            while ((linea = br.readLine()) != null) {
+                if (linea.trim().isEmpty()) {
+                    continue;
                 }
-                if (!datos[2].isEmpty() && !datos[2].equals("null")) {
-                    marcaje.setHoraDescanso1(LocalTime.parse(datos[2]));
-                }
-                if (!datos[3].isEmpty() && !datos[3].equals("null")) {
-                    marcaje.setHoraDescanso2(LocalTime.parse(datos[3]));
-                }
-                if (!datos[4].isEmpty() && !datos[4].equals("null")) {
-                    marcaje.setHoraSalida(LocalTime.parse(datos[4]));
-                }
-                
-                // Si guardas fecha, agregar aquí
-                if (datos.length >= 6 && !datos[5].isEmpty()) {
-                    marcaje.setFecha(LocalDate.parse(datos[5]));
-                }
-                
-                listaDeMarcajes.add(marcaje);
+                try {
+                    // Convertimos la línea JSON de nuevo a un objeto Marcaje
+                    Marcaje marcaje = gson.fromJson(linea, Marcaje.class);
                     listaDeMarcajes.add(marcaje);
+                } catch (Exception e) {
+                    System.err.println("Error de formato JSON en la línea: " + linea + ". Error: " + e.getMessage());
                 }
-            } 
+            }
         }
         return listaDeMarcajes;
     }
     
     public List<Marcaje> obtenerMarcajesPorUsuario(String usuario) throws IOException {
-    List<Marcaje> marcajesUsuario = new ArrayList<>();
-    // Usar el método existente obtenerTodos()
-    List<Marcaje> todosLosMarcajes = obtenerTodos();
-    
-    // Filtrar por usuario
-    for (Marcaje marcaje : todosLosMarcajes) {
-        if (marcaje.getUsuario() != null && marcaje.getUsuario().equals(usuario)) {
-            marcajesUsuario.add(marcaje);
+        List<Marcaje> marcajesUsuario = new ArrayList<>();
+        List<Marcaje> todosLosMarcajes = obtenerTodos();
+        
+        for (Marcaje marcaje : todosLosMarcajes) {
+            if (marcaje.getUsuario() != null && marcaje.getUsuario().equals(usuario)) {
+                marcajesUsuario.add(marcaje);
+            }
         }
-        marcajesUsuario.add(marcaje);
+        return marcajesUsuario;
     }
     
-    return marcajesUsuario;
-  }
+    // Adaptadores para que Gson maneje LocalTime y LocalDate (déjalos al final de la clase)
+    private static class LocalTimeTypeAdapter extends TypeAdapter<LocalTime> {
+        @Override
+        public void write(JsonWriter out, LocalTime value) throws IOException {
+            out.value(value.toString());
+        }
+        @Override
+        public LocalTime read(JsonReader in) throws IOException {
+            return LocalTime.parse(in.nextString());
+        }
+    }
+    
+    private static class LocalDateTypeAdapter extends TypeAdapter<LocalDate> {
+        @Override
+        public void write(JsonWriter out, LocalDate value) throws IOException {
+            out.value(value.toString());
+        }
+        @Override
+        public LocalDate read(JsonReader in) throws IOException {
+            return LocalDate.parse(in.nextString());
+        }
+    }
 }

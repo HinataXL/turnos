@@ -81,14 +81,5 @@ public class Marcaje {
         
     // CONVERTIDOR DE DATOS A UNA SOLA LINEA CSV
     
-    public String toCsvString() {
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HH:mm:ss a");
-        
-        String strEntrada = (horadeEntrada != null) ? horadeEntrada.format(dtf) : "N/A";
-        String strDes1 = (horaDescanso1 != null) ? horaDescanso1.format(dtf) : "N/A";
-        String strDes2 = (horaDescanso2 != null) ? horaDescanso2.format(dtf) : "N/A";
-        String strSalida = (horaSalida != null) ? horaSalida.format(dtf) : "N/A";
-        
-        return String.join(".", usuario, strEntrada, strDes1, strDes2, strSalida);
-    }
+   
 }
