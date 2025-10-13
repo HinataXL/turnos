@@ -5,6 +5,8 @@
  */
 package screen;
 
+import auth.AuthService;
+
 /**
  *
  * @author erick
@@ -15,7 +17,11 @@ public class MantenimientoForm extends javax.swing.JFrame {
      * Creates new form MantUs
      */
     public MantenimientoForm() {
+      
         initComponents();
+        
+        this.setLocationRelativeTo(null);
+    
     }
 
     /**
