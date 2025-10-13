@@ -3,3 +3,5 @@
 {"usuario":"prueba10","fecha":"2025-10-11","horadeEntrada":"19:17:03.860","horaDescanso1":"19:17:10.124","horaDescanso2":"19:17:11.622","horaSalida":"19:17:12.830"}
 {"usuario":"prueba10","fecha":"2025-10-12","horadeEntrada":"20:18:57.835","horaDescanso1":"20:19:01.818","horaDescanso2":"20:19:03.794","horaSalida":"20:19:05.826"}
 {"usuario":"prueba10","fecha":"2025-10-12","horadeEntrada":"20:19:20.186","horaDescanso1":"20:20:06.251","horaDescanso2":"20:20:11.411","horaSalida":"20:20:14.515"}
+{"usuario":"prueba10","fecha":"2025-10-13","horadeEntrada":"15:14:15.186","horaDescanso1":"15:14:22.062","horaDescanso2":"15:14:34.987","horaSalida":"15:14:38.136"}
+{"usuario":"prueba10","fecha":"2025-10-13","horadeEntrada":"15:15:45.055","horaDescanso1":"15:15:47.196","horaDescanso2":"15:15:50.127","horaSalida":"15:15:52.431"}

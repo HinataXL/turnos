@@ -3,9 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/jorgmms/GitHub/turnos/src/screen/PanelDeEmpleado.java</file>
-            <file>file:/home/jorgmms/GitHub/turnos/src/screen/InfoMarcajeForm.java</file>
-            <file>file:/home/jorgmms/GitHub/turnos/src/screen/MarcajeForm.java</file>
+            <file>file:/C:/Users/erick/OneDrive/Documents/NetBeansProjects/turnosRRHH/src/model/Marcaje.java</file>
+            <file>file:/C:/Users/erick/OneDrive/Documents/NetBeansProjects/turnosRRHH/src/screen/InfoMarcajeForm.java</file>
+            <file>file:/C:/Users/erick/OneDrive/Documents/NetBeansProjects/turnosRRHH/src/screen/MarcajeForm.java</file>
+            <file>file:/C:/Users/erick/OneDrive/Documents/NetBeansProjects/turnosRRHH/src/dao/MarcajeDAO.java</file>
+            <file>file:/C:/Users/erick/OneDrive/Documents/NetBeansProjects/turnosRRHH/src/screen/GestionTurnosForm.java</file>
         </group>
     </open-files>
 </project-private>
