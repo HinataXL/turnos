@@ -1,0 +1,1 @@
+{"fechaInicio":"2025-10-14","turno":"Turno Matutino\t","fechaFin":"2025-10-31","usuarioEmpleado":"prueba10"}

@@ -1,9 +1,13 @@
 
 package screen;
 import dao.EmpleadoDAO;
+import dao.TurnoDAO;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import model.Empleado;
 import java.util.List;
 import javax.swing.JOptionPane;
+import model.Turno;
 
 /**
  *
@@ -159,28 +163,38 @@ public class GestionTurnosForm extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // Obtenemos el objeto que está seleccionado en el ComboBox
-        Object itemSeleccionado = cbxEmpleados.getSelectedItem();
+        Empleado empleadoSeleccionado = (Empleado) cbxEmpleados.getSelectedItem();
+    Date fechaInicio = jDateChooser1.getDate(); // Suponiendo que jDateChooser1 es para la fecha de inicio
+    Date fechaFin = jDateChooser2.getDate();    // Suponiendo que jDateChooser2 es para la fecha de fin
+    String turnoSeleccionado = (String) jComboBox1.getSelectedItem(); // Suponiendo que jComboBox1 es para los turnos
 
-        // Verificamos que se haya seleccionado un empleado válido
-        if (itemSeleccionado != null && itemSeleccionado instanceof Empleado) {
-            
-            // Convertimos el objeto a tipo Empleado
-            Empleado empleadoSeleccionado = (Empleado) itemSeleccionado;
-            
-            // Ahora ya puedes acceder a toda su información
-            String dpi = empleadoSeleccionado.getDPI();
-            String nombre = empleadoSeleccionado.getNombre();
-            
-            // Haz lo que necesites con los datos (guardar turno, fechas, etc.)
-            // Por ejemplo, mostrar un mensaje de confirmación:
-            String mensaje = "Guardando turno para: " + nombre + " (DPI: " + dpi + ")";
-            JOptionPane.showMessageDialog(this, mensaje);
-            
-        } else {
-            // Muestra un mensaje si no se seleccionó nada
-            JOptionPane.showMessageDialog(this, "Por favor, seleccione un empleado.");
-        }
+    // Validaciones
+    if (empleadoSeleccionado == null) {
+        JOptionPane.showMessageDialog(this, "Debe seleccionar un empleado.");
+        return;
+    }
+    if (fechaInicio == null || fechaFin == null) {
+        JOptionPane.showMessageDialog(this, "Debe seleccionar ambas fechas.");
+        return;
+    }
+
+    // Formatear las fechas a un texto estándar (YYYY-MM-DD)
+    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+    String fechaInicioStr = sdf.format(fechaInicio);
+    String fechaFinStr = sdf.format(fechaFin);
+
+    // Crear el objeto Turno con los datos del formulario
+    Turno nuevoTurno = new Turno();
+    nuevoTurno.setUsuarioEmpleado(empleadoSeleccionado.getUsuario());
+    nuevoTurno.setFechaInicio(fechaInicioStr);
+    nuevoTurno.setFechaFin(fechaFinStr);
+    nuevoTurno.setTurno(turnoSeleccionado);
+    
+    // Guardar el turno usando el DAO
+    TurnoDAO turnoDAO = new TurnoDAO();
+    turnoDAO.guardarTurno(nuevoTurno);
+    
+    JOptionPane.showMessageDialog(this, "Asignación Creada con Éxito para " + empleadoSeleccionado.getNombre());
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
