@@ -1,15 +1,16 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package screen;
+import dao.EmpleadoDAO;
+import model.Empleado;
+import java.util.List;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author erickpedroza
  */
 public class GestionTurnosForm extends javax.swing.JFrame {
+    
 
     /**
      * Creates new form GestionTurnosForm
@@ -17,6 +18,23 @@ public class GestionTurnosForm extends javax.swing.JFrame {
     public GestionTurnosForm() {
         initComponents();
     }
+    
+    private void cargarEmpleados() {
+        EmpleadoDAO dao = new EmpleadoDAO();
+        List<Empleado> listaDeEmpleados = dao.obtenerTodos();
+        
+        // Limpiamos el ComboBox para evitar que se dupliquen datos
+        cbxEmpleados.removeAllItems();
+        
+        // Recorremos la lista y añadimos cada empleado al ComboBox
+        for (Empleado emp : listaDeEmpleados) {
+            // Filtra para mostrar solo empleados "Activos"
+            if ("Activo".equalsIgnoreCase(emp.getEstado()) && !"Administrador".equalsIgnoreCase(emp.getRol()) ) {
+                cbxEmpleados.addItem(emp);
+            }
+        }
+    }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -38,9 +56,14 @@ public class GestionTurnosForm extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        cbxEmpleados = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         jButton1.setText("Regresar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -87,7 +110,7 @@ public class GestionTurnosForm extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jDateChooser1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jDateChooser2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jComboBox2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(cbxEmpleados, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(291, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -113,7 +136,7 @@ public class GestionTurnosForm extends javax.swing.JFrame {
                 .addGap(40, 40, 40)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cbxEmpleados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(40, 40, 40)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel4)
@@ -136,8 +159,33 @@ public class GestionTurnosForm extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+        // Obtenemos el objeto que está seleccionado en el ComboBox
+        Object itemSeleccionado = cbxEmpleados.getSelectedItem();
+
+        // Verificamos que se haya seleccionado un empleado válido
+        if (itemSeleccionado != null && itemSeleccionado instanceof Empleado) {
+            
+            // Convertimos el objeto a tipo Empleado
+            Empleado empleadoSeleccionado = (Empleado) itemSeleccionado;
+            
+            // Ahora ya puedes acceder a toda su información
+            String dpi = empleadoSeleccionado.getDPI();
+            String nombre = empleadoSeleccionado.getNombre();
+            
+            // Haz lo que necesites con los datos (guardar turno, fechas, etc.)
+            // Por ejemplo, mostrar un mensaje de confirmación:
+            String mensaje = "Guardando turno para: " + nombre + " (DPI: " + dpi + ")";
+            JOptionPane.showMessageDialog(this, mensaje);
+            
+        } else {
+            // Muestra un mensaje si no se seleccionó nada
+            JOptionPane.showMessageDialog(this, "Por favor, seleccione un empleado.");
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        this.cargarEmpleados();
+    }//GEN-LAST:event_formWindowOpened
 
     /**
      * @param args the command line arguments
@@ -176,10 +224,10 @@ public class GestionTurnosForm extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JComboBox<Empleado> cbxEmpleados;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox3;
     private com.toedter.calendar.JDateChooser jDateChooser1;
     private com.toedter.calendar.JDateChooser jDateChooser2;

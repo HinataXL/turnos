@@ -160,17 +160,7 @@ public class Empleado {
 
     @Override
     public String toString() {
-        return "Empleado{" +
-               "dpi='" + dpi + '\'' +
-               ", nombre='" + nombre + '\'' +
-               ", usuario='" + usuario + '\'' +
-               ", area='" + area + '\'' +
-               ", turno='" + turno + '\'' +
-               ", estado='" + estado + '\'' +
-               ", correo='" + correo + '\'' +
-               ", contraseña='" + "********" + '\'' + // Ocultamos la contraseña por seguridad
-               ", rol='" + rol + '\'' +
-               '}';
+        return this.nombre;
     }
 }
 
