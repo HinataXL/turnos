@@ -5,3 +5,4 @@
 {"area":"Prueba3","estado":"Activo","correo":"erick.pedroza@fixss.com","usuario":"Prueba3","turno":"Matutino","dpi":"2845742280101","nombre":"Prueba3","rol":"Empleado","contraseña":"Prueba3"}
 {"area":"IT","estado":"Activo","correo":"erick.pedroza@qpaypro.com","usuario":"prueba10","turno":"Matutino","dpi":"2222222222222","nombre":"prueba10","rol":"Empleado","contraseña":"prueba10"}
 {"area":"Practicante","estado":"Inactivo","correo":"ajcipluis7@gmail.com","usuario":"lajcip","turno":"Matutino","dpi":"2222222222222","nombre":"Luis","rol":"Empleado","contraseña":"lajcip"}
+{"area":"prueba","estado":"Inactivo","correo":"erickpedroza45@gmail.com","usuario":"prueba4","turno":"Matutino","dpi":"2845748820101","nombre":"prueba4","rol":"Empleado","contraseña":"prueba4"}

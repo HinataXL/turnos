@@ -161,7 +161,9 @@ public class GestionSolicitudesAdminForm extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRechazarActionPerformed
 
     private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
-       this.dispose();
+        MantenimientoForm MantenimientoForm = new MantenimientoForm();
+        MantenimientoForm.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnRegresarActionPerformed
 
     /**

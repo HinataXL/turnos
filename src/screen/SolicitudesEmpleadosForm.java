@@ -137,8 +137,7 @@ public class SolicitudesEmpleadosForm extends javax.swing.JFrame {
                 "Solicitud Enviada", 
                 JOptionPane.INFORMATION_MESSAGE);
             
-            // Opcional: Cierra el formulario después de enviar la solicitud.
-            this.dispose();
+            
             
         } catch (IOException e) {
             // Muestra un mensaje de error si algo sale mal al guardar.

@@ -118,7 +118,7 @@ public class PanelDeEmpleado extends javax.swing.JFrame {
     }//GEN-LAST:event_ButtMarcajeActionPerformed
 
     private void ButtConsultarTurnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtConsultarTurnoActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_ButtConsultarTurnoActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
