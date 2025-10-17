@@ -44,11 +44,11 @@ public class PanelDeEmpleado extends javax.swing.JFrame {
 
         ButtMarcaje = new javax.swing.JButton();
         ButtSoliAusencia = new javax.swing.JButton();
-        ButtConsultarTurno = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        btnVerTurnos = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        btnVerTurnos = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -60,7 +60,7 @@ public class PanelDeEmpleado extends javax.swing.JFrame {
                 ButtMarcajeActionPerformed(evt);
             }
         });
-        getContentPane().add(ButtMarcaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 140, 280, 60));
+        getContentPane().add(ButtMarcaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 150, 250, 60));
 
         ButtSoliAusencia.setText("Solicitud De Ausencia");
         ButtSoliAusencia.addActionListener(new java.awt.event.ActionListener() {
@@ -68,15 +68,7 @@ public class PanelDeEmpleado extends javax.swing.JFrame {
                 ButtSoliAusenciaActionPerformed(evt);
             }
         });
-        getContentPane().add(ButtSoliAusencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 240, 280, 60));
-
-        ButtConsultarTurno.setText("Consultar Cambio de turno");
-        ButtConsultarTurno.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButtConsultarTurnoActionPerformed(evt);
-            }
-        });
-        getContentPane().add(ButtConsultarTurno, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 330, 280, 60));
+        getContentPane().add(ButtSoliAusencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 250, 250, 60));
 
         jButton1.setText("Regresar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -84,13 +76,7 @@ public class PanelDeEmpleado extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 440, 130, 50));
-
-        jPanel1.setEnabled(false);
-
-        jLabel1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jLabel1.setText("Panel de Empleado");
-        jPanel1.add(jLabel1);
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 470, 130, 40));
 
         btnVerTurnos.setText("Ver Turnos");
         btnVerTurnos.addActionListener(new java.awt.event.ActionListener() {
@@ -98,9 +84,20 @@ public class PanelDeEmpleado extends javax.swing.JFrame {
                 btnVerTurnosActionPerformed(evt);
             }
         });
-        jPanel1.add(btnVerTurnos);
+        getContentPane().add(btnVerTurnos, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 350, 250, 60));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 730));
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/PNG/⚛️ Fondamentaux (Community)-1.png"))); // NOI18N
+        jLabel3.setText("jLabel3");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 730));
+
+        jPanel1.setEnabled(false);
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jLabel1.setText("Panel de Empleado");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 50, -1, -1));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 720));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -117,9 +114,11 @@ public class PanelDeEmpleado extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_ButtMarcajeActionPerformed
 
+
     private void ButtConsultarTurnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtConsultarTurnoActionPerformed
         
     }//GEN-LAST:event_ButtConsultarTurnoActionPerformed
+
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
@@ -167,12 +166,12 @@ public class PanelDeEmpleado extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton ButtConsultarTurno;
     private javax.swing.JButton ButtMarcaje;
     private javax.swing.JButton ButtSoliAusencia;
     private javax.swing.JButton btnVerTurnos;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

@@ -63,6 +63,7 @@ public class SolicitudesEmpleadosForm extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
         lblInstruccion = new javax.swing.JLabel();
         lblBienvenido = new javax.swing.JLabel();
         comboTipoSolicitud = new javax.swing.JComboBox<>();
@@ -74,16 +75,17 @@ public class SolicitudesEmpleadosForm extends javax.swing.JFrame {
         setResizable(false);
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 550, 80, 40));
 
         lblInstruccion.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         lblInstruccion.setForeground(new java.awt.Color(255, 255, 255));
         lblInstruccion.setText("Selecciona el tipo de permiso que necesitas");
         jPanel1.add(lblInstruccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 290, -1, -1));
 
-        lblBienvenido.setFont(new java.awt.Font("Impact", 0, 36)); // NOI18N
+        lblBienvenido.setFont(new java.awt.Font("Impact", 1, 36)); // NOI18N
         lblBienvenido.setForeground(new java.awt.Color(255, 255, 255));
         lblBienvenido.setText("Bienvenido ");
-        jPanel1.add(lblBienvenido, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 220, 480, -1));
+        jPanel1.add(lblBienvenido, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 220, 480, -1));
 
         comboTipoSolicitud.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Permiso Personal", "Vacaciones", "Citas al IGSS", "Licencia de cumpleaños (1 día)", "Suspensión Laboral", "Otros", " " }));
         jPanel1.add(comboTipoSolicitud, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 350, 270, 40));
@@ -173,6 +175,7 @@ public class SolicitudesEmpleadosForm extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEnviar;
     private javax.swing.JComboBox<String> comboTipoSolicitud;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblBienvenido;
