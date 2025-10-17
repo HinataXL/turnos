@@ -11,6 +11,7 @@ import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import javax.swing.JOptionPane;
 import javax.swing.Timer;
+import model.Empleado;
 /**
  *
  * @author jorgmms
@@ -19,21 +20,24 @@ public class MarcajeForm extends javax.swing.JFrame {
     
     private Marcaje marcajeActual;
     private final MarcajeDAO marcajeDAO;
-    private final String usuarioActual;
+    private final Empleado empleadoLogueado;
     private Timer timer;
+    
     
     /**
      *
      * @param usuario
      */
-    public MarcajeForm(String usuario) {
+    public MarcajeForm(Empleado empleado) {
         initComponents();
-        this.usuarioActual = usuario;
+        this.empleadoLogueado = empleado; // Guardamos el objeto Empleado
         this.marcajeDAO = new MarcajeDAO();
         this.setLocationRelativeTo(null);
         iniciarReloj();
-        actualizarEstadoBotones(); // Llamamos aquí para establecer el estado inicial correcto
+        actualizarEstadoBotones();
     }
+
+    
 
     private void iniciarReloj() {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("hh:mm:ss a");
@@ -149,12 +153,12 @@ public class MarcajeForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnInfoMarcajeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInfoMarcajeActionPerformed
-        InfoMarcajeForm infoForm = new InfoMarcajeForm(usuarioActual);
+        InfoMarcajeForm infoForm = new InfoMarcajeForm(this.empleadoLogueado.getUsuario());
         infoForm.setVisible(true);
     }//GEN-LAST:event_btnInfoMarcajeActionPerformed
 
     private void btnEntradaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntradaActionPerformed
-        this.marcajeActual = new Marcaje(this.usuarioActual);
+        this.marcajeActual = new Marcaje(this.empleadoLogueado.getUsuario());
         this.marcajeActual.setHoraEntrada(LocalTime.now());
        
         if (marcajeActual.getHoraEntrada().isAfter(LocalTime.of(8, 0))) {
@@ -213,11 +217,11 @@ public class MarcajeForm extends javax.swing.JFrame {
 
     private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
         if (timer != null) {
-            timer.stop();
-        }
+        timer.stop();
+    }
         this.dispose();
-        // Asumiendo que tu clase de menú se llama Menu_Principal
-        PanelDeEmpleado panel = new PanelDeEmpleado(usuarioActual);
+    // Le pasamos el objeto Empleado completo de vuelta al panel
+        PanelDeEmpleado panel = new PanelDeEmpleado(this.empleadoLogueado);
         panel.setVisible(true);
     }//GEN-LAST:event_btnRegresarActionPerformed
 

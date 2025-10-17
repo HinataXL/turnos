@@ -3,6 +3,8 @@ package screen;
 import javax.swing.JOptionPane;
 import auth.AuthResult;
 import auth.AuthService;
+import dao.EmpleadoDAO;
+import model.Empleado;
 
 
 
@@ -114,9 +116,8 @@ public class LoginForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnIniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarActionPerformed
-        String usuario = txtUsuario.getText().trim();
-        // Se obtiene la contraseña de forma segura desde el JPasswordField
-        String contrasena = txtContrasena.getText().trim();
+       String usuario = txtUsuario.getText().trim();
+        String contrasena = new String(txtContrasena.getPassword()).trim(); // Forma más segura de obtener la contraseña
 
         if (usuario.isEmpty() || contrasena.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Por favor, ingrese usuario y contraseña.", "Campos Vacíos", JOptionPane.WARNING_MESSAGE);
@@ -129,9 +130,18 @@ public class LoginForm extends javax.swing.JFrame {
             services.BitacoraService.getInstance().logInicioSesion(usuario);
             JOptionPane.showMessageDialog(this, "¡Bienvenido!", "Inicio de Sesión Exitoso", JOptionPane.INFORMATION_MESSAGE);
 
-            // --- CAMBIO IMPORTANTE 1 ---
-            // Ahora le pasamos el rol Y el nombre de usuario al método que abre el menú.
-            abrirMenuSegunRol(resultado.getRole(), usuario);
+            // <--- 2. BUSCA EL OBJETO EMPLEADO COMPLETO
+            EmpleadoDAO dao = new EmpleadoDAO();
+            Empleado empleadoLogueado = dao.buscarPorUsuario(usuario);
+            
+            // Verificación importante: ¿Se encontró el objeto del empleado?
+            if (empleadoLogueado != null) {
+                // <--- 3. LLAMA AL MÉTODO PASANDO EL OBJETO COMPLETO
+                abrirMenuSegunRol(empleadoLogueado);
+            } else {
+                JOptionPane.showMessageDialog(this, "No se pudieron cargar los datos del empleado.", "Error Crítico", JOptionPane.ERROR_MESSAGE);
+            }
+            
         } else {
             JOptionPane.showMessageDialog(this, resultado.getMessage(), "Error de Inicio de Sesión", JOptionPane.ERROR_MESSAGE);
         }
@@ -144,14 +154,15 @@ public class LoginForm extends javax.swing.JFrame {
     private void txtContrasenaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtContrasenaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtContrasenaActionPerformed
-        private void abrirMenuSegunRol(String rol, String usuario) {
+       private void abrirMenuSegunRol(Empleado empleado) {
+        String rol = empleado.getRol(); // Obtenemos el rol desde el objeto
+
         if ("Administrador".equalsIgnoreCase(rol)) {
-            MenuPrincipal menuAdmin = new MenuPrincipal();
+            MenuPrincipal menuAdmin = new MenuPrincipal(); // El menú de admin no necesita los datos por ahora
             menuAdmin.setVisible(true);
         } else if ("Empleado".equalsIgnoreCase(rol)) {
-            // --- CAMBIO IMPORTANTE 2 ---
-            // Se le pasa el nombre de usuario al constructor del formulario de solicitudes.
-            PanelDeEmpleado menuEmpleado = new PanelDeEmpleado(usuario);
+            // Le pasamos el objeto COMPLETO al panel del empleado
+            PanelDeEmpleado menuEmpleado = new PanelDeEmpleado(empleado);
             menuEmpleado.setVisible(true);
         } else {
             JOptionPane.showMessageDialog(this, "Rol no reconocido: " + rol, "Error", JOptionPane.ERROR_MESSAGE);

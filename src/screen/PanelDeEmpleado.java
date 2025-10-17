@@ -6,21 +6,32 @@
 package screen;
 import javax.swing.JOptionPane;
 import screen.MarcajeForm;
+import model.Empleado;
+import screen.AsignacionTurnosEmpleado;
 /**
  *
  * @author jorgmms
  */
 public class PanelDeEmpleado extends javax.swing.JFrame {
-    private String usuarioLogueado;
+
+    // Variable para guardar al empleado (ya deberías tenerla)
+    private Empleado empleadoLogueado;
 
     /**
-     * Creates new form PanelDeEmpleado
+     * Constructor que recibe al empleado que inició sesión.
      */
-    public PanelDeEmpleado(String usuario) {
+    public PanelDeEmpleado(Empleado empleado) {
+        // 1. Inicializa los componentes visuales del formulario. ¡Esta línea es vital!
         initComponents();
-        this.usuarioLogueado = usuario;
-        this.setLocationRelativeTo(null);
+        
+        // 2. Guarda el objeto del empleado que recibiste para usarlo más tarde.
+        this.empleadoLogueado = empleado;
+        
+        // 3. (Opcional) Usa los datos del empleado para personalizar la ventana.
+        this.setTitle("Panel de " + this.empleadoLogueado.getNombre());
     }
+
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -31,20 +42,17 @@ public class PanelDeEmpleado extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
         ButtMarcaje = new javax.swing.JButton();
         ButtSoliAusencia = new javax.swing.JButton();
         ButtConsultarTurno = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        btnVerTurnos = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jLabel1.setText("Panel de Empleado");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 20, 230, 70));
 
         ButtMarcaje.setText("Marcaje");
         ButtMarcaje.addActionListener(new java.awt.event.ActionListener() {
@@ -79,20 +87,32 @@ public class PanelDeEmpleado extends javax.swing.JFrame {
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 440, 130, 50));
 
         jPanel1.setEnabled(false);
+
+        jLabel1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jLabel1.setText("Panel de Empleado");
+        jPanel1.add(jLabel1);
+
+        btnVerTurnos.setText("Ver Turnos");
+        btnVerTurnos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVerTurnosActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnVerTurnos);
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 730));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void ButtSoliAusenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtSoliAusenciaActionPerformed
-       //abre el frame de solicitudes de ausencia y pasa el usuario
-       SolicitudesEmpleadosForm solicitudesForm = new SolicitudesEmpleadosForm(usuarioLogueado);
-       solicitudesForm.setVisible(true);
-       this.dispose();
+       SolicitudesEmpleadosForm solicitudesForm = new SolicitudesEmpleadosForm(this.empleadoLogueado.getUsuario());
+        solicitudesForm.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_ButtSoliAusenciaActionPerformed
 
     private void ButtMarcajeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtMarcajeActionPerformed
-        MarcajeForm marcajeForm = new MarcajeForm(usuarioLogueado);
+        MarcajeForm marcajeForm = new MarcajeForm(empleadoLogueado);
         marcajeForm.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_ButtMarcajeActionPerformed
@@ -104,6 +124,11 @@ public class PanelDeEmpleado extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void btnVerTurnosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerTurnosActionPerformed
+        AsignacionTurnosEmpleado ventanaTurnos = new AsignacionTurnosEmpleado(this.empleadoLogueado);
+        ventanaTurnos.setVisible(true);
+    }//GEN-LAST:event_btnVerTurnosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -145,6 +170,7 @@ public class PanelDeEmpleado extends javax.swing.JFrame {
     private javax.swing.JButton ButtConsultarTurno;
     private javax.swing.JButton ButtMarcaje;
     private javax.swing.JButton ButtSoliAusencia;
+    private javax.swing.JButton btnVerTurnos;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
