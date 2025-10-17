@@ -75,8 +75,6 @@ public class MarcajeForm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        lblTimer = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         btnEntrada = new javax.swing.JButton();
         btnDescansoUno = new javax.swing.JButton();
@@ -84,28 +82,23 @@ public class MarcajeForm extends javax.swing.JFrame {
         btnSalida = new javax.swing.JButton();
         btnInfoMarcaje = new javax.swing.JButton();
         btnRegresar = new javax.swing.JButton();
+        lblTimer = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
-        jLabel1.setText("MARCAJE");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 30, 170, 45));
-
-        lblTimer.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        lblTimer.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        getContentPane().add(lblTimer, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 100, 200, 40));
-
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnEntrada.setText("ENTRADA");
+        btnEntrada.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnEntrada.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEntradaActionPerformed(evt);
             }
         });
-        jPanel1.add(btnEntrada, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 190, 270, 50));
+        jPanel1.add(btnEntrada, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 160, 220, 40));
 
         btnDescansoUno.setText("DESCANSO 1");
         btnDescansoUno.addActionListener(new java.awt.event.ActionListener() {
@@ -113,7 +106,7 @@ public class MarcajeForm extends javax.swing.JFrame {
                 btnDescansoUnoActionPerformed(evt);
             }
         });
-        jPanel1.add(btnDescansoUno, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 190, 270, 50));
+        jPanel1.add(btnDescansoUno, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 230, 220, 40));
 
         btnDescansoDos.setText("DESCANSO 2");
         btnDescansoDos.addActionListener(new java.awt.event.ActionListener() {
@@ -121,7 +114,7 @@ public class MarcajeForm extends javax.swing.JFrame {
                 btnDescansoDosActionPerformed(evt);
             }
         });
-        jPanel1.add(btnDescansoDos, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 190, 250, 50));
+        jPanel1.add(btnDescansoDos, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 300, 220, 40));
 
         btnSalida.setText("SALIDA");
         btnSalida.addActionListener(new java.awt.event.ActionListener() {
@@ -129,15 +122,15 @@ public class MarcajeForm extends javax.swing.JFrame {
                 btnSalidaActionPerformed(evt);
             }
         });
-        jPanel1.add(btnSalida, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 300, 240, 50));
+        jPanel1.add(btnSalida, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 370, 220, 40));
 
-        btnInfoMarcaje.setText("INFORMACION DEL MARCAJE");
+        btnInfoMarcaje.setText("INFO DE MARCAJE");
         btnInfoMarcaje.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnInfoMarcajeActionPerformed(evt);
             }
         });
-        jPanel1.add(btnInfoMarcaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 300, 240, 50));
+        jPanel1.add(btnInfoMarcaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 440, 220, 40));
 
         btnRegresar.setText("REGRESAR");
         btnRegresar.addActionListener(new java.awt.event.ActionListener() {
@@ -145,7 +138,14 @@ public class MarcajeForm extends javax.swing.JFrame {
                 btnRegresarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 590, 160, 80));
+        jPanel1.add(btnRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 540, 140, 40));
+
+        lblTimer.setFont(new java.awt.Font("Arimo", 1, 24)); // NOI18N
+        jPanel1.add(lblTimer, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 40, 180, 30));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/PNG/Couverture (2).jpg"))); // NOI18N
+        jLabel3.setText("jLabel3");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 720));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 720));
 
@@ -376,7 +376,7 @@ public class MarcajeForm extends javax.swing.JFrame {
     private javax.swing.JButton btnInfoMarcaje;
     private javax.swing.JButton btnRegresar;
     private javax.swing.JButton btnSalida;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblTimer;
     // End of variables declaration//GEN-END:variables

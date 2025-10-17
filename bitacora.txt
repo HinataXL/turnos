@@ -115,3 +115,17 @@
 {"descripcion":"El usuario ha iniciado sesión.","usuario":"prueba10","tipo_evento":"INICIO SESIÓN","timestamp":"2025-10-16 21:13:33"}
 {"descripcion":"El usuario ha iniciado sesión.","usuario":"prueba10","tipo_evento":"INICIO SESIÓN","timestamp":"2025-10-16 21:14:24"}
 {"descripcion":"El usuario ha iniciado sesión.","usuario":"adminrrhh","tipo_evento":"INICIO SESIÓN","timestamp":"2025-10-16 21:16:11"}
+{"descripcion":"El usuario ha iniciado sesión.","usuario":"prueba1","tipo_evento":"INICIO SESIÓN","timestamp":"2025-10-17 19:31:04"}
+{"descripcion":"El usuario ha iniciado sesión.","usuario":"prueba1","tipo_evento":"INICIO SESIÓN","timestamp":"2025-10-17 20:11:50"}
+{"descripcion":"El usuario ha iniciado sesión.","usuario":"prueba1","tipo_evento":"INICIO SESIÓN","timestamp":"2025-10-17 20:25:49"}
+{"descripcion":"El usuario ha iniciado sesión.","usuario":"prueba1","tipo_evento":"INICIO SESIÓN","timestamp":"2025-10-17 20:28:40"}
+{"descripcion":"El usuario ha iniciado sesión.","usuario":"prueba1","tipo_evento":"INICIO SESIÓN","timestamp":"2025-10-17 20:29:21"}
+{"descripcion":"El usuario ha iniciado sesión.","usuario":"prueba1","tipo_evento":"INICIO SESIÓN","timestamp":"2025-10-17 20:30:24"}
+{"descripcion":"El usuario ha iniciado sesión.","usuario":"prueba1","tipo_evento":"INICIO SESIÓN","timestamp":"2025-10-17 20:31:57"}
+{"descripcion":"El usuario ha iniciado sesión.","usuario":"prueba1","tipo_evento":"INICIO SESIÓN","timestamp":"2025-10-17 20:33:55"}
+{"descripcion":"El usuario ha iniciado sesión.","usuario":"prueba1","tipo_evento":"INICIO SESIÓN","timestamp":"2025-10-17 20:56:37"}
+{"descripcion":"El usuario ha iniciado sesión.","usuario":"prueba1","tipo_evento":"INICIO SESIÓN","timestamp":"2025-10-17 20:58:20"}
+{"descripcion":"El usuario ha iniciado sesión.","usuario":"prueba1","tipo_evento":"INICIO SESIÓN","timestamp":"2025-10-17 20:59:38"}
+{"descripcion":"El usuario ha iniciado sesión.","usuario":"prueba1","tipo_evento":"INICIO SESIÓN","timestamp":"2025-10-17 21:03:02"}
+{"descripcion":"El usuario ha iniciado sesión.","usuario":"prueba1","tipo_evento":"INICIO SESIÓN","timestamp":"2025-10-17 21:04:17"}
+{"descripcion":"El usuario ha iniciado sesión.","usuario":"prueba1","tipo_evento":"INICIO SESIÓN","timestamp":"2025-10-17 21:05:10"}
