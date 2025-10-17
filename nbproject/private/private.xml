@@ -10,11 +10,19 @@
             <file>file:/home/erickpedroza/Documentos/GitHub/turnos/src/screen/MantenimientoForm.java</file>
             <file>file:/home/erickpedroza/Documentos/GitHub/turnos/src/screen/GestionTurnosForm.java</file>
             <file>file:/home/erickpedroza/Documentos/GitHub/turnos/src/model/Empleado.java</file>
+<<<<<<< Updated upstream
 =======
             <file>file:/C:/Users/erick/OneDrive/Documents/NetBeansProjects/turnosRRHH/src/model/Marcaje.java</file>
             <file>file:/C:/Users/erick/OneDrive/Documents/NetBeansProjects/turnosRRHH/src/screen/InfoMarcajeForm.java</file>
             <file>file:/C:/Users/erick/OneDrive/Documents/NetBeansProjects/turnosRRHH/src/screen/MarcajeForm.java</file>
             <file>file:/C:/Users/erick/OneDrive/Documents/NetBeansProjects/turnosRRHH/src/dao/MarcajeDAO.java</file>
+>>>>>>> Stashed changes
+=======
+            <file>file:/home/erickpedroza/Documentos/GitHub/turnos/src/auth/AuthService.java</file>
+            <file>file:/home/erickpedroza/Documentos/GitHub/turnos/src/dao/TurnoDAO.java</file>
+            <file>file:/home/erickpedroza/Documentos/GitHub/turnos/src/screen/LoginForm.java</file>
+            <file>file:/home/erickpedroza/Documentos/GitHub/turnos/src/auth/AuthResult.java</file>
+            <file>file:/home/erickpedroza/Documentos/GitHub/turnos/src/model/Turno.java</file>
 >>>>>>> Stashed changes
         </group>
     </open-files>
