@@ -27,3 +27,7 @@
 {"fecha":"2025-10-17","tipo":"Suspensión Laboral","justificacion":"Suspensión Laboral","estado":"Rechazada","usuario":"prueba4"}
 {"fecha":"2025-10-17","tipo":"Suspensión Laboral","justificacion":"Suspensión Laboral","estado":"Rechazada","usuario":"prueba4"}
 {"fecha":"2025-10-17","tipo":"Licencia de cumpleaños (1 día)","justificacion":"Licencia de cumpleaños (1 día)","estado":"Aceptada","usuario":"prueba4"}
+{"fecha":"2025-10-17","tipo":"Suspensión Laboral","justificacion":"Suspensión Laboral","estado":"Pendiente","usuario":"prueba1"}
+{"fecha":"2025-10-18","tipo":"Citas al IGSS","justificacion":"Citas al IGSS","estado":"Pendiente","usuario":"prueba1"}
+{"fecha":"2025-10-18","tipo":"Permiso Personal","justificacion":"Permiso Personal","estado":"Aceptada","usuario":"prueba1"}
+{"fecha":"2025-10-18","tipo":"Vacaciones","justificacion":"Vacaciones","estado":"Aceptada","usuario":"jorggms"}

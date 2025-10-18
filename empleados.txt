@@ -1,8 +1,9 @@
 {"area":"rhh","estado":"Activo","correo":"rrhh","usuario":"adminrrhh","turno":"Matutino","dpi":"2902742290101","nombre":"Administrado","rol":"Administrador","contraseña":"admin123"}
-{"area":"Soporte","estado":"Activo","correo":"epedrozam1@miumg.edu.gt","usuario":"prueba1","turno":"Matutino","dpi":"2845742280101","nombre":"Erick Pedroza","rol":"Empleado","contraseña":"prueba1"}
+{"area":"Soporte","estado":"Inactivo","correo":"epedrozam1@miumg.edu.gt","usuario":"prueba1","turno":"Matutino","dpi":"2845742280101","nombre":"Erick Pedroza","rol":"Empleado","contraseña":"prueba1"}
 {"area":"Gerente","estado":"Activo","correo":"jorgeyuremmartinez@gmail.com","usuario":"Jorgmms","turno":"Matutino","dpi":"3808779290101","nombre":"Jorge Martínez","rol":"Administrador","contraseña":"159753"}
 {"area":"Prueba2","estado":"Inactivo","correo":"megahni48@gmail.com","usuario":"Prueba2","turno":"Matutino","dpi":"2222222222222","nombre":"Prueba2","rol":"Empleado","contraseña":"Prueba2"}
 {"area":"Prueba3","estado":"Activo","correo":"erick.pedroza@fixss.com","usuario":"Prueba3","turno":"Matutino","dpi":"2845742280101","nombre":"Prueba3","rol":"Empleado","contraseña":"Prueba3"}
 {"area":"IT","estado":"Activo","correo":"erick.pedroza@qpaypro.com","usuario":"prueba10","turno":"Matutino","dpi":"2222222222222","nombre":"prueba10","rol":"Empleado","contraseña":"prueba10"}
 {"area":"Practicante","estado":"Inactivo","correo":"ajcipluis7@gmail.com","usuario":"lajcip","turno":"Matutino","dpi":"2222222222222","nombre":"Luis","rol":"Empleado","contraseña":"lajcip"}
 {"area":"prueba","estado":"Inactivo","correo":"erickpedroza45@gmail.com","usuario":"prueba4","turno":"Matutino","dpi":"2845748820101","nombre":"prueba4","rol":"Empleado","contraseña":"prueba4"}
+{"area":"CPIL","estado":"Inactivo","correo":"jorgeyuremmartinez@gmail.com","usuario":"jorggms","turno":"Matutino","dpi":"3808779290101","nombre":"Jorge Yurem Martinez Sunuc","rol":"Empleado","contraseña":"12345"}

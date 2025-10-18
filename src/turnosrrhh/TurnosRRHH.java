@@ -22,8 +22,8 @@ public class TurnosRRHH {
      */
     public static void main(String[] args) {
         javax.swing.SwingUtilities.invokeLater(() -> {
-            GestionTurnosForm GestionTurnosForm = new GestionTurnosForm();
-            GestionTurnosForm.setVisible(true);
+            LoginForm LoginForm = new LoginForm();
+            LoginForm.setVisible(true);
         });
     }
     

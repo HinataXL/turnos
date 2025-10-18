@@ -28,11 +28,17 @@ public class PanelDeEmpleado extends javax.swing.JFrame {
         this.empleadoLogueado = empleado;
         
         // 3. (Opcional) Usa los datos del empleado para personalizar la ventana.
-        this.setTitle("Panel de " + this.empleadoLogueado.getNombre());
+        this.setTitle("Panel de - " + this.empleadoLogueado.getNombre());
+        this.setLocationRelativeTo(null);   
     }
-
     
-
+    public PanelDeEmpleado(String nombreUsuario) {
+    initComponents();
+    this.setLocationRelativeTo(null);
+    
+    this.empleadoLogueado = new Empleado();
+    this.empleadoLogueado.setUsuario(nombreUsuario);
+}
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -44,7 +50,7 @@ public class PanelDeEmpleado extends javax.swing.JFrame {
 
         ButtMarcaje = new javax.swing.JButton();
         ButtSoliAusencia = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        btnRegresar = new javax.swing.JButton();
         btnVerTurnos = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
@@ -70,13 +76,13 @@ public class PanelDeEmpleado extends javax.swing.JFrame {
         });
         getContentPane().add(ButtSoliAusencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 250, 250, 60));
 
-        jButton1.setText("Regresar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnRegresar.setText("Salir");
+        btnRegresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnRegresarActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 470, 130, 40));
+        getContentPane().add(btnRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 470, 130, 40));
 
         btnVerTurnos.setText("Ver Turnos");
         btnVerTurnos.addActionListener(new java.awt.event.ActionListener() {
@@ -103,9 +109,24 @@ public class PanelDeEmpleado extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ButtSoliAusenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtSoliAusenciaActionPerformed
-       SolicitudesEmpleadosForm solicitudesForm = new SolicitudesEmpleadosForm(this.empleadoLogueado.getUsuario());
-        solicitudesForm.setVisible(true);
-        this.dispose();
+       try {
+           //validar que el empleado esta inicializado
+           if(this.empleadoLogueado == null){
+               JOptionPane.showMessageDialog(this, "Error: no hay Info del empleado", "Error de Sesion", JOptionPane.ERROR_MESSAGE);
+               return;
+           }
+           
+           //Obtener el nombre de usuario
+           String nombreUsuario = this.empleadoLogueado.getUsuario(); 
+           //Crea y muestra el formulario
+           SolicitudesEmpleadosForm solicitudesForm = new SolicitudesEmpleadosForm(nombreUsuario);
+           solicitudesForm.setVisible(true);
+           this.dispose();
+               
+       } catch (Exception e) {
+           JOptionPane.showMessageDialog(this, "Error al abrir solicitudes" + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+           e.printStackTrace();
+       }
     }//GEN-LAST:event_ButtSoliAusenciaActionPerformed
 
     private void ButtMarcajeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtMarcajeActionPerformed
@@ -120,9 +141,10 @@ public class PanelDeEmpleado extends javax.swing.JFrame {
     }//GEN-LAST:event_ButtConsultarTurnoActionPerformed
 
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
+        new LoginForm().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnRegresarActionPerformed
 
     private void btnVerTurnosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerTurnosActionPerformed
         AsignacionTurnosEmpleado ventanaTurnos = new AsignacionTurnosEmpleado(this.empleadoLogueado);
@@ -168,8 +190,8 @@ public class PanelDeEmpleado extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ButtMarcaje;
     private javax.swing.JButton ButtSoliAusencia;
+    private javax.swing.JButton btnRegresar;
     private javax.swing.JButton btnVerTurnos;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
