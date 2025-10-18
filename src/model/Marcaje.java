@@ -79,7 +79,6 @@ public class Marcaje {
     }
         
         
-    // CONVERTIDOR DE DATOS A UNA SOLA LINEA CSV
     
    
 }

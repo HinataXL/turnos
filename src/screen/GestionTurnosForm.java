@@ -21,7 +21,16 @@ public class GestionTurnosForm extends javax.swing.JFrame {
      */
     public GestionTurnosForm() {
         initComponents();
+        
+        Date fechaDeHoy = new Date();
+        
+        
+        jDateChooser1.setMinSelectableDate(fechaDeHoy);
+        jDateChooser2.setMinSelectableDate(fechaDeHoy);
     }
+    
+    
+        
     
     private void cargarEmpleados() {
         EmpleadoDAO dao = new EmpleadoDAO();
