@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package screen;
-import static com.sun.org.apache.xalan.internal.xsltc.compiler.util.Type.Int;
 import model.Empleado;
 import dao.EmpleadoDAO;
 import javax.swing.JOptionPane;

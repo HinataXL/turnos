@@ -38,11 +38,11 @@ public class Marcaje {
         this.usuario = usuario;
     }
     
-    public LocalTime getHoraEntrada() {
+    public LocalTime getHoraDeEntrada() {
         return horadeEntrada;
     }
     
-    public void setHoraEntrada(LocalTime horadeEntrada) {
+    public void setHoraDeEntrada(LocalTime horadeEntrada) {
         this.horadeEntrada = horadeEntrada;
     }
     

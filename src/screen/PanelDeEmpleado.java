@@ -52,6 +52,7 @@ public class PanelDeEmpleado extends javax.swing.JFrame {
         ButtSoliAusencia = new javax.swing.JButton();
         btnRegresar = new javax.swing.JButton();
         btnVerTurnos = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -82,7 +83,7 @@ public class PanelDeEmpleado extends javax.swing.JFrame {
                 btnRegresarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 470, 130, 40));
+        getContentPane().add(btnRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 570, 130, 40));
 
         btnVerTurnos.setText("Ver Turnos");
         btnVerTurnos.addActionListener(new java.awt.event.ActionListener() {
@@ -91,6 +92,9 @@ public class PanelDeEmpleado extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnVerTurnos, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 350, 250, 60));
+
+        jButton1.setText("Gestiones de Empleado");
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 450, 250, 60));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/PNG/⚛️ Fondamentaux (Community)-1.png"))); // NOI18N
         jLabel3.setText("jLabel3");
@@ -182,7 +186,7 @@ public class PanelDeEmpleado extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
-                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+                    new PanelDeEmpleado(new Empleado()).setVisible(true);
             }
         });
     }
@@ -192,6 +196,7 @@ public class PanelDeEmpleado extends javax.swing.JFrame {
     private javax.swing.JButton ButtSoliAusencia;
     private javax.swing.JButton btnRegresar;
     private javax.swing.JButton btnVerTurnos;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;

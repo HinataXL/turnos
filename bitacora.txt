@@ -150,3 +150,6 @@
 {"descripcion":"El usuario ha iniciado sesión.","usuario":"adminrrhh","tipo_evento":"INICIO SESIÓN","timestamp":"2025-10-18 04:58:56"}
 {"descripcion":"El usuario ha iniciado sesión.","usuario":"adminrrhh","tipo_evento":"INICIO SESIÓN","timestamp":"2025-10-18 05:13:45"}
 {"descripcion":"El usuario ha iniciado sesión.","usuario":"Prueba3","tipo_evento":"INICIO SESIÓN","timestamp":"2025-10-18 05:15:04"}
+{"descripcion":"El usuario ha iniciado sesión.","usuario":"Prueba3","tipo_evento":"INICIO SESIÓN","timestamp":"2025-10-18 13:13:08"}
+{"descripcion":"El usuario ha iniciado sesión.","usuario":"adminrrhh","tipo_evento":"INICIO SESIÓN","timestamp":"2025-10-19 05:38:00"}
+{"descripcion":"El usuario ha iniciado sesión.","usuario":"adminrrhh","tipo_evento":"INICIO SESIÓN","timestamp":"2025-10-21 15:17:06"}

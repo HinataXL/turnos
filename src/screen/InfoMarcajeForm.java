@@ -81,11 +81,11 @@ public class InfoMarcajeForm extends javax.swing.JFrame {
     }
 
     private String calcularHorasTrabajadas(Marcaje marcaje) {
-        if (marcaje.getHoraEntrada() == null || marcaje.getHoraSalida() == null) {
+        if (marcaje.getHoraDeEntrada() == null || marcaje.getHoraSalida() == null) {
             return "Incompleto";
         }
         try {
-            Duration duracion = Duration.between(marcaje.getHoraEntrada(), marcaje.getHoraSalida());
+            Duration duracion = Duration.between(marcaje.getHoraDeEntrada(), marcaje.getHoraSalida());
             
             long horas = duracion.toHours();
             long minutos = duracion.toMinutes() % 60;
@@ -97,9 +97,9 @@ public class InfoMarcajeForm extends javax.swing.JFrame {
     }
 
     private String obtenerEstadoMarcaje(Marcaje marcaje) {
-        if (marcaje.getHoraEntrada() != null && marcaje.getHoraSalida() != null) {
+        if (marcaje.getHoraDeEntrada() != null && marcaje.getHoraSalida() != null) {
             return "Completado";
-        } else if (marcaje.getHoraEntrada() != null) {
+        } else if (marcaje.getHoraDeEntrada() != null) {
             return "En progreso";
         } else {
             return "No iniciado";
@@ -144,7 +144,7 @@ public class InfoMarcajeForm extends javax.swing.JFrame {
             for (Marcaje marcaje : marcajesDelUsuario) {
                 Object[] fila = {
                     formatFecha(marcaje.getFecha()),
-                    formatHora(marcaje.getHoraEntrada()),
+                    formatHora(marcaje.getHoraDeEntrada()),
                     formatHora(marcaje.getHoraDescanso1()),
                     formatHora(marcaje.getHoraDescanso2()),
                     formatHora(marcaje.getHoraSalida()),

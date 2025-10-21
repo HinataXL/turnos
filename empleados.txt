@@ -1,4 +1,4 @@
-{"area":"rhh","estado":"Activo","correo":"rrhh","usuario":"adminrrhh","turno":"Matutino","dpi":"2902742290101","nombre":"Administrado","rol":"Administrador","contraseña":"admin123"}
+{"area":"rrhh","estado":"Activo","correo":"rrhh","usuario":"adminrrhh","turno":"Matutino","dpi":"2902742290101","nombre":"Administrado","rol":"Administrador","contraseña":"admin123"}
 {"area":"Soporte","estado":"Inactivo","correo":"epedrozam1@miumg.edu.gt","usuario":"prueba1","turno":"Matutino","dpi":"2845742280101","nombre":"Erick Pedroza","rol":"Empleado","contraseña":"prueba1"}
 {"area":"Gerente","estado":"Activo","correo":"jorgeyuremmartinez@gmail.com","usuario":"Jorgmms","turno":"Matutino","dpi":"3808779290101","nombre":"Jorge Martínez","rol":"Administrador","contraseña":"159753"}
 {"area":"Prueba2","estado":"Inactivo","correo":"megahni48@gmail.com","usuario":"Prueba2","turno":"Matutino","dpi":"2222222222222","nombre":"Prueba2","rol":"Empleado","contraseña":"Prueba2"}
