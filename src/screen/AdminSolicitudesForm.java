@@ -8,6 +8,10 @@ import model.SolicitudCambio;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.JOptionPane;
+import model.EmailTemplateService;
+import model.Empleado;
+import model.EmailSender;
+import dao.EmpleadoDAO;
 
 /**
  *
@@ -138,57 +142,88 @@ public class AdminSolicitudesForm extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowOpened
 
     private void btnAprobarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAprobarActionPerformed
-        // 1. Obtener la fila seleccionada
     int filaSeleccionada = jTable1.getSelectedRow();
-    
-    // 2. Verificar si se seleccionó algo
     if (filaSeleccionada == -1) {
-        JOptionPane.showMessageDialog(this, "Por favor, seleccione una solicitud de la tabla.", "Error", JOptionPane.WARNING_MESSAGE);
+        JOptionPane.showMessageDialog(this, "Por favor, seleccione una solicitud.");
         return;
     }
     
-    // 3. Obtener los datos clave de la fila (Usuario y Fecha Inicial)
     DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
     String usuario = model.getValueAt(filaSeleccionada, 0).toString();
     String fechaInicial = model.getValueAt(filaSeleccionada, 1).toString();
     
-    // 4. Llamar al DAO para actualizar
+    // 1. Actualizar el estado en el DAO
     SolicitudCambioDAO dao = new SolicitudCambioDAO();
     dao.actualizarEstado(usuario, fechaInicial, "Aprobado");
     
-    // 5. Informar al admin y refrescar la tabla
+    // 2. Enviar el correo
+    enviarNotificacion(usuario, fechaInicial, "Aprobado");
+    
+    // 3. Informar al admin (esto pausa el código)
     JOptionPane.showMessageDialog(this, "Solicitud APROBADA.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
-    cargarSolicitudesPendientes(); // Refresca para que la solicitud desaparezca
+    
+    // 4. Refrescar la tabla (AHORA SÍ, AL FINAL)
+    cargarSolicitudesPendientes();
     }//GEN-LAST:event_btnAprobarActionPerformed
 
     private void btnRechazarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRechazarActionPerformed
-        // 1. Obtener la fila seleccionada
     int filaSeleccionada = jTable1.getSelectedRow();
-    
-    // 2. Verificar si se seleccionó algo
     if (filaSeleccionada == -1) {
-        JOptionPane.showMessageDialog(this, "Por favor, seleccione una solicitud de la tabla.", "Error", JOptionPane.WARNING_MESSAGE);
+        JOptionPane.showMessageDialog(this, "Por favor, seleccione una solicitud.");
         return;
     }
     
-    // 3. Obtener los datos clave de la fila
     DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
     String usuario = model.getValueAt(filaSeleccionada, 0).toString();
     String fechaInicial = model.getValueAt(filaSeleccionada, 1).toString();
     
-    // 4. Llamar al DAO para actualizar
+    // 1. Actualizar el estado en el DAO
     SolicitudCambioDAO dao = new SolicitudCambioDAO();
     dao.actualizarEstado(usuario, fechaInicial, "Rechazado");
     
-    // 5. Informar al admin y refrescar la tabla
+    // 2. Enviar el correo
+    enviarNotificacion(usuario, fechaInicial, "Rechazado");
+    
+    // 3. Informar al admin (esto pausa el código)
     JOptionPane.showMessageDialog(this, "Solicitud RECHAZADA.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
-    cargarSolicitudesPendientes(); // Refresca para que la solicitud desaparezca
+    
+    // 4. Refrescar la tabla (AHORA SÍ, AL FINAL)
+    cargarSolicitudesPendientes();
     }//GEN-LAST:event_btnRechazarActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
+        GestionDeSolicitudesForm GestionDeSolicitudesForm = new GestionDeSolicitudesForm();
+        GestionDeSolicitudesForm.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    
+    private void enviarNotificacion(String usuario, String fechaInicial, String estado) {
+    new Thread(() -> {
+        // 1. Obtener la información completa del empleado
+        // (Usamos el método del DAO que ya tienes)
+        EmpleadoDAO empDAO = new EmpleadoDAO();
+        Empleado empleado = empDAO.buscarPorUsuario(usuario); 
+        
+        if (empleado == null || empleado.getCorreo() == null) {
+            System.err.println("No se encontró email o empleado para: " + usuario);
+            return; 
+        }
+        
+        String destinatarioEmail = empleado.getCorreo();
+        String nombreEmpleado = empleado.getNombre();
+        
+        // 2. Generar el Asunto y Cuerpo usando el Template Service
+        EmailTemplateService templateService = new EmailTemplateService();
+        String asunto = templateService.getAsuntoRespuestaCambio();
+        String cuerpo = templateService.getCuerpoRespuestaCambio(nombreEmpleado, fechaInicial, estado);
+        
+        // 3. Enviar el correo usando tu EmailService
+        EmailSender emailService = new EmailSender();
+        emailService.enviarCorreoHtml(destinatarioEmail, asunto, cuerpo);
+        
+    }).start();
+}
     /**
      * @param args the command line arguments
      */

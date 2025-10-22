@@ -57,6 +57,11 @@ public class GestionDeSolicitudesForm extends javax.swing.JFrame {
         jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 340, 370, 80));
 
         jButton3.setText("REGRESAR");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 500, 190, 40));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/PNG/Cover.png"))); // NOI18N
@@ -76,6 +81,11 @@ public class GestionDeSolicitudesForm extends javax.swing.JFrame {
         new GestionSolicitudesAdminForm().setVisible(true);
          this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        new MantenimientoForm().setVisible(true);
+         this.dispose();
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments

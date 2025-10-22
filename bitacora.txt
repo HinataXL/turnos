@@ -177,3 +177,9 @@
 {"descripcion":"El usuario ha iniciado sesión.","usuario":"adminrrhh","tipo_evento":"INICIO SESIÓN","timestamp":"2025-10-22 13:35:07"}
 {"descripcion":"El usuario ha iniciado sesión.","usuario":"Prueba3","tipo_evento":"INICIO SESIÓN","timestamp":"2025-10-22 13:48:18"}
 {"descripcion":"El usuario ha iniciado sesión.","usuario":"adminrrhh","tipo_evento":"INICIO SESIÓN","timestamp":"2025-10-22 14:05:57"}
+{"descripcion":"El usuario ha iniciado sesión.","usuario":"adminrrhh","tipo_evento":"INICIO SESIÓN","timestamp":"2025-10-22 15:51:19"}
+{"descripcion":"El usuario ha iniciado sesión.","usuario":"adminrrhh","tipo_evento":"INICIO SESIÓN","timestamp":"2025-10-22 15:54:12"}
+{"descripcion":"El usuario ha iniciado sesión.","usuario":"adminrrhh","tipo_evento":"INICIO SESIÓN","timestamp":"2025-10-22 15:55:41"}
+{"descripcion":"El usuario ha iniciado sesión.","usuario":"adminrrhh","tipo_evento":"INICIO SESIÓN","timestamp":"2025-10-22 15:58:17"}
+{"descripcion":"El usuario ha iniciado sesión.","usuario":"adminrrhh","tipo_evento":"INICIO SESIÓN","timestamp":"2025-10-22 15:59:55"}
+{"descripcion":"El usuario ha iniciado sesión.","usuario":"adminrrhh","tipo_evento":"INICIO SESIÓN","timestamp":"2025-10-22 16:00:50"}
