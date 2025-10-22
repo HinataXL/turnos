@@ -33,11 +33,13 @@ public class MantenimientoForm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jButton1 = new javax.swing.JButton();
         btnAgregarEmpleado = new javax.swing.JButton();
         btnConsultarUsuario = new javax.swing.JButton();
         btnSolicitudes = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
         btnRegresar = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -48,13 +50,23 @@ public class MantenimientoForm extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/PNG/clock.jpg"))); // NOI18N
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 270, 180, 160));
+
         btnAgregarEmpleado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/PNG/empleado.png"))); // NOI18N
+        btnAgregarEmpleado.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        btnAgregarEmpleado.setMargin(new java.awt.Insets(10, 10, 10, 10));
         btnAgregarEmpleado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAgregarEmpleadoActionPerformed(evt);
             }
         });
-        getContentPane().add(btnAgregarEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 270, 190, 170));
+        getContentPane().add(btnAgregarEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 270, 180, 160));
 
         btnConsultarUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/PNG/buscar.png"))); // NOI18N
         btnConsultarUsuario.addActionListener(new java.awt.event.ActionListener() {
@@ -62,7 +74,7 @@ public class MantenimientoForm extends javax.swing.JFrame {
                 btnConsultarUsuarioActionPerformed(evt);
             }
         });
-        getContentPane().add(btnConsultarUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 270, 200, 170));
+        getContentPane().add(btnConsultarUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 270, 190, 160));
 
         btnSolicitudes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/PNG/soli.png"))); // NOI18N
         btnSolicitudes.setText("SOLICITUDES");
@@ -71,7 +83,7 @@ public class MantenimientoForm extends javax.swing.JFrame {
                 btnSolicitudesActionPerformed(evt);
             }
         });
-        getContentPane().add(btnSolicitudes, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 270, 180, 170));
+        getContentPane().add(btnSolicitudes, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 270, 180, 160));
 
         btnSalir.setBackground(new java.awt.Color(204, 204, 204));
         btnSalir.setText("SALIR");
@@ -91,20 +103,24 @@ public class MantenimientoForm extends javax.swing.JFrame {
         });
         getContentPane().add(btnRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 540, 131, 55));
 
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setText("Gestion de Turnos");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 440, -1, -1));
+
         jLabel1.setFont(new java.awt.Font("Impact", 0, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Agregar Empleado");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 450, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 440, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Impact", 0, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Consultar Empleado");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 450, -1, -1));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 440, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Impact", 0, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Solicitudes");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 450, -1, -1));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 440, -1, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/PNG/2228.png"))); // NOI18N
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 90, -1, -1));
@@ -141,6 +157,11 @@ public class MantenimientoForm extends javax.swing.JFrame {
          new GestionSolicitudesAdminForm().setVisible(true);
          this.dispose();// TODO add your handling code here:
     }//GEN-LAST:event_btnSolicitudesActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+         new GestionTurnosForm().setVisible(true);
+         this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -184,11 +205,13 @@ public class MantenimientoForm extends javax.swing.JFrame {
     private javax.swing.JButton btnRegresar;
     private javax.swing.JButton btnSalir;
     private javax.swing.JButton btnSolicitudes;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     // End of variables declaration//GEN-END:variables
 
     private static class SolicitudesForm {

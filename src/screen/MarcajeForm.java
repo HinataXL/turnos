@@ -159,12 +159,12 @@ public class MarcajeForm extends javax.swing.JFrame {
 
     private void btnEntradaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntradaActionPerformed
         this.marcajeActual = new Marcaje(this.empleadoLogueado.getUsuario());
-        this.marcajeActual.setHoraEntrada(LocalTime.now());
+        this.marcajeActual.setHoraDeEntrada(LocalTime.now());
        
-        if (marcajeActual.getHoraEntrada().isAfter(LocalTime.of(8, 0))) {
+        if (marcajeActual.getHoraDeEntrada().isAfter(LocalTime.of(8, 0))) {
             JOptionPane.showMessageDialog(this, "Entrada tarde registrada", "Advertencia", JOptionPane.WARNING_MESSAGE);
         } else {
-            JOptionPane.showMessageDialog(this, "Entrada registrada: " + marcajeActual.getHoraEntrada());
+            JOptionPane.showMessageDialog(this, "Entrada registrada: " + marcajeActual.getHoraDeEntrada());
         }
         
         actualizarEstadoBotones(); // Actualizamos la UI

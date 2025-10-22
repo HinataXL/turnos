@@ -1,5 +1,6 @@
 package screen;
 
+import screen.PanelDeEmpleado;
 import dao.SolicitudDAO;
 import model.Solicitud;
 import java.io.IOException;
@@ -28,10 +29,6 @@ public class SolicitudesEmpleadosForm extends javax.swing.JFrame {
         
         // Configura los elementos del formulario.
         configurarFormulario();
-    }
-
-    SolicitudesEmpleadosForm() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
   
     private void configurarFormulario() {
@@ -63,7 +60,7 @@ public class SolicitudesEmpleadosForm extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
+        btnRegresar = new javax.swing.JButton();
         lblInstruccion = new javax.swing.JLabel();
         lblBienvenido = new javax.swing.JLabel();
         comboTipoSolicitud = new javax.swing.JComboBox<>();
@@ -75,7 +72,13 @@ public class SolicitudesEmpleadosForm extends javax.swing.JFrame {
         setResizable(false);
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 550, 80, 40));
+
+        btnRegresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegresarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 550, 80, 40));
 
         lblInstruccion.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         lblInstruccion.setForeground(new java.awt.Color(255, 255, 255));
@@ -85,7 +88,7 @@ public class SolicitudesEmpleadosForm extends javax.swing.JFrame {
         lblBienvenido.setFont(new java.awt.Font("Impact", 1, 36)); // NOI18N
         lblBienvenido.setForeground(new java.awt.Color(255, 255, 255));
         lblBienvenido.setText("Bienvenido ");
-        jPanel1.add(lblBienvenido, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 220, 480, -1));
+        jPanel1.add(lblBienvenido, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 220, 480, -1));
 
         comboTipoSolicitud.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Permiso Personal", "Vacaciones", "Citas al IGSS", "Licencia de cumpleaños (1 día)", "Suspensión Laboral", "Otros", " " }));
         jPanel1.add(comboTipoSolicitud, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 350, 270, 40));
@@ -151,6 +154,21 @@ public class SolicitudesEmpleadosForm extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnEnviarActionPerformed
 
+    private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
+       try {
+        PanelDeEmpleado Panel = new PanelDeEmpleado(usuarioLogueado);
+        Panel.setVisible(true);
+       
+       this.dispose();
+       
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(this, "Error al regresar al panel" + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+      e.printStackTrace();
+
+      }
+       
+    }//GEN-LAST:event_btnRegresarActionPerformed
+
    /**
      * @param args the command line arguments
      */
@@ -174,8 +192,8 @@ public class SolicitudesEmpleadosForm extends javax.swing.JFrame {
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEnviar;
+    private javax.swing.JButton btnRegresar;
     private javax.swing.JComboBox<String> comboTipoSolicitud;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblBienvenido;
