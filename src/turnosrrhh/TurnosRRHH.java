@@ -8,6 +8,7 @@ import screen.LoginForm;
 import screen.ConsultarUsuarioForm;
 import screen.AgregarEmpleadoForm;
 import screen.GestionTurnosForm;
+import screen.AdminSolicitudesForm;
 
 
 

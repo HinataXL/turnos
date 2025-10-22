@@ -168,3 +168,12 @@
 {"descripcion":"El usuario ha iniciado sesión.","usuario":"Prueba3","tipo_evento":"INICIO SESIÓN","timestamp":"2025-10-22 08:14:53"}
 {"descripcion":"El usuario ha iniciado sesión.","usuario":"Prueba3","tipo_evento":"INICIO SESIÓN","timestamp":"2025-10-22 08:29:11"}
 {"descripcion":"El usuario ha iniciado sesión.","usuario":"Prueba3","tipo_evento":"INICIO SESIÓN","timestamp":"2025-10-22 08:33:17"}
+{"descripcion":"El usuario ha iniciado sesión.","usuario":"Prueba3","tipo_evento":"INICIO SESIÓN","timestamp":"2025-10-22 11:03:00"}
+{"descripcion":"El usuario ha iniciado sesión.","usuario":"adminrrhh","tipo_evento":"INICIO SESIÓN","timestamp":"2025-10-22 13:14:19"}
+{"descripcion":"El usuario ha iniciado sesión.","usuario":"adminrrhh","tipo_evento":"INICIO SESIÓN","timestamp":"2025-10-22 13:18:26"}
+{"descripcion":"El usuario ha iniciado sesión.","usuario":"adminrrhh","tipo_evento":"INICIO SESIÓN","timestamp":"2025-10-22 13:19:16"}
+{"descripcion":"El usuario ha iniciado sesión.","usuario":"adminrrhh","tipo_evento":"INICIO SESIÓN","timestamp":"2025-10-22 13:20:14"}
+{"descripcion":"El usuario ha iniciado sesión.","usuario":"Prueba3","tipo_evento":"INICIO SESIÓN","timestamp":"2025-10-22 13:34:48"}
+{"descripcion":"El usuario ha iniciado sesión.","usuario":"adminrrhh","tipo_evento":"INICIO SESIÓN","timestamp":"2025-10-22 13:35:07"}
+{"descripcion":"El usuario ha iniciado sesión.","usuario":"Prueba3","tipo_evento":"INICIO SESIÓN","timestamp":"2025-10-22 13:48:18"}
+{"descripcion":"El usuario ha iniciado sesión.","usuario":"adminrrhh","tipo_evento":"INICIO SESIÓN","timestamp":"2025-10-22 14:05:57"}

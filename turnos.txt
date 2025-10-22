@@ -5,3 +5,4 @@
 {"fechaInicio":"2025-10-19","turno":"Turno Nocturno","fechaFin":"2025-10-25","usuarioEmpleado":"jorggms"}
 {"fechaInicio":"2025-10-18","turno":"Turno Matutino\t","fechaFin":"2025-10-31","usuarioEmpleado":"Prueba3"}
 {"fechaInicio":"2025-10-19","turno":"Turno Nocturno","fechaFin":"2025-10-31","usuarioEmpleado":"Prueba3"}
+{"fechaInicio":"2025-10-23","turno":"Turno Vespertino","fechaFin":"2025-10-31","usuarioEmpleado":"prueba10"}
