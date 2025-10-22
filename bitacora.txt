@@ -150,6 +150,17 @@
 {"descripcion":"El usuario ha iniciado sesión.","usuario":"adminrrhh","tipo_evento":"INICIO SESIÓN","timestamp":"2025-10-18 04:58:56"}
 {"descripcion":"El usuario ha iniciado sesión.","usuario":"adminrrhh","tipo_evento":"INICIO SESIÓN","timestamp":"2025-10-18 05:13:45"}
 {"descripcion":"El usuario ha iniciado sesión.","usuario":"Prueba3","tipo_evento":"INICIO SESIÓN","timestamp":"2025-10-18 05:15:04"}
+<<<<<<< Updated upstream
 {"descripcion":"El usuario ha iniciado sesión.","usuario":"Prueba3","tipo_evento":"INICIO SESIÓN","timestamp":"2025-10-18 13:13:08"}
 {"descripcion":"El usuario ha iniciado sesión.","usuario":"adminrrhh","tipo_evento":"INICIO SESIÓN","timestamp":"2025-10-19 05:38:00"}
 {"descripcion":"El usuario ha iniciado sesión.","usuario":"adminrrhh","tipo_evento":"INICIO SESIÓN","timestamp":"2025-10-21 15:17:06"}
+=======
+{"descripcion":"El usuario ha iniciado sesión.","usuario":"adminrrhh","tipo_evento":"INICIO SESIÓN","timestamp":"2025-10-18 07:09:17"}
+{"descripcion":"El usuario ha iniciado sesión.","usuario":"Prueba3","tipo_evento":"INICIO SESIÓN","timestamp":"2025-10-18 07:14:11"}
+{"descripcion":"El usuario ha iniciado sesión.","usuario":"Prueba3","tipo_evento":"INICIO SESIÓN","timestamp":"2025-10-18 07:17:41"}
+{"descripcion":"El usuario ha iniciado sesión.","usuario":"Prueba3","tipo_evento":"INICIO SESIÓN","timestamp":"2025-10-18 07:18:06"}
+{"descripcion":"El usuario ha iniciado sesión.","usuario":"adminrrhh","tipo_evento":"INICIO SESIÓN","timestamp":"2025-10-18 07:18:37"}
+{"descripcion":"El usuario ha iniciado sesión.","usuario":"adminrrhh","tipo_evento":"INICIO SESIÓN","timestamp":"2025-10-18 07:33:28"}
+{"descripcion":"El usuario ha iniciado sesión.","usuario":"eddy","tipo_evento":"INICIO SESIÓN","timestamp":"2025-10-18 07:39:35"}
+{"descripcion":"El usuario ha iniciado sesión.","usuario":"adminrrhh","tipo_evento":"INICIO SESIÓN","timestamp":"2025-10-18 07:41:07"}
+>>>>>>> Stashed changes

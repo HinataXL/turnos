@@ -7,3 +7,4 @@
 {"area":"Practicante","estado":"Inactivo","correo":"ajcipluis7@gmail.com","usuario":"lajcip","turno":"Matutino","dpi":"2222222222222","nombre":"Luis","rol":"Empleado","contraseña":"lajcip"}
 {"area":"prueba","estado":"Inactivo","correo":"erickpedroza45@gmail.com","usuario":"prueba4","turno":"Matutino","dpi":"2845748820101","nombre":"prueba4","rol":"Empleado","contraseña":"prueba4"}
 {"area":"CPIL","estado":"Inactivo","correo":"jorgeyuremmartinez@gmail.com","usuario":"jorggms","turno":"Matutino","dpi":"3808779290101","nombre":"Jorge Yurem Martinez Sunuc","rol":"Empleado","contraseña":"12345"}
+{"area":"TI","estado":"Inactivo","correo":"eramirezc30@miumg.edu.gt","usuario":"eddy","turno":"Matutino","dpi":"1234567890234","nombre":"Eddy Ramirez","rol":"Empleado","contraseña":"12345"}
