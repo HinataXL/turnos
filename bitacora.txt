@@ -164,3 +164,7 @@
 {"descripcion":"El usuario ha iniciado sesión.","usuario":"eddy","tipo_evento":"INICIO SESIÓN","timestamp":"2025-10-18 07:39:35"}
 {"descripcion":"El usuario ha iniciado sesión.","usuario":"adminrrhh","tipo_evento":"INICIO SESIÓN","timestamp":"2025-10-18 07:41:07"}
 >>>>>>> Stashed changes
+{"descripcion":"El usuario ha iniciado sesión.","usuario":"adminrrhh","tipo_evento":"INICIO SESIÓN","timestamp":"2025-10-22 07:47:11"}
+{"descripcion":"El usuario ha iniciado sesión.","usuario":"Prueba3","tipo_evento":"INICIO SESIÓN","timestamp":"2025-10-22 08:14:53"}
+{"descripcion":"El usuario ha iniciado sesión.","usuario":"Prueba3","tipo_evento":"INICIO SESIÓN","timestamp":"2025-10-22 08:29:11"}
+{"descripcion":"El usuario ha iniciado sesión.","usuario":"Prueba3","tipo_evento":"INICIO SESIÓN","timestamp":"2025-10-22 08:33:17"}

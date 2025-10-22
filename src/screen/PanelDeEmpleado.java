@@ -8,6 +8,7 @@ import javax.swing.JOptionPane;
 import screen.MarcajeForm;
 import model.Empleado;
 import screen.AsignacionTurnosEmpleado;
+import screen.CambioDeTurnoForm;
 /**
  *
  * @author jorgmms
@@ -94,6 +95,11 @@ public class PanelDeEmpleado extends javax.swing.JFrame {
         getContentPane().add(btnVerTurnos, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 350, 250, 60));
 
         jButton1.setText("Gestiones de Empleado");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 450, 250, 60));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/PNG/⚛️ Fondamentaux (Community)-1.png"))); // NOI18N
@@ -154,6 +160,10 @@ public class PanelDeEmpleado extends javax.swing.JFrame {
         AsignacionTurnosEmpleado ventanaTurnos = new AsignacionTurnosEmpleado(this.empleadoLogueado);
         ventanaTurnos.setVisible(true);
     }//GEN-LAST:event_btnVerTurnosActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        new CambioDeTurnoForm(this.empleadoLogueado).setVisible(true);        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
