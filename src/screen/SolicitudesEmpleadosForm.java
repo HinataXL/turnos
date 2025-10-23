@@ -8,6 +8,7 @@ import java.time.LocalDate;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.UnsupportedLookAndFeelException;
+import java.util.Date;
 
 /**
  *
@@ -22,7 +23,15 @@ public class SolicitudesEmpleadosForm extends javax.swing.JFrame {
    
   public SolicitudesEmpleadosForm(String usuario) { // <-- Se corrige aquí
         initComponents(); // Este método es generado por NetBeans.
+        // --- AGREGA ESTAS LÍNEAS ---
         
+        // 1. Crea un objeto con la fecha y hora de este preciso instante
+        Date fechaDeHoy = new Date();
+        
+        // 2. Asigna esa fecha como la mínima seleccionable para tus calendarios
+        // (Asumiendo que se llaman jdcFechaInicio y jdcFechaFin)
+        jdcFechaInicio.setMinSelectableDate(fechaDeHoy);
+        jdcFechaFin.setMinSelectableDate(fechaDeHoy);
         // Inicializa las variables importantes.
         this.usuarioLogueado = usuario;
         this.solicitudDAO = new SolicitudDAO();
@@ -64,8 +73,15 @@ public class SolicitudesEmpleadosForm extends javax.swing.JFrame {
         lblInstruccion = new javax.swing.JLabel();
         lblBienvenido = new javax.swing.JLabel();
         comboTipoSolicitud = new javax.swing.JComboBox<>();
-        btnEnviar = new javax.swing.JButton();
         lblTitulo = new javax.swing.JLabel();
+        btnEnviar = new javax.swing.JButton();
+        jdcFechaInicio = new com.toedter.calendar.JDateChooser();
+        jdcFechaFin = new com.toedter.calendar.JDateChooser();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -73,6 +89,7 @@ public class SolicitudesEmpleadosForm extends javax.swing.JFrame {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        btnRegresar.setText("Regresar");
         btnRegresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRegresarActionPerformed(evt);
@@ -83,15 +100,19 @@ public class SolicitudesEmpleadosForm extends javax.swing.JFrame {
         lblInstruccion.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         lblInstruccion.setForeground(new java.awt.Color(255, 255, 255));
         lblInstruccion.setText("Selecciona el tipo de permiso que necesitas");
-        jPanel1.add(lblInstruccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 290, -1, -1));
+        jPanel1.add(lblInstruccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 230, -1, -1));
 
         lblBienvenido.setFont(new java.awt.Font("Impact", 1, 36)); // NOI18N
         lblBienvenido.setForeground(new java.awt.Color(255, 255, 255));
         lblBienvenido.setText("Bienvenido ");
-        jPanel1.add(lblBienvenido, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 220, 480, -1));
+        jPanel1.add(lblBienvenido, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 160, 480, -1));
 
         comboTipoSolicitud.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Permiso Personal", "Vacaciones", "Citas al IGSS", "Licencia de cumpleaños (1 día)", "Suspensión Laboral", "Otros", " " }));
-        jPanel1.add(comboTipoSolicitud, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 350, 270, 40));
+        jPanel1.add(comboTipoSolicitud, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 270, 270, 40));
+
+        lblTitulo.setFont(new java.awt.Font("Lucida Sans", 0, 18)); // NOI18N
+        lblTitulo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/PNG/Frame 2267.png"))); // NOI18N
+        jPanel1.add(lblTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 10, 1040, 580));
 
         btnEnviar.setText("Enviar");
         btnEnviar.addActionListener(new java.awt.event.ActionListener() {
@@ -99,11 +120,28 @@ public class SolicitudesEmpleadosForm extends javax.swing.JFrame {
                 btnEnviarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnEnviar, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 460, 160, 47));
+        jPanel1.add(btnEnviar, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 540, 160, 47));
+        jPanel1.add(jdcFechaInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 340, 270, -1));
+        jPanel1.add(jdcFechaFin, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 390, 270, -1));
 
-        lblTitulo.setFont(new java.awt.Font("Lucida Sans", 0, 18)); // NOI18N
-        lblTitulo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/PNG/Frame 2267.png"))); // NOI18N
-        jPanel1.add(lblTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 60, 1040, 580));
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane1.setViewportView(jTextArea1);
+
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 430, -1, -1));
+
+        jLabel2.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Fecha de Inicio");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(371, 350, 140, -1));
+
+        jLabel3.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jLabel3.setText("Fecha de Fin");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(371, 400, 140, -1));
+
+        jLabel4.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jLabel4.setText("Justificación");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 470, 160, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/PNG/Fondo_principal.png"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 730));
@@ -195,7 +233,14 @@ public class SolicitudesEmpleadosForm extends javax.swing.JFrame {
     private javax.swing.JButton btnRegresar;
     private javax.swing.JComboBox<String> comboTipoSolicitud;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea jTextArea1;
+    private com.toedter.calendar.JDateChooser jdcFechaFin;
+    private com.toedter.calendar.JDateChooser jdcFechaInicio;
     private javax.swing.JLabel lblBienvenido;
     private javax.swing.JLabel lblInstruccion;
     private javax.swing.JLabel lblTitulo;

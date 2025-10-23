@@ -12,7 +12,7 @@ import model.SolicitudCambio;
 
 /**
  *
- * @author jorgmms
+ * @author 
  */
 public class CambioDeTurnoForm extends javax.swing.JFrame {
     
@@ -23,6 +23,10 @@ public class CambioDeTurnoForm extends javax.swing.JFrame {
      */
     public CambioDeTurnoForm(Empleado empleado) {
         initComponents();
+        Date fechaDeHoy = new Date();
+     
+        jDateChooser1.setMinSelectableDate(fechaDeHoy);
+        jDateChooser2.setMinSelectableDate(fechaDeHoy);
         this.empleadoLogueado = empleado;
     }
 
