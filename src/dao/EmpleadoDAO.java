@@ -26,6 +26,7 @@
                 json.put("correo", empleado.getCorreo());
                 json.put("contraseña", empleado.getContraseña());
                 json.put("rol", empleado.getRol());
+                json.put("telefono", empleado.getTelefono());
 
                 writer.write(json.toString() + System.lineSeparator());
                 System.out.println("Se creó correctamente.");
@@ -51,6 +52,8 @@
                     emp.setCorreo(json.getString("correo"));
                     emp.setContraseña(json.getString("contraseña"));
                     emp.setRol(json.getString("rol"));
+                    emp.setTelefono(json.optString("telefono", null));
+               
                     empleados.add(emp);
                 }
             } catch (IOException | JSONException e) {
@@ -115,6 +118,7 @@
                     json.put("correo", emp.getCorreo());
                     json.put("contraseña", emp.getContraseña());
                     json.put("rol", emp.getRol());
+                    json.put("telefono", emp.getTelefono());
 
                     writer.write(json.toString() + System.lineSeparator());
                 }

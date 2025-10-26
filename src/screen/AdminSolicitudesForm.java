@@ -12,6 +12,7 @@ import model.EmailTemplateService;
 import model.Empleado;
 import model.EmailSender;
 import dao.EmpleadoDAO;
+import model.TwilioService;
 
 /**
  *
@@ -201,26 +202,52 @@ public class AdminSolicitudesForm extends javax.swing.JFrame {
     private void enviarNotificacion(String usuario, String fechaInicial, String estado) {
     new Thread(() -> {
         // 1. Obtener la información completa del empleado
-        // (Usamos el método del DAO que ya tienes)
         EmpleadoDAO empDAO = new EmpleadoDAO();
         Empleado empleado = empDAO.buscarPorUsuario(usuario); 
         
-        if (empleado == null || empleado.getCorreo() == null) {
-            System.err.println("No se encontró email o empleado para: " + usuario);
-            return; 
+        // Si el empleado no existe, no podemos hacer nada.
+        if (empleado == null) {
+            System.err.println("No se encontró empleado para: " + usuario);
+            return; // Salimos del hilo
         }
         
-        String destinatarioEmail = empleado.getCorreo();
         String nombreEmpleado = empleado.getNombre();
+
+        // --- 2. Lógica de Email ---
+        if (empleado.getCorreo() != null && !empleado.getCorreo().isEmpty()) {
+            String destinatarioEmail = empleado.getCorreo();
+            
+            // Generar el Asunto y Cuerpo
+            EmailTemplateService templateService = new EmailTemplateService();
+            String asunto = templateService.getAsuntoRespuestaCambio();
+            String cuerpo = templateService.getCuerpoRespuestaCambio(nombreEmpleado, fechaInicial, estado);
+            
+            // Enviar el correo
+            EmailSender emailService = new EmailSender();
+            emailService.enviarCorreoHtml(destinatarioEmail, asunto, cuerpo); // Usando tu método
         
-        // 2. Generar el Asunto y Cuerpo usando el Template Service
-        EmailTemplateService templateService = new EmailTemplateService();
-        String asunto = templateService.getAsuntoRespuestaCambio();
-        String cuerpo = templateService.getCuerpoRespuestaCambio(nombreEmpleado, fechaInicial, estado);
+        } else {
+            System.err.println("No se encontró email para: " + usuario + ". No se envió correo.");
+        }
         
-        // 3. Enviar el correo usando tu EmailService
-        EmailSender emailService = new EmailSender();
-        emailService.enviarCorreoHtml(destinatarioEmail, asunto, cuerpo);
+        // --- 3. Lógica de WhatsApp (AÑADIDA) ---
+        if (empleado.getTelefono() != null && !empleado.getTelefono().isEmpty()) {
+            
+            // 3a. Formatear el número de teléfono (Añadir +502)
+            String telefonoE164 = "+502" + empleado.getTelefono();
+            
+            // 3b. Crear el mensaje de texto plano
+            String mensajeWhatsApp = "Hola " + nombreEmpleado + 
+                                     ", tu solicitud de cambio de turno para la fecha " + 
+                                     fechaInicial + " ha sido *" + estado.toUpperCase() + "*.";
+            
+            // 3c. Enviar el mensaje
+            TwilioService twilioService = new TwilioService();
+            twilioService.enviarWhatsApp(telefonoE164, mensajeWhatsApp);
+            
+        } else {
+            System.err.println("No se encontró teléfono para: " + usuario + ". No se envió WhatsApp.");
+        }
         
     }).start();
 }

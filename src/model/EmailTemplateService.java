@@ -142,5 +142,60 @@ public String getCuerpoRespuestaCambio(String nombreEmpleado, String fechaInicia
 
     return html.toString();
 }
+
+public String getAsuntoAsignacionTurno() {
+    return "Notificación: Se te ha asignado un nuevo turno";
+}
+
+/**
+ * Genera el cuerpo del correo en HTML para una nueva asignación de turno.
+ * @param nombreEmpleado El nombre del empleado.
+ * @param fechaInicio La fecha de inicio del turno.
+ * @param fechaFin La fecha de fin del turno.
+ * @param nombreTurno El nombre del turno (ej: "Turno Matutino").
+ * @return Un String con el correo en formato HTML.
+ */
+public String getCuerpoAsignacionTurno(String nombreEmpleado, String fechaInicio, String fechaFin, String nombreTurno) {
+    
+    // 1. Definir el mensaje principal
+    String mensajePrincipal = "Se te ha asignado un nuevo turno con los siguientes detalles:<br><br>" +
+                              "   - <strong>Turno:</strong> " + nombreTurno + "<br>" +
+                              "   - <strong>Desde:</strong> " + fechaInicio + "<br>" +
+                              "   - <strong>Hasta:</strong> " + fechaFin + "<br><br>" +
+                              "Por favor, revisa tu calendario.";
+
+    // 2. Construir la plantilla HTML (reutilizando la estructura que me diste)
+    StringBuilder html = new StringBuilder();
+    html.append("<!DOCTYPE html><html lang='es'><head><meta charset='UTF-8'>");
+    html.append("<title>Notificación de Turno</title><style>");
+    // (Pegas aquí todo el <style>...</style> de tu otra plantilla)
+    html.append("body { box-sizing: border-box; background: #f4f6fa; font-family: 'Segoe UI', Arial, sans-serif; margin: 0; padding: 0; }");
+    html.append(".email-container { max-width: 540px; margin: 40px auto; background: #fff; border-radius: 10px; box-shadow: 0 4px 18px rgba(0,0,0,0.09); overflow: hidden; }");
+    html.append(".header { background: linear-gradient(90deg, #8AFFEB 0%, #B06DF7 100%); padding: 32px 28px 24px 28px; color: #1b1b1b; text-align: left; }");
+    html.append(".header-logo { font-size: 1.8em; font-weight: 700; letter-spacing: 1px; display: flex; align-items: center; }");
+    // ... (etc, todo el CSS) ...
+    html.append("</style></head><body>");
+    html.append("<div class='email-container'>");
+    html.append("  <div class='header'>");
+    html.append("    <div class='header-logo'>");
+    // ... (tu SVG de la campana) ...
+    html.append("      </span>");
+    html.append("      <div>ASIGNACIÓN DE TURNO</div>"); // Título cambiado
+    html.append("    </div>");
+    html.append("    <div class='header-subtitle'>Notificación del sistema</div>"); // Subtítulo cambiado
+    html.append("  </div>");
+    html.append("  <div class='body-content'>");
+    html.append("    Estimado/a <strong>").append(nombreEmpleado).append("</strong>,<br><br>");
+    html.append("    ").append(mensajePrincipal).append("<br><br>"); // Mensaje insertado
+    html.append("    <div class='signature'>");
+    html.append("      Saludos cordiales,<br>");
+    html.append("      <strong>Equipo de RRHH</strong>");
+    html.append("    </div>");
+    html.append("  </div>");
+    html.append("</div></body></html>");
+
+    return html.toString();
+}
+
 }
 

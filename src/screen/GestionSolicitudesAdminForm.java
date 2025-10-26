@@ -12,6 +12,7 @@ import model.Empleado;
 import model.Solicitud;
 import model.SolicitudAdminView;
 import model.EmailTemplateService;
+import model.TwilioService;
 
 /**
  *
@@ -40,7 +41,7 @@ public class GestionSolicitudesAdminForm extends javax.swing.JFrame {
      */
     private void cargarSolicitudesPendientes() {
         // Asegúrate de que tu JTable en el diseñador se llame "tablaSolicitudes"
-        DefaultTableModel modelo = (DefaultTableModel) tablaSolicitudes.getModel();
+        DefaultTableModel modelo = (DefaultTableModel) tablaS.getModel();
         modelo.setRowCount(0); // Limpiar la tabla antes de cargar nuevos datos
         solicitudesMostradas.clear(); // Limpiar la lista de datos interna
 
@@ -61,6 +62,7 @@ public class GestionSolicitudesAdminForm extends javax.swing.JFrame {
                     vista.setCorreo(emp.getCorreo());
                     vista.setMotivo(sol.getJustificacion());
                     vista.setEstado(sol.getEstado());
+                    vista.setTelefono(emp.getTelefono());
                     
                     // 4. Añadir el objeto a la lista interna y la fila a la tabla visual
                     solicitudesMostradas.add(vista);
@@ -90,7 +92,7 @@ public class GestionSolicitudesAdminForm extends javax.swing.JFrame {
 
         jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tablaSolicitudes = new javax.swing.JTable();
+        tablaS = new javax.swing.JTable();
         btnAceptar = new javax.swing.JButton();
         btnRechazar = new javax.swing.JButton();
         btnRegresar = new javax.swing.JButton();
@@ -103,7 +105,7 @@ public class GestionSolicitudesAdminForm extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        tablaSolicitudes.setModel(new javax.swing.table.DefaultTableModel(
+        tablaS.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -114,7 +116,7 @@ public class GestionSolicitudesAdminForm extends javax.swing.JFrame {
                 "Usuario", "Nombre", "Area", "Motivio de Inactivación", "Estado"
             }
         ));
-        jScrollPane1.setViewportView(tablaSolicitudes);
+        jScrollPane1.setViewportView(tablaS);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 210, 840, 270));
 
@@ -175,7 +177,7 @@ public class GestionSolicitudesAdminForm extends javax.swing.JFrame {
     // Reemplaza este método completo en tu GestionSolicitudesAdminForm.java
 
 private void procesarSolicitud(String nuevoEstadoSolicitud, String nuevoEstadoEmpleado) {
-    int filaSeleccionada = tablaSolicitudes.getSelectedRow();
+    int filaSeleccionada = tablaS.getSelectedRow();
     if (filaSeleccionada == -1) {
         JOptionPane.showMessageDialog(this, "Por favor, seleccione una solicitud de la tabla.", "Selección Requerida", JOptionPane.WARNING_MESSAGE);
         return;
@@ -186,37 +188,71 @@ private void procesarSolicitud(String nuevoEstadoSolicitud, String nuevoEstadoEm
     String correo = solicitudSeleccionada.getCorreo();
 
     try {
-        // 1. Actualiza el estado de la solicitud en solicitudes.txt
-        solicitudDAO.actualizarEstadoSolicitud(usuario, solicitudSeleccionada.getMotivo(), nuevoEstadoSolicitud);
+    // 1. Actualiza el estado de la solicitud en solicitudes.txt
+    solicitudDAO.actualizarEstadoSolicitud(usuario, solicitudSeleccionada.getMotivo(), nuevoEstadoSolicitud);
 
-        // 2. Si se acepta, actualiza el estado del empleado en empleados.txt
-        if (nuevoEstadoEmpleado != null) {
-            empleadoDAO.actualizarEstado(usuario, nuevoEstadoEmpleado);
-        }
+    // 2. Si se acepta, actualiza el estado del empleado en empleados.txt
+    if (nuevoEstadoEmpleado != null) {
+        empleadoDAO.actualizarEstado(usuario, nuevoEstadoEmpleado);
+    }
 
-        // --- AQUÍ ESTÁ LA CONEXIÓN ---
-        // 3. Se crea una instancia del servicio de plantillas.
+    // --- BLOQUE DE NOTIFICACIONES (MODIFICADO) ---
+    
+    // 3. Obtener los datos necesarios ANTES de iniciar el hilo
+    String nombreCompleto = solicitudSeleccionada.getNombreCompleto();
+    String motivo = solicitudSeleccionada.getMotivo();
+    
+    // ¡IMPORTANTE! Asegúrate de que tu clase 'SolicitudAdminView'
+    // también cargue el teléfono del empleado, igual que carga el correo.
+    String telefono = solicitudSeleccionada.getTelefono(); // <--- NECESITAS ESTO
+
+    // 4. Iniciar un nuevo hilo para enviar notificaciones (Email y WhatsApp)
+    //    Esto evita que la interfaz de usuario se congele.
+    new Thread(() -> {
+        
+        // --- 4a. Lógica de Email (la que ya tenías) ---
         EmailTemplateService templateService = new EmailTemplateService();
         String asunto = "Respuesta a tu Solicitud de Ausencia";
-
-        // 4. Se genera el cuerpo del correo usando tu nueva plantilla HTML.
         String mensajeHtml = templateService.crearHtmlRespuesta(
-                solicitudSeleccionada.getNombreCompleto(),
-                solicitudSeleccionada.getMotivo(),
+                nombreCompleto,
+                motivo,
                 nuevoEstadoSolicitud
         );
-
-        // 5. Se envía el correo con el contenido HTML.
-        // Asegúrate de que estás usando la clase que envía correos reales.
         EmailSender.enviarCorreoHtml(correo, asunto, mensajeHtml);
-        
-        // 6. Recarga la tabla para que la solicitud procesada desaparezca.
-        cargarSolicitudesPendientes();
 
-    } catch (IOException e) {
-        JOptionPane.showMessageDialog(this, "Error al procesar la solicitud: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-        e.printStackTrace();
-    }
+        
+        // --- 4b. Lógica de WhatsApp (NUEVA) ---
+        if (telefono != null && !telefono.isEmpty()) {
+            String telefonoE164 = "+502" + telefono;
+            // Crea el mensaje de texto plano para WhatsApp
+            String mensajeWhatsApp = "Hola " + nombreCompleto + 
+                                     ", tu solicitud de ausencia por \"" + motivo + 
+                                     "\" ha sido *" + nuevoEstadoSolicitud.toUpperCase() + "*.";
+            
+            // Envía el mensaje
+            TwilioService twilioService = new TwilioService();
+            twilioService.enviarWhatsApp(telefonoE164, mensajeWhatsApp);
+            
+        } else {
+            System.err.println("No se pudo enviar WhatsApp: Teléfono no encontrado para el usuario " + usuario);
+        }
+        
+    }).start(); // .start() inicia el hilo
+    
+    // --- FIN DEL BLOQUE DE NOTIFICACIONES ---
+
+    // 5. Recarga la tabla (esto se ejecuta inmediatamente
+    //    mientras las notificaciones se envían en segundo plano)
+    cargarSolicitudesPendientes();
+    
+    // Opcional: Muestra el mensaje de éxito aquí si lo tenías
+    JOptionPane.showMessageDialog(this, "Solicitud procesada y notificaciones enviadas.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+
+
+} catch (IOException e) {
+    JOptionPane.showMessageDialog(this, "Error al procesar la solicitud: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+    e.printStackTrace();
+}
 }
     
     /**
@@ -263,6 +299,6 @@ private void procesarSolicitud(String nuevoEstadoSolicitud, String nuevoEstadoEm
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tablaSolicitudes;
+    private javax.swing.JTable tablaS;
     // End of variables declaration//GEN-END:variables
 }

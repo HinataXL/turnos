@@ -13,6 +13,7 @@ public class SolicitudAdminView {
     private String correo;
     private String motivo;
     private String estado;
+    private String telefono;
 
     // Constructor vacío
     public SolicitudAdminView() {
@@ -66,6 +67,14 @@ public class SolicitudAdminView {
 
     public void setEstado(String estado) {
         this.estado = estado;
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
+    
+    public void setTelefono(String telefono) { 
+        this.telefono = telefono;
     }
 }
 

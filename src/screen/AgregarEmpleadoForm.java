@@ -54,8 +54,10 @@ public class AgregarEmpleadoForm extends javax.swing.JFrame {
         txtPassword = new javax.swing.JPasswordField();
         btnRegresar = new javax.swing.JButton();
         jLayeredPane1 = new javax.swing.JLayeredPane();
-        comboRol = new javax.swing.JComboBox<>();
         jLabel10 = new javax.swing.JLabel();
+        comboRol = new javax.swing.JComboBox<>();
+        txtTelefono = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
 
@@ -125,7 +127,7 @@ public class AgregarEmpleadoForm extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Lucida Sans", 2, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("TURNO");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 370, -1, -1));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 440, -1, -1));
 
         comboTurno.setFont(new java.awt.Font("Lucida Sans", 2, 18)); // NOI18N
         comboTurno.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Matutino", "Vespertino", "Diurno" }));
@@ -134,16 +136,16 @@ public class AgregarEmpleadoForm extends javax.swing.JFrame {
                 comboTurnoActionPerformed(evt);
             }
         });
-        getContentPane().add(comboTurno, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 400, 174, -1));
+        getContentPane().add(comboTurno, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 470, 174, -1));
 
         jLabel7.setFont(new java.awt.Font("Lucida Sans", 2, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("ESTADO");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 370, -1, -1));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 440, -1, -1));
 
         comboEstado.setFont(new java.awt.Font("Lucida Sans", 2, 18)); // NOI18N
         comboEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Activo", "Inactivo" }));
-        getContentPane().add(comboEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 400, 174, -1));
+        getContentPane().add(comboEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 470, 174, -1));
 
         jLabel8.setFont(new java.awt.Font("Lucida Sans", 2, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
@@ -163,7 +165,7 @@ public class AgregarEmpleadoForm extends javax.swing.JFrame {
                 btnRegistrarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 490, 530, 50));
+        getContentPane().add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 530, 530, 50));
         getContentPane().add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 290, 270, 30));
 
         btnRegresar.setFont(new java.awt.Font("Lucida Sans", 2, 18)); // NOI18N
@@ -187,13 +189,25 @@ public class AgregarEmpleadoForm extends javax.swing.JFrame {
 
         getContentPane().add(jLayeredPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1150, 77, -1, -1));
 
-        comboRol.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sin Rol", "Administrador\t", "Empleado" }));
-        getContentPane().add(comboRol, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 400, 174, 30));
-
         jLabel10.setFont(new java.awt.Font("Lucida Sans", 2, 18)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Rol");
-        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 370, -1, -1));
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 440, -1, -1));
+
+        comboRol.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sin Rol", "Administrador\t", "Empleado" }));
+        getContentPane().add(comboRol, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 470, 174, 30));
+
+        txtTelefono.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtTelefonoActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 360, 290, -1));
+
+        jLabel12.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel12.setText("Telefono");
+        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 360, 140, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/PNG/Frame 2557.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 50, 1140, 560));
@@ -219,6 +233,7 @@ String estado = (String) comboEstado.getSelectedItem();
 String correo = txtCorreo.getText().trim();
 String contrasena = new String(txtPassword.getPassword());
 String rol = (String)comboRol.getSelectedItem();
+String telefono = txtTelefono.getText().trim();
 
 if (dpi.isEmpty() || nombre.isEmpty() || usuario.isEmpty() || area.isEmpty()) {
     JOptionPane.showMessageDialog(this, "Por favor completa todos los campos obligatorios (*)");
@@ -226,7 +241,7 @@ if (dpi.isEmpty() || nombre.isEmpty() || usuario.isEmpty() || area.isEmpty()) {
 }
 
 // Crear objeto Empleado
-Empleado empleado = new Empleado(dpi, nombre, usuario, area, turno, estado, correo, contrasena, rol);
+Empleado empleado = new Empleado(dpi, nombre, usuario, area, turno, estado, correo, contrasena, rol, telefono);
 
 // Guardar usando DAO
 EmpleadoDAO dao = new EmpleadoDAO();
@@ -268,6 +283,10 @@ JOptionPane.showMessageDialog(this, "Se creo Correctamente :D.");
     private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNombreActionPerformed
+
+    private void txtTelefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTelefonoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtTelefonoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -316,6 +335,7 @@ JOptionPane.showMessageDialog(this, "Se creo Correctamente :D.");
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -330,6 +350,7 @@ JOptionPane.showMessageDialog(this, "Se creo Correctamente :D.");
     private javax.swing.JTextField txtDPI;
     private javax.swing.JTextField txtNombre;
     private javax.swing.JPasswordField txtPassword;
+    private javax.swing.JTextField txtTelefono;
     private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
 }
