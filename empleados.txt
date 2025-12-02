@@ -1,2 +1,5 @@
 {"area":"rrhh","estado":"Activo","correo":"rrhh","usuario":"adminrrhh","turno":"Matutino","dpi":"2902742290101","nombre":"Administrado","rol":"Administrador","contraseña":"admin123"}
 {"area":"test","estado":"Activo","correo":"erick.pedroza@qpaypro.com","usuario":"pruebaw","turno":"Matutino","dpi":"2845742280101","telefono":"30861326","nombre":"pruebaw","rol":"Empleado","contraseña":"pruebaw"}
+{"area":"test","escolaridad":"Universitarrio","estado":"Activo","correo":"test@test.com","usuario":"prueba2","turno":"Matutino","dpi":"2222222222222","telefono":"0000000","nombre":"prueba2","rol":"Sin Rol","contraseña":"prueba2"}
+{"area":"erick","escolaridad":" ","estado":"Activo","correo":"erick@erick.com","usuario":"erick","turno":"Matutino","dpi":"2222222222222","telefono":"000","nombre":"erick","rol":"Sin Rol","contraseña":"erick"}
+{"area":"rrrrrrrrrr","escolaridad":"Diversificado","estado":"Activo","correo":"rrrrrrrrrrrrrr","usuario":"eeeeeeeeeee","turno":"Matutino","dpi":"0100000000000","telefono":"","nombre":"eeeeeeeeeeeeeeee","rol":"Sin Rol","contraseña":"eeeeeeeeeeeeee"}

@@ -3,17 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/erick/OneDrive/Documents/NetBeansProjects/turnosRRHH/src/model/Marcaje.java</file>
-            <file>file:/C:/Users/erick/OneDrive/Documents/NetBeansProjects/turnosRRHH/src/screen/SolicitudesLicVacForm.java</file>
-            <file>file:/C:/Users/erick/OneDrive/Documents/NetBeansProjects/turnosRRHH/src/screen/InfoMarcajeForm.java</file>
-            <file>file:/C:/Users/erick/OneDrive/Documents/NetBeansProjects/turnosRRHH/src/screen/AsignacionTurnosEmpleado.java</file>
-            <file>file:/C:/Users/erick/OneDrive/Documents/NetBeansProjects/turnosRRHH/src/screen/GestionRolesForm.java</file>
+            <file>file:/C:/Users/erick/OneDrive/Documents/NetBeansProjects/turnosRRHH/src/screen/AgregarEmpleadoForm.java</file>
+            <file>file:/C:/Users/erick/OneDrive/Documents/NetBeansProjects/turnosRRHH/src/turnosrrhh/TurnosRRHH.java</file>
             <file>file:/C:/Users/erick/OneDrive/Documents/NetBeansProjects/turnosRRHH/src/dao/EmpleadoDAO.java</file>
-            <file>file:/C:/Users/erick/OneDrive/Documents/NetBeansProjects/turnosRRHH/src/screen/MarcajeForm.java</file>
-            <file>file:/C:/Users/erick/OneDrive/Documents/NetBeansProjects/turnosRRHH/src/screen/MantenimientoForm.java</file>
-            <file>file:/C:/Users/erick/OneDrive/Documents/NetBeansProjects/turnosRRHH/src/screen/MenuPrincipal.java</file>
-            <file>file:/C:/Users/erick/OneDrive/Documents/NetBeansProjects/turnosRRHH/src/screen/GestionTurnosForm.java</file>
-            <file>file:/C:/Users/erick/OneDrive/Documents/NetBeansProjects/turnosRRHH/src/screen/GestionDeSolicitudesForm.java</file>
+            <file>file:/C:/Users/erick/OneDrive/Documents/NetBeansProjects/turnosRRHH/src/model/Empleado.java</file>
         </group>
     </open-files>
 </project-private>

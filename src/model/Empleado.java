@@ -17,6 +17,7 @@ public class Empleado {
     private String contraseña;
     private String rol;
     private String telefono;
+    private String escolaridad;
 
     /**
      * Constructor por defecto.
@@ -28,7 +29,7 @@ public class Empleado {
      * Constructor con todos los parámetros para crear un objeto Empleado completo.
      */
     public Empleado(String dpi, String nombre, String usuario, String area,
-                    String turno, String estado, String correo, String contraseña, String rol, String telefono) {
+                    String turno, String estado, String correo, String contraseña, String rol, String telefono, String escolaridad) {
         this.setDPI(dpi); // Usamos el setter para aplicar la validación desde el constructor
         this.nombre = nombre;
         this.usuario = usuario;
@@ -39,6 +40,7 @@ public class Empleado {
         this.contraseña = contraseña;
         this.rol = rol;
         this.telefono= telefono;
+        this.escolaridad= escolaridad;
     }
 
     // --- Getters y Setters ---
@@ -140,6 +142,13 @@ public class Empleado {
         this.telefono = telefono;
     }
     
+    public void setEscolaridad(String escolaridad){
+    this.escolaridad = escolaridad;
+    }
+    
+    public String getEscolaridad(){
+    return escolaridad;
+    }
     /**
      * Asigna la contraseña.
      * @param contraseña La contraseña. No puede ser nula.

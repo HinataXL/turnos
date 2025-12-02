@@ -59,6 +59,8 @@ public class AgregarEmpleadoForm extends javax.swing.JFrame {
         txtTelefono = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        ComboEscolaridad = new javax.swing.JComboBox<>();
+        jLabel13 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
 
         jCheckBoxMenuItem1.setSelected(true);
@@ -202,15 +204,29 @@ public class AgregarEmpleadoForm extends javax.swing.JFrame {
                 txtTelefonoActionPerformed(evt);
             }
         });
-        getContentPane().add(txtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 360, 290, -1));
+        getContentPane().add(txtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 360, 160, -1));
 
         jLabel12.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("Telefono");
-        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 360, 140, -1));
+        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 360, 140, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/PNG/Frame 2557.png"))); // NOI18N
+        jLabel1.setText("Escolaridad");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 50, 1140, 560));
+
+        ComboEscolaridad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione un Nivel..", " ", "Básicos", "Diversificado", "Universitario", "PostGrado" }));
+        ComboEscolaridad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ComboEscolaridadActionPerformed(evt);
+            }
+        });
+        getContentPane().add(ComboEscolaridad, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 370, 200, -1));
+
+        jLabel13.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel13.setText("Escolaridad");
+        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(538, 370, 120, -1));
 
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/PNG/Fondo_principal.png"))); // NOI18N
         jLabel11.setText("jLabel11");
@@ -224,6 +240,20 @@ public class AgregarEmpleadoForm extends javax.swing.JFrame {
     }//GEN-LAST:event_comboTurnoActionPerformed
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
+if (ComboEscolaridad.getSelectedIndex() == 0) {
+        
+        JOptionPane.showMessageDialog(this, 
+                "Por favor, seleccione un nivel de escolaridad.", 
+                "Error de Validación", 
+                JOptionPane.WARNING_MESSAGE);
+        
+        ComboEscolaridad.requestFocus();
+        ComboEscolaridad.showPopup(); 
+        
+        return;
+}
+        
+        
 String dpi = txtDPI.getText().trim();
 String nombre = txtNombre.getText().trim();
 String usuario = txtUsuario.getText().trim();
@@ -234,14 +264,16 @@ String correo = txtCorreo.getText().trim();
 String contrasena = new String(txtPassword.getPassword());
 String rol = (String)comboRol.getSelectedItem();
 String telefono = txtTelefono.getText().trim();
+String escolaridad = (String)ComboEscolaridad.getSelectedItem();
 
 if (dpi.isEmpty() || nombre.isEmpty() || usuario.isEmpty() || area.isEmpty()) {
     JOptionPane.showMessageDialog(this, "Por favor completa todos los campos obligatorios (*)");
     return;
 }
 
+
 // Crear objeto Empleado
-Empleado empleado = new Empleado(dpi, nombre, usuario, area, turno, estado, correo, contrasena, rol, telefono);
+Empleado empleado = new Empleado(dpi, nombre, usuario, area, turno, estado, correo, contrasena, rol, telefono, escolaridad);
 
 // Guardar usando DAO
 EmpleadoDAO dao = new EmpleadoDAO();
@@ -288,6 +320,10 @@ JOptionPane.showMessageDialog(this, "Se creo Correctamente :D.");
         // TODO add your handling code here:
     }//GEN-LAST:event_txtTelefonoActionPerformed
 
+    private void ComboEscolaridadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboEscolaridadActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ComboEscolaridadActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -324,6 +360,7 @@ JOptionPane.showMessageDialog(this, "Se creo Correctamente :D.");
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> ComboEscolaridad;
     private javax.swing.JButton btnRegistrar;
     private javax.swing.JButton btnRegresar;
     private javax.swing.JComboBox<String> comboEstado;
@@ -336,6 +373,7 @@ JOptionPane.showMessageDialog(this, "Se creo Correctamente :D.");
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

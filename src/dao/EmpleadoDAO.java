@@ -27,6 +27,7 @@
                 json.put("contraseña", empleado.getContraseña());
                 json.put("rol", empleado.getRol());
                 json.put("telefono", empleado.getTelefono());
+                json.put("escolaridad", empleado.getEscolaridad());
 
                 writer.write(json.toString() + System.lineSeparator());
                 System.out.println("Se creó correctamente.");
@@ -53,6 +54,7 @@
                     emp.setContraseña(json.getString("contraseña"));
                     emp.setRol(json.getString("rol"));
                     emp.setTelefono(json.optString("telefono", null));
+                    emp.setEscolaridad(json.optString("escolaridad"));
                
                     empleados.add(emp);
                 }
@@ -119,6 +121,7 @@
                     json.put("contraseña", emp.getContraseña());
                     json.put("rol", emp.getRol());
                     json.put("telefono", emp.getTelefono());
+                    json.put("escolaridad", emp.getEscolaridad());
 
                     writer.write(json.toString() + System.lineSeparator());
                 }
