@@ -1,91 +1,81 @@
 package dao;
 
-import java.io.*;
-import java.util.*;
+import model.conexion;
 import model.SolicitudCambio;
-import org.json.JSONObject;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class SolicitudCambioDAO {
-    
-    private static final String FILE_PATH = "solicitudes_cambio.txt";
 
-    /**
-     * Guarda una nueva solicitud de cambio en el archivo.
-     */
-    public void guardarSolicitud(SolicitudCambio solicitud) throws IOException {
-        try (FileWriter writer = new FileWriter(FILE_PATH, true)) {
-            JSONObject json = new JSONObject();
-            json.put("usuario", solicitud.getUsuarioEmpleado());
-            json.put("fechaInicial", solicitud.getFechaInicial());
-            json.put("fechaNueva", solicitud.getFechaNueva());
-            json.put("justificacion", solicitud.getJustificacion());
-            json.put("estado", solicitud.getEstado());
+    // --- GUARDAR SOLICITUD ---
+    public void guardarSolicitud(SolicitudCambio solicitud) {
+        // Necesitamos obtener el ID del empleado basado en su usuario primero
+        // O guardar directamente el usuario si tu tabla usa VARCHAR para empleado
+        String sql = "INSERT INTO solicitudes (usuario_empleado, tipo, fecha_inicio, fecha_fin, motivo, estado) VALUES (?, ?, ?, ?, ?, ?)";
+        
+        try (Connection conn = conexion.getConexion();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
             
-            writer.write(json.toString() + System.lineSeparator());
+            ps.setString(1, solicitud.getUsuarioEmpleado());
+            ps.setString(2, "Cambio de Turno"); // O solicitud.getTipo()
+            ps.setString(3, solicitud.getFechaInicial());
+            ps.setString(4, solicitud.getFechaNueva()); // Asumiendo que guardas esto en fecha_fin
+            ps.setString(5, solicitud.getJustificacion());
+            ps.setString(6, solicitud.getEstado()); // "Pendiente"
+            
+            ps.executeUpdate();
+            
+        } catch (SQLException e) {
+            System.err.println("Error al guardar solicitud: " + e.getMessage());
+            e.printStackTrace();
         }
     }
 
-    /**
-     * Lee todas las solicitudes del archivo (para la tabla del admin).
-     */
+    // --- LISTAR TODAS ---
     public List<SolicitudCambio> listarTodas() {
         List<SolicitudCambio> lista = new ArrayList<>();
-        try (BufferedReader reader = new BufferedReader(new FileReader(FILE_PATH))) {
-            String linea;
-            while ((linea = reader.readLine()) != null) {
-                JSONObject json = new JSONObject(linea);
+        String sql = "SELECT * FROM solicitudes"; // Puedes filtrar WHERE estado='Pendiente'
+
+        try (Connection conn = conexion.getConexion();
+             PreparedStatement ps = conn.prepareStatement(sql);
+             ResultSet rs = ps.executeQuery()) {
+
+            while (rs.next()) {
                 SolicitudCambio s = new SolicitudCambio();
-                s.setUsuarioEmpleado(json.getString("usuario"));
-                s.setFechaInicial(json.getString("fechaInicial"));
-                s.setFechaNueva(json.getString("fechaNueva"));
-                s.setJustificacion(json.getString("justificacion"));
-                s.setEstado(json.getString("estado"));
+                s.setUsuarioEmpleado(rs.getString("usuario_empleado"));
+                s.setFechaInicial(rs.getString("fecha_inicio"));
+                s.setFechaNueva(rs.getString("fecha_fin"));
+                s.setJustificacion(rs.getString("motivo"));
+                s.setEstado(rs.getString("estado"));
+                
                 lista.add(s);
             }
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (SQLException e) {
+            System.err.println("Error al listar solicitudes: " + e.getMessage());
         }
         return lista;
     }
-    
-    
- 
-public void actualizarEstado(String usuario, String fechaInicial, String nuevoEstado) {
-    // 1. Lee todas las solicitudes del archivo
-    List<SolicitudCambio> solicitudes = listarTodas();
-    
-    // 2. Busca en la lista la solicitud que queremos cambiar
-    for (SolicitudCambio s : solicitudes) {
-        if (s.getUsuarioEmpleado().equals(usuario) && s.getFechaInicial().equals(fechaInicial)) {
-            // ¡La encontramos! Actualizamos su estado.
-            s.setEstado(nuevoEstado);
-            break; // Salimos del bucle
+
+    // --- ACTUALIZAR ESTADO (Aprobar/Rechazar) ---
+    public void actualizarEstado(String usuario, String fechaInicial, String nuevoEstado) {
+        // Usamos usuario y fecha como identificadores (sería mejor usar ID único de solicitud)
+        String sql = "UPDATE solicitudes SET estado = ? WHERE usuario_empleado = ? AND fecha_inicio = ?";
+        
+        try (Connection conn = conexion.getConexion();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+            
+            ps.setString(1, nuevoEstado);
+            ps.setString(2, usuario);
+            ps.setString(3, fechaInicial);
+            
+            ps.executeUpdate();
+            
+        } catch (SQLException e) {
+            System.err.println("Error al actualizar solicitud: " + e.getMessage());
         }
     }
-    
-    // 3. Guarda la lista completa de nuevo, sobrescribiendo el archivo
-    guardarTodas(solicitudes);
-}
-
-/**
- * Método privado que sobrescribe el archivo completo con una lista de solicitudes.
- * @param solicitudes La lista completa de solicitudes a guardar.
- */
-private void guardarTodas(List<SolicitudCambio> solicitudes) {
-    // El 'false' en FileWriter es para SOBRESCRIBIR, no para añadir (append)
-    try (FileWriter writer = new FileWriter(FILE_PATH, false)) {
-        for (SolicitudCambio s : solicitudes) {
-            JSONObject json = new JSONObject();
-            json.put("usuario", s.getUsuarioEmpleado());
-            json.put("fechaInicial", s.getFechaInicial());
-            json.put("fechaNueva", s.getFechaNueva());
-            json.put("justificacion", s.getJustificacion());
-            json.put("estado", s.getEstado());
-            writer.write(json.toString() + System.lineSeparator());
-        }
-    } catch (IOException e) {
-        e.printStackTrace();
-    }
-}
-
 }
